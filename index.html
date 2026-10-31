@@ -661,11 +661,16 @@
 
       <div class="contact-form reveal reveal-delay-2">
         <p class="form-title" data-i18n="contact.formTitle">Envoyez-moi un message 👋</p>
-        <form id="contact-form" action="https://formspree.io/f/xnnvgkdo" method="POST" novalidate>
-          <div class="honeypot" aria-hidden="true">
-            <label for="website">Ne pas remplir ce champ</label>
-            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
-          </div>
+
+        <div id="form-status" class="form-status" role="alert" aria-live="polite"></div>
+
+        <form id="contact-form" action="https://formsubmit.co/yassirach17@gmail.com" method="POST" novalidate>
+          <!-- Configuration FormSubmit -->
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio — Mohammed Yasser Rachih" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
           <div class="form-group">
             <label for="motif" data-i18n="contact.reasonLabel">Motif du message *</label>
             <select id="motif" name="motif" required>
@@ -679,11 +684,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="nom" data-i18n="contact.nameLabel">Nom *</label>
-              <input type="text" id="nom" name="nom" placeholder="Votre nom" data-i18n-placeholder="contact.namePlaceholder" required autocomplete="name" />
+              <input type="text" id="nom" name="name" placeholder="Votre nom" data-i18n-placeholder="contact.namePlaceholder" required autocomplete="name" />
             </div>
             <div class="form-group">
               <label for="entreprise" data-i18n="contact.companyLabel">Entreprise</label>
-              <input type="text" id="entreprise" name="entreprise" placeholder="Votre entreprise" data-i18n-placeholder="contact.companyPlaceholder" autocomplete="organization" />
+              <input type="text" id="entreprise" name="company" placeholder="Votre entreprise" data-i18n-placeholder="contact.companyPlaceholder" autocomplete="organization" />
             </div>
           </div>
           <div class="form-group">
@@ -696,6 +701,12 @@
           </div>
           <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn" data-i18n="contact.btnSubmit">Envoyer le message →</button>
         </form>
+
+        <div id="form-fallback-mailto" style="display:none; margin-top: 1rem; text-align: center;">
+          <a id="mailto-fallback-link" href="mailto:yassirach17@gmail.com" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+            ✉️ Ouvrir directement dans votre boîte mail
+          </a>
+        </div>
       </div>
 
     </div>

@@ -311,15 +311,107 @@
 // ─── CONTACT FORM ─────────────────────────────────────────────────────────────
 (function initForm() {
   const form = document.getElementById('contact-form');
+  const statusBox = document.getElementById('form-status');
+  const submitBtn = document.getElementById('form-submit-btn');
+  const fallbackBox = document.getElementById('form-fallback-mailto');
+  const fallbackLink = document.getElementById('mailto-fallback-link');
+
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
-    const honeypot = form.querySelector('[name="website"]');
-    if (honeypot && honeypot.value) {
-      e.preventDefault();
+  function setStatus(type, html) {
+    if (!statusBox) return;
+    statusBox.className = 'form-status ' + type;
+    statusBox.innerHTML = html;
+    statusBox.style.display = 'block';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const honeypot = form.querySelector('[name="_honey"]');
+    if (honeypot && honeypot.value) return;
+
+    const lang = (typeof currentLang !== 'undefined') ? currentLang : 'fr';
+    const isEn = lang === 'en';
+
+    // Basic client validation
+    const motif = form.motif ? form.motif.value.trim() : '';
+    const name = form.name ? form.name.value.trim() : '';
+    const email = form.email ? form.email.value.trim() : '';
+    const message = form.message ? form.message.value.trim() : '';
+    const company = form.company ? form.company.value.trim() : '';
+
+    if (!motif || !name || !email || !message) {
+      setStatus('error', isEn
+        ? '⚠️ Please fill in all required fields marked with *.'
+        : '⚠️ Veuillez remplir tous les champs obligatoires marqués d\'une *.');
       return;
     }
-    // Formspree handles submission; just let it go
+
+    // Prepare mailto link for direct fallback
+    const mailtoSubject = encodeURIComponent(`[Portfolio] ${motif} - ${name}`);
+    const mailtoBody = encodeURIComponent(`Bonjour Mohammed Yasser,\n\nNom: ${name}\nEntreprise: ${company || 'N/A'}\nEmail: ${email}\nMotif: ${motif}\n\nMessage:\n${message}`);
+    if (fallbackLink) {
+      fallbackLink.href = `mailto:yassirach17@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    }
+
+    // Set loading state
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = isEn ? '⏳ Sending message...' : '⏳ Envoi en cours...';
+    }
+
+    try {
+      const payload = {
+        name,
+        email,
+        company: company || 'N/A',
+        motif,
+        message,
+        _subject: `[Portfolio] Nouveau message de ${name} (${motif})`
+      };
+
+      const response = await fetch('https://formsubmit.co/ajax/yassirach17@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+
+      if (data.success === 'true' || data.success === true) {
+        setStatus('success', isEn
+          ? `✅ <strong>Message sent successfully!</strong> Thank you ${name}, I will reply to <em>${email}</em> very soon.`
+          : `✅ <strong>Message envoyé avec succès !</strong> Merci ${name}, je vous répondrai à l'adresse <em>${email}</em> très prochainement.`);
+        form.reset();
+        if (fallbackBox) fallbackBox.style.display = 'none';
+      } else if (data.message && data.message.includes('Activation')) {
+        setStatus('info', isEn
+          ? `📬 <strong>Form connected!</strong> FormSubmit sent an activation email to <strong>yassirach17@gmail.com</strong>. Please open your Gmail and click <em>"Activate Form"</em> once to receive all future messages.`
+          : `📬 <strong>Formulaire connecté !</strong> FormSubmit vous a envoyé un e-mail d'activation à <strong>yassirach17@gmail.com</strong>. Ouvrez votre boîte Gmail et cliquez sur <em>« Activate Form »</em> pour valider la réception automatique de vos messages.`);
+        if (fallbackBox) fallbackBox.style.display = 'block';
+      } else {
+        setStatus('info', isEn
+          ? `✓ Your message has been prepared! You can also click below to send it directly via email.`
+          : `✓ Votre message a été préparé ! Vous pouvez aussi cliquer ci-dessous pour l'envoyer directement par email.`);
+        if (fallbackBox) fallbackBox.style.display = 'block';
+      }
+    } catch (err) {
+      console.warn('FormSubmit AJAX fallback:', err);
+      setStatus('info', isEn
+        ? `⚠️ Click below to send directly via your email app:`
+        : `⚠️ Cliquez ci-dessous pour envoyer directement depuis votre messagerie :`);
+      if (fallbackBox) fallbackBox.style.display = 'block';
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
   });
 })();
 
