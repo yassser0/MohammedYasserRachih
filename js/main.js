@@ -1,4 +1,4 @@
-﻿/* ===== main.js ===== */
+/* ===== main.js ===== */
 
 // ─── INTRO TERMINAL ANIMATION ───────────────────────────────────────────────
 (function initIntro() {
@@ -129,21 +129,53 @@
     if (placeholder) placeholder.style.display = idx >= 0 ? 'none' : 'block';
   }
 
+  function getLang() {
+    return (typeof currentLang !== 'undefined') ? currentLang : (localStorage.getItem('portfolio_lang') || 'fr');
+  }
+
   function updateStatus() {
     if (statusText) {
+      const lang = getLang();
+      const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang].pipeline : null;
       const done = document.querySelectorAll('.pipeline-step.done').length;
-      statusText.textContent = isRunning
-        ? `en cours · ${done}/5 étapes`
-        : done === 5
-          ? 'terminé · 5/5 étapes ✓'
-          : done > 0
-            ? `en pause · ${done}/5 étapes`
-            : 'inactif · 0/5 étapes';
+      if (t) {
+        statusText.textContent = isRunning
+          ? t.statusRunning.replace('{n}', done)
+          : done === 5
+            ? t.statusDone
+            : done > 0
+              ? t.statusPaused.replace('{n}', done)
+              : t.statusIdle;
+      } else {
+        statusText.textContent = isRunning
+          ? `en cours · ${done}/5 étapes`
+          : done === 5
+            ? 'terminé · 5/5 étapes ✓'
+            : done > 0
+              ? `en pause · ${done}/5 étapes`
+              : 'inactif · 0/5 étapes';
+      }
     }
     if (statusDot) {
       statusDot.classList.toggle('running', isRunning);
     }
   }
+
+  window.addEventListener('languagechange', () => {
+    updateStatus();
+    if (runBtn) {
+      const lang = getLang();
+      const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang].pipeline : null;
+      if (t) {
+        if (isRunning) {
+          runBtn.textContent = t.btnStop;
+        } else {
+          const done = document.querySelectorAll('.pipeline-step.done').length;
+          runBtn.textContent = (done === 5) ? t.btnRerun : t.btnRun;
+        }
+      }
+    }
+  });
 
   steps.forEach((step, i) => {
     step.addEventListener('click', () => {
@@ -154,11 +186,14 @@
 
   if (runBtn) {
     runBtn.addEventListener('click', () => {
+      const lang = getLang();
+      const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang].pipeline : null;
+
       if (isRunning) {
         // Stop
         clearInterval(runInterval);
         isRunning = false;
-        runBtn.textContent = '▶ lancer le pipeline';
+        runBtn.textContent = t ? t.btnRun : '▶ lancer le pipeline';
         updateStatus();
         return;
       }
@@ -167,7 +202,7 @@
       steps.forEach(s => { s.classList.remove('done', 'active'); });
       doneCount = 0;
       isRunning = true;
-      runBtn.textContent = '⏸ arrêter';
+      runBtn.textContent = t ? t.btnStop : '⏸ arrêter';
       updateStatus();
 
       let current = 0;
@@ -177,7 +212,7 @@
         if (current >= steps.length) {
           clearInterval(runInterval);
           isRunning = false;
-          runBtn.textContent = '▶ relancer le pipeline';
+          runBtn.textContent = t ? t.btnRerun : '▶ relancer le pipeline';
           setActive(-1);
           updateStatus();
           return;
@@ -260,10 +295,13 @@
   if (!copyBtn) return;
   copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText('yassirach17@gmail.com').then(() => {
-      copyBtn.textContent = 'copié !';
+      const lang = (typeof currentLang !== 'undefined') ? currentLang : 'fr';
+      const copiedTxt = (lang === 'en') ? 'copied!' : 'copié !';
+      const defaultTxt = (lang === 'en') ? 'copy' : 'copier';
+      copyBtn.textContent = copiedTxt;
       copyBtn.classList.add('copied');
       setTimeout(() => {
-        copyBtn.textContent = 'copier';
+        copyBtn.textContent = defaultTxt;
         copyBtn.classList.remove('copied');
       }, 2000);
     });
@@ -285,19 +323,49 @@
   });
 })();
 
-// ─── AVATAR EASTER EGG ────────────────────────────────────────────────────────
+// ─── AVATAR INTERACTION ────────────────────────────────────────────────────────
 (function initAvatar() {
   const card = document.querySelector('.avatar-card');
   if (!card) return;
-  let clicks = 0;
-  const messages = ['👋', '😄', '☕', '💻', '🚀', '✨'];
-  const initials = card.querySelector('.avatar-initials');
   card.addEventListener('click', () => {
-    clicks++;
-    if (initials) initials.textContent = messages[clicks % messages.length];
+    card.style.transform = 'rotate(-3deg) scale(1.05)';
+    card.style.boxShadow = '10px 10px 0 var(--blue)';
     setTimeout(() => {
-      if (initials) initials.textContent = 'MR';
-      clicks = 0;
-    }, 1500);
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    }, 400);
   });
+})();
+
+// ─── CV SELECTION TABS ─────────────────────────────────────────────────────────
+(function initCvTabs() {
+  const tabFr = document.getElementById('cv-tab-fr');
+  const tabEn = document.getElementById('cv-tab-en');
+  const cardFr = document.getElementById('cv-card-fr');
+  const cardEn = document.getElementById('cv-card-en');
+
+  function selectCv(lang) {
+    if (tabFr) {
+      tabFr.classList.toggle('active', lang === 'fr');
+      tabFr.setAttribute('aria-selected', lang === 'fr');
+    }
+    if (tabEn) {
+      tabEn.classList.toggle('active', lang === 'en');
+      tabEn.setAttribute('aria-selected', lang === 'en');
+    }
+    if (cardFr) cardFr.classList.toggle('highlighted', lang === 'fr');
+    if (cardEn) cardEn.classList.toggle('highlighted', lang === 'en');
+  }
+
+  if (tabFr) tabFr.addEventListener('click', () => selectCv('fr'));
+  if (tabEn) tabEn.addEventListener('click', () => selectCv('en'));
+
+  window.addEventListener('languagechange', (e) => {
+    if (e.detail && e.detail.lang) {
+      selectCv(e.detail.lang);
+    }
+  });
+
+  const initialLang = (typeof currentLang !== 'undefined') ? currentLang : (localStorage.getItem('portfolio_lang') || 'fr');
+  selectCv(initialLang);
 })();
