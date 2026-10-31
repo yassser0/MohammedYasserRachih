@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Yasser Rachih · Data Engineer Junior</title>
+  <meta name="description" content="Portfolio de Mohammed Yasser Rachih — Data Engineer Junior &amp; Développeur Full-Stack basé à Casablanca, Maroc. Java Spring Boot, Python, ETL/ELT, microservices, CI/CD." />
+  <meta name="keywords" content="data engineer, java, spring boot, python, ETL, microservices, CICD, Casablanca, Maroc, portfolio" />
+  <meta name="author" content="Mohammed Yasser Rachih" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Mohammed Yasser Rachih · Data Engineer Junior" />
+  <meta property="og:description" content="Data Engineer Junior &amp; Développeur Full-Stack — Java, Python, ETL/ELT, microservices, CI/CD." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#hero">Aller au contenu principal</a>
+
+<!-- ═══════════ INTRO TERMINAL ═══════════ -->
+<div id="intro" role="dialog" aria-label="Introduction" aria-modal="true">
+  <div class="terminal-wrap" role="status">
+    <div class="terminal-bar">
+      <span class="terminal-dot"></span>
+      <span class="terminal-dot"></span>
+      <span class="terminal-dot"></span>
+      <span class="terminal-title">bash — profil.sh</span>
+    </div>
+    <div class="terminal-body" aria-live="polite">
+      <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">./profil.sh --query "qui est Mohammed Yasser ?"</span></div>
+      <div class="terminal-line"><span class="muted"># Connexion à la base de données...</span></div>
+      <div class="terminal-line"><span class="muted">&gt; chargement du profil </span><span class="ok">.......</span></div>
+      <div class="terminal-line"><span class="ok">[OK]</span> <span>Data Engineer Junior · Casablanca, Maroc</span></div>
+      <div class="terminal-line"><span class="ok">[OK]</span> <span>Java · Python · ETL/ELT · Microservices · CI/CD</span></div>
+      <div class="terminal-line"><span class="prompt">&gt;</span> <span class="cmd">open profile</span><span class="cursor"></span></div>
+    </div>
+  </div>
+  <div class="intro-cta">
+    <button id="btn-open" class="btn-open" aria-label="Ouvrir le profil">ouvrir le profil ↓</button>
+    <span class="enter-hint">ou appuyer sur Entrée ↵</span>
+  </div>
+</div>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="navbar" role="navigation" aria-label="Navigation principale">
+  <a href="#hero" class="nav-logo" aria-label="Accueil — Mohammed Yasser Rachih">yasser.rachih</a>
+  <div class="nav-progress-bar" aria-hidden="true"></div>
+  <div class="nav-diamond" aria-hidden="true"></div>
+  <ul class="nav-links" role="list">
+    <li><a href="#pipeline">pipeline</a></li>
+    <li><a href="#experience">expérience</a></li>
+    <li><a href="#projects">projets</a></li>
+    <li><a href="#skills">compétences</a></li>
+    <li><a href="#cv">cv</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <button id="nav-burger" class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-mobile">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="nav-mobile" class="nav-mobile" role="menu" aria-label="Menu mobile">
+  <a href="#pipeline" role="menuitem">pipeline</a>
+  <a href="#experience" role="menuitem">expérience</a>
+  <a href="#projects" role="menuitem">projets</a>
+  <a href="#skills" role="menuitem">compétences</a>
+  <a href="#cv" role="menuitem">cv</a>
+  <a href="#contact" role="menuitem">contact</a>
+</div>
+
+<!-- ═══════════ MAIN CONTENT ═══════════ -->
+<main id="main-content">
+
+  <!-- ── HERO ── -->
+  <section id="hero" aria-label="Présentation principale">
+    <div class="hero-text">
+      <h1 class="hero-title reveal">
+        Je construis les pipelines<br>
+        qui font <span class="hero-highlight">parler les données.</span>
+      </h1>
+      <p class="hero-desc reveal reveal-delay-1">
+        Data Engineer Junior basé à Casablanca — je conçois des architectures data robustes, du pipeline ETL/ELT jusqu'au monitoring en production.
+      </p>
+      <div class="hero-tags reveal reveal-delay-2" role="list" aria-label="Technologies maîtrisées">
+        <span class="tag" role="listitem">Java · Spring Boot</span>
+        <span class="tag" role="listitem">Python</span>
+        <span class="tag" role="listitem">ETL / ELT</span>
+        <span class="tag" role="listitem">Microservices</span>
+        <span class="tag" role="listitem">CI/CD</span>
+      </div>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="#pipeline" class="btn btn-primary" id="hero-pipeline-btn">voir mon pipeline →</a>
+        <a href="#contact" class="btn btn-secondary" id="hero-contact-btn">me contacter</a>
+        <a href="assets/CV_Mohammed_Yasser_Rachih.pdf" class="btn btn-secondary" id="hero-cv-btn" download aria-label="Télécharger le CV en PDF">CV ↓</a>
+      </div>
+    </div>
+    <div class="avatar-card reveal reveal-delay-4" tabindex="0" role="img" aria-label="Carte de présentation de Mohammed Yasser Rachih" title="tap me ↗">
+      <div class="avatar-tape" aria-hidden="true"></div>
+      <div class="avatar-card-inner">
+        <span class="avatar-initials" aria-hidden="true">MR</span>
+      </div>
+      <p class="avatar-label">yasser · casablanca</p>
+      <p class="avatar-hint" aria-hidden="true">tap me ↗</p>
+    </div>
+  </section>
+
+  <!-- ── PIPELINE ── -->
+  <section id="pipeline" aria-label="Ma méthodologie de travail">
+    <div class="pipeline-header">
+      <div>
+        <p class="section-label reveal">comment je travaille</p>
+        <h2 class="section-title reveal reveal-delay-1">Mon pipeline<br>de bout en bout.</h2>
+        <div class="pipeline-status" role="status" aria-live="polite">
+          <span class="pipeline-status-dot" aria-hidden="true"></span>
+          <span class="pipeline-status-text">inactif · 0/5 étapes</span>
+        </div>
+      </div>
+      <div class="pipeline-run-btn reveal reveal-delay-2">
+        <button id="pipeline-run-btn" class="btn btn-primary" aria-label="Simuler l'exécution du pipeline de données">▶ lancer le pipeline</button>
+      </div>
+    </div>
+
+    <div class="pipeline-steps reveal" role="list" aria-label="Les 5 étapes du pipeline">
+      <div class="pipeline-step" role="listitem" tabindex="0" aria-label="Étape 1 Sources — Collecte des données brutes" data-idx="0">
+        <div class="step-icon" aria-hidden="true">🗄️</div>
+        <span class="step-name">Sources</span>
+        <span class="step-desc">Collecte des données brutes</span>
+      </div>
+      <div class="pipeline-step" role="listitem" tabindex="0" aria-label="Étape 2 Ingestion — ETL ELT" data-idx="1">
+        <div class="step-icon" aria-hidden="true">⬆️</div>
+        <span class="step-name">Ingestion</span>
+        <span class="step-desc">ETL / ELT vers les couches de données</span>
+      </div>
+      <div class="pipeline-step" role="listitem" tabindex="0" aria-label="Étape 3 Transformation — Nettoyage et qualité" data-idx="2">
+        <div class="step-icon" aria-hidden="true">⚙️</div>
+        <span class="step-name">Transformation</span>
+        <span class="step-desc">Nettoyage, qualité, fiabilité</span>
+      </div>
+      <div class="pipeline-step" role="listitem" tabindex="0" aria-label="Étape 4 Déploiement — CI/CD et conteneurisation" data-idx="3">
+        <div class="step-icon" aria-hidden="true">🚀</div>
+        <span class="step-name">Déploiement</span>
+        <span class="step-desc">Conteneurisation, CI/CD, orchestration</span>
+      </div>
+      <div class="pipeline-step" role="listitem" tabindex="0" aria-label="Étape 5 Monitoring — Suivi en production" data-idx="4">
+        <div class="step-icon" aria-hidden="true">📊</div>
+        <span class="step-name">Monitoring</span>
+        <span class="step-desc">Suivi et détection des problèmes</span>
+      </div>
+    </div>
+
+    <div class="pipeline-detail reveal reveal-delay-1" aria-live="polite" aria-atomic="false">
+      <div class="pipeline-detail-content" id="pipeline-detail-0">
+        <h3>🗄️ Sources — Collecte des données</h3>
+        <ul>
+          <li>Identification et connexion aux sources (BDD SQL, APIs, fichiers, flux streaming)</li>
+          <li>Mise en place de connecteurs fiables et reproductibles</li>
+          <li>Gestion des schémas et versionning des données entrantes</li>
+          <li>Validation initiale du volume et de la cohérence</li>
+        </ul>
+      </div>
+      <div class="pipeline-detail-content" id="pipeline-detail-1">
+        <h3>⬆️ Ingestion — ETL / ELT</h3>
+        <ul>
+          <li>Conception de pipelines ETL/ELT pour charger les données vers les couches cibles</li>
+          <li>Orchestration des flux de chargement (incrémental ou full-load)</li>
+          <li>Gestion des erreurs, reprises et idempotence des traitements</li>
+          <li>Documentation des flux de données pour la traçabilité</li>
+        </ul>
+      </div>
+      <div class="pipeline-detail-content" id="pipeline-detail-2">
+        <h3>⚙️ Transformation — Qualité &amp; Fiabilité</h3>
+        <ul>
+          <li>Nettoyage et normalisation des données (déduplication, valeurs manquantes)</li>
+          <li>Application des règles métier et enrichissement des données</li>
+          <li>Tests de qualité et contraintes d'intégrité automatisés</li>
+          <li>Production de données fiables et prêtes à l'analyse</li>
+        </ul>
+      </div>
+      <div class="pipeline-detail-content" id="pipeline-detail-3">
+        <h3>🚀 Déploiement — CI/CD &amp; Conteneurisation</h3>
+        <ul>
+          <li>Conteneurisation des pipelines et applications (Docker)</li>
+          <li>Mise en place de chaînes CI/CD pour un déploiement automatisé</li>
+          <li>Orchestration des applications cloud-native</li>
+          <li>Gestion des environnements (dev / staging / prod)</li>
+        </ul>
+      </div>
+      <div class="pipeline-detail-content" id="pipeline-detail-4">
+        <h3>📊 Monitoring — Suivi en production</h3>
+        <ul>
+          <li>Mise en place de tableaux de bord de suivi des traitements</li>
+          <li>Alertes automatiques en cas d'échec ou d'anomalie</li>
+          <li>Analyse des logs et détection proactive des problèmes</li>
+          <li>Optimisation continue des performances des pipelines</li>
+        </ul>
+      </div>
+      <p id="pipeline-placeholder" style="font-family: var(--font-hand); color: var(--ink-muted); padding: 1rem 0;">
+        ← Cliquez sur une étape pour en savoir plus, ou lancez le pipeline complet ▶
+      </p>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" aria-label="Expériences professionnelles">
+    <p class="section-label reveal">expérience</p>
+    <h2 class="section-title reveal reveal-delay-1">Où j'ai travaillé.</h2>
+    <div class="experience-grid">
+
+      <article class="exp-card reveal reveal-delay-1">
+        <p class="exp-date">Mars – Juil. 2026</p>
+        <h3 class="exp-company">Marsa Maroc</h3>
+        <p class="exp-title">Stage Data Engineering &amp; Développement</p>
+        <span class="exp-current" aria-label="Stage en cours">en cours · stage</span>
+        <ul class="exp-list" aria-label="Missions chez Marsa Maroc">
+          <li>Participation à la conception et à la gestion de solutions dédiées aux données</li>
+          <li>Développement de traitements pour collecter, organiser et exploiter les données</li>
+          <li>Amélioration de la qualité, de la fiabilité et des performances des données</li>
+          <li>Mise en place de solutions de suivi des traitements et de détection des problèmes</li>
+          <li>Participation au développement d'une plateforme de gestion et de suivi des opérations portuaires</li>
+        </ul>
+      </article>
+
+      <article class="exp-card reveal reveal-delay-2">
+        <p class="exp-date">Juil. – Sept. 2025</p>
+        <h3 class="exp-company">Jisr</h3>
+        <p class="exp-title">Stage Développement</p>
+        <ul class="exp-list" aria-label="Missions chez Jisr">
+          <li>Conception et développement de fonctionnalités pour des applications web</li>
+          <li>Développement des interfaces et des fonctionnalités côté serveur</li>
+          <li>Correction de problèmes et amélioration des applications existantes</li>
+          <li>Conception de solutions adaptées aux besoins des utilisateurs</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" aria-label="Projets clés">
+    <p class="section-label reveal">projets</p>
+    <h2 class="section-title reveal reveal-delay-1">Ce que j'ai construit.</h2>
+
+    <div class="projects-layout">
+      <div class="project-sketches">
+        <div class="sketch-rail" role="tablist" aria-label="Sélectionner un projet">
+          <div class="sketch-item active" role="tab" tabindex="0" aria-selected="true" aria-controls="proj-panel-0" id="proj-tab-0" data-index="0">
+            <div class="sketch-svg-wrap" aria-hidden="true">📚</div>
+            <span class="sketch-label">Bibliothèque microservices</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-1" id="proj-tab-1" data-index="1">
+            <div class="sketch-svg-wrap" aria-hidden="true">🏛️</div>
+            <span class="sketch-label">Documents administratifs</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-2" id="proj-tab-2" data-index="2">
+            <div class="sketch-svg-wrap" aria-hidden="true">🏭</div>
+            <span class="sketch-label">Maintenance prédictive</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-3" id="proj-tab-3" data-index="3">
+            <div class="sketch-svg-wrap" aria-hidden="true">💳</div>
+            <span class="sketch-label">Transactions bancaires</span>
+          </div>
+        </div>
+        <p class="sketch-nav-hint" aria-hidden="true">
+          <kbd>←</kbd> <kbd>→</kbd> les flèches clavier fonctionnent aussi
+        </p>
+      </div>
+
+      <div class="project-detail" aria-live="polite">
+        <p class="project-counter" aria-label="Projet 1 sur 4">01 / 04</p>
+
+        <div class="project-detail-panel" id="proj-panel-0" role="tabpanel" aria-labelledby="proj-tab-0">
+          <h3 class="project-name">Système de gestion de bibliothèque en microservices</h3>
+          <p class="project-context">FSBM · Casablanca · Projet académique</p>
+          <p class="project-desc">Application de gestion de bibliothèque avec interface adaptée aux utilisateurs et architecture facilitant maintenance et évolution. Construit sur une architecture microservices pour garantir la scalabilité et l'indépendance des composants.</p>
+          <div class="project-tech-flow" aria-label="Stack technique utilisé">
+            <span class="tech-chip">Spring Boot</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">API Gateway</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Docker</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">PostgreSQL</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">Microservices</span>
+            <span class="project-tag">REST API</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">Spring Cloud</span>
+          </div>
+        </div>
+
+        <div class="project-detail-panel" id="proj-panel-1" role="tabpanel" aria-labelledby="proj-tab-1" style="display:none">
+          <h3 class="project-name">Gestion et vérification des documents administratifs</h3>
+          <p class="project-context">Projet · Développement web sécurisé</p>
+          <p class="project-desc">Solution web sécurisée et transparente permettant aux citoyens et administrations de déposer, consulter et vérifier des documents, avec suivi du statut en temps réel. Intégration de mécanismes d'authentification et de traçabilité.</p>
+          <div class="project-tech-flow">
+            <span class="tech-chip">Spring Boot</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Angular</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">MySQL</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">JWT</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">Sécurité</span>
+            <span class="project-tag">REST API</span>
+            <span class="project-tag">Angular</span>
+            <span class="project-tag">MySQL</span>
+          </div>
+        </div>
+
+        <div class="project-detail-panel" id="proj-panel-2" role="tabpanel" aria-labelledby="proj-tab-2" style="display:none">
+          <h3 class="project-name">Plateforme de données pour la maintenance prédictive</h3>
+          <p class="project-context">Projet · Data Engineering</p>
+          <p class="project-desc">Collecte et centralisation des données d'équipements industriels pour suivre leur état, détecter les anomalies et anticiper la maintenance. Pipeline de données temps-réel avec alertes automatiques et tableaux de bord de monitoring.</p>
+          <div class="project-tech-flow">
+            <span class="tech-chip">Python</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">ETL Pipeline</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">InfluxDB</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Grafana</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">ETL/ELT</span>
+            <span class="project-tag">Monitoring</span>
+            <span class="project-tag">IoT Data</span>
+            <span class="project-tag">Alerting</span>
+          </div>
+        </div>
+
+        <div class="project-detail-panel" id="proj-panel-3" role="tabpanel" aria-labelledby="proj-tab-3" style="display:none">
+          <h3 class="project-name">Traitement et analyse des transactions bancaires</h3>
+          <p class="project-context">Projet · Data Engineering &amp; Analyse</p>
+          <p class="project-desc">Centralisation et traitement de transactions financières, détection de comportements inhabituels, production d'indicateurs d'analyse. Système robuste avec pipeline de traitement en temps réel et reporting automatisé.</p>
+          <div class="project-tech-flow">
+            <span class="tech-chip">Python</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">ETL Pipeline</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">PostgreSQL</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Reporting</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">ETL/ELT</span>
+            <span class="project-tag">Détection anomalies</span>
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">Analyse</span>
+          </div>
+        </div>
+
+        <div class="project-nav-btns">
+          <button id="proj-prev" class="btn btn-secondary" aria-label="Projet précédent">← préc.</button>
+          <button id="proj-next" class="btn btn-primary" aria-label="Projet suivant">suiv. →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" aria-label="Compétences techniques">
+    <p class="section-label reveal">compétences</p>
+    <h2 class="section-title reveal reveal-delay-1">Ma boîte à outils.</h2>
+    <div class="skills-legend reveal reveal-delay-2" role="list" aria-label="Légende des niveaux de compétence">
+      <div class="legend-item" role="listitem"><span class="legend-dot expert" aria-hidden="true"></span>Expert</div>
+      <div class="legend-item" role="listitem"><span class="legend-dot advanced" aria-hidden="true"></span>Avancé</div>
+      <div class="legend-item" role="listitem"><span class="legend-dot intermediate" aria-hidden="true"></span>Intermédiaire</div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-category reveal reveal-delay-1">
+        <h3 class="skill-cat-title">💻 Développement</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Java · Spring Boot</span><span class="skill-level-label">Avancé</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Java Spring Boot niveau Avancé 75 pourcent"><div class="skill-fill advanced" data-width="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Python (orienté data)</span><span class="skill-level-label">Avancé</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Python niveau Avancé 72 pourcent"><div class="skill-fill advanced" data-width="72"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Architectures microservices</span><span class="skill-level-label">Intermédiaire</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Microservices niveau Intermédiaire 60 pourcent"><div class="skill-fill intermediate" data-width="60"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">APIs REST</span><span class="skill-level-label">Avancé</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="APIs REST niveau Avancé 78 pourcent"><div class="skill-fill advanced" data-width="78"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">SQL · Bases de données</span><span class="skill-level-label">Expert</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="SQL niveau Expert 88 pourcent"><div class="skill-fill expert" data-width="88"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-2">
+        <h3 class="skill-cat-title">☁️ DevOps &amp; Cloud</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">CI/CD (pipelines)</span><span class="skill-level-label">Intermédiaire</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" aria-label="CI/CD niveau Intermédiaire 58 pourcent"><div class="skill-fill intermediate" data-width="58"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Docker · Conteneurisation</span><span class="skill-level-label">Intermédiaire</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="Docker niveau Intermédiaire 62 pourcent"><div class="skill-fill intermediate" data-width="62"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Oracle Cloud Infrastructure</span><span class="skill-level-label">Intermédiaire</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="Oracle Cloud niveau Intermédiaire 55 pourcent"><div class="skill-fill intermediate" data-width="55"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Git · Versioning</span><span class="skill-level-label">Avancé</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Git niveau Avancé 80 pourcent"><div class="skill-fill advanced" data-width="80"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-3">
+        <h3 class="skill-cat-title">📊 Data Engineering</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Pipelines ETL/ELT</span><span class="skill-level-label">Avancé</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="ETL/ELT niveau Avancé 70 pourcent"><div class="skill-fill advanced" data-width="70"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Qualité &amp; gouvernance des données</span><span class="skill-level-label">Intermédiaire</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Qualité données niveau Intermédiaire 60 pourcent"><div class="skill-fill intermediate" data-width="60"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Monitoring des flux de données</span><span class="skill-level-label">Intermédiaire</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" aria-label="Monitoring niveau Intermédiaire 58 pourcent"><div class="skill-fill intermediate" data-width="58"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">MySQL · PostgreSQL</span><span class="skill-level-label">Expert</span></div>
+          <div class="skill-tank" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="MySQL PostgreSQL niveau Expert 90 pourcent"><div class="skill-fill expert" data-width="90"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section id="certifications" aria-label="Certifications Oracle">
+    <p class="section-label reveal">certifications</p>
+    <h2 class="section-title reveal reveal-delay-1">Validé par Oracle.</h2>
+    <div class="cert-grid">
+      <article class="cert-card reveal reveal-delay-1">
+        <div class="cert-stamp" aria-hidden="true">✓</div>
+        <span class="cert-icon" aria-hidden="true">☕</span>
+        <p class="cert-issuer">Oracle</p>
+        <h3 class="cert-name">Oracle Certified Professional : Java SE 17 Developer</h3>
+      </article>
+      <article class="cert-card reveal reveal-delay-2">
+        <div class="cert-stamp" aria-hidden="true">✓</div>
+        <span class="cert-icon" aria-hidden="true">🐬</span>
+        <p class="cert-issuer">Oracle</p>
+        <h3 class="cert-name">Oracle Certified Professional : MySQL 8.0 Database Administrator</h3>
+      </article>
+      <article class="cert-card reveal reveal-delay-3">
+        <div class="cert-stamp" aria-hidden="true">✓</div>
+        <span class="cert-icon" aria-hidden="true">☁️</span>
+        <p class="cert-issuer">Oracle Cloud</p>
+        <h3 class="cert-name">Oracle Cloud Infrastructure 2025 Certified DevOps Professional</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education" aria-label="Formation académique">
+    <p class="section-label reveal">formation</p>
+    <h2 class="section-title reveal reveal-delay-1">Mon parcours académique.</h2>
+    <ol class="edu-list">
+      <li class="edu-item reveal reveal-delay-1">
+        <div class="edu-dot" aria-hidden="true">🎓</div>
+        <div class="edu-card">
+          <p class="edu-period">2024 – 2026</p>
+          <h3 class="edu-degree">Master Big Data &amp; Data Science · spécialité Big Data</h3>
+          <p class="edu-school">FSBM – Faculté des Sciences Ben M'Sick, Casablanca</p>
+        </div>
+      </li>
+      <li class="edu-item reveal reveal-delay-2">
+        <div class="edu-dot" aria-hidden="true">📖</div>
+        <div class="edu-card">
+          <p class="edu-period">2023 – 2024</p>
+          <h3 class="edu-degree">Licence Mathématiques et Informatique · parcours Bases de données</h3>
+          <p class="edu-school">FSBM – Faculté des Sciences Ben M'Sick, Casablanca</p>
+        </div>
+      </li>
+      <li class="edu-item reveal reveal-delay-3">
+        <div class="edu-dot" aria-hidden="true">🏫</div>
+        <div class="edu-card">
+          <p class="edu-period">2020 – 2021</p>
+          <h3 class="edu-degree">Baccalauréat Scientifique · Sciences Physiques</h3>
+          <p class="edu-school">École Oued Dahab, Casablanca</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ── LANGUAGES ── -->
+  <section id="languages" aria-label="Langues et qualités personnelles">
+    <p class="section-label reveal">langues &amp; qualités</p>
+    <h2 class="section-title reveal reveal-delay-1">Au-delà du code.</h2>
+    <div class="langs-grid">
+      <div>
+        <h3 class="reveal" style="font-family:var(--font-hand);font-size:1.1rem;margin-bottom:1rem;">🌐 Langues</h3>
+        <div class="lang-list">
+          <div class="lang-item reveal reveal-delay-1">
+            <span class="lang-name">🇲🇦 Arabe</span>
+            <span class="lang-level">Langue maternelle</span>
+          </div>
+          <div class="lang-item reveal reveal-delay-2">
+            <span class="lang-name">🇫🇷 Français</span>
+            <span class="lang-level">Courant</span>
+          </div>
+          <div class="lang-item reveal reveal-delay-3">
+            <span class="lang-name">🇬🇧 Anglais</span>
+            <span class="lang-level">Intermédiaire</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="reveal" style="font-family:var(--font-hand);font-size:1.1rem;margin-bottom:1rem;">✨ Soft skills</h3>
+        <div class="soft-skills">
+          <span class="soft-skill-badge reveal reveal-delay-1">🤝 Travail d'équipe</span>
+          <span class="soft-skill-badge reveal reveal-delay-2">⏰ Ponctualité</span>
+          <span class="soft-skill-badge reveal reveal-delay-3">💡 Proactivité</span>
+          <span class="soft-skill-badge reveal reveal-delay-4">⚡ Gestion du temps</span>
+          <span class="soft-skill-badge reveal">🔄 Adaptabilité</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CV DOWNLOAD ── -->
+  <section id="cv" aria-label="Téléchargement du CV">
+    <div class="cv-box reveal">
+      <span class="cv-emoji" aria-hidden="true">📄</span>
+      <h2 class="cv-title">Envie de l'avoir sur papier ?</h2>
+      <p class="cv-subtitle">Mon CV résume tout ce que vous venez de voir, en une page.</p>
+      <a href="assets/CV_Mohammed_Yasser_Rachih.pdf" class="btn btn-primary" id="cv-download-btn" download aria-label="Télécharger le CV en PDF">
+        ↓ Télécharger mon CV (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" aria-label="Me contacter">
+    <p class="section-label reveal">contact</p>
+    <h2 class="section-title reveal reveal-delay-1">Construisons quelque chose<br>ensemble.</h2>
+    <div class="contact-layout">
+
+      <div class="contact-info">
+        <div class="contact-item reveal reveal-delay-1">
+          <span class="contact-icon" aria-hidden="true">✉️</span>
+          <div class="contact-text">
+            <p class="contact-label">E-mail</p>
+            <a href="mailto:yassirach17@gmail.com" id="contact-email">yassirach17@gmail.com</a>
+          </div>
+          <button id="copy-email-btn" class="copy-btn" aria-label="Copier l'adresse email dans le presse-papier">copier</button>
+        </div>
+        <div class="contact-item reveal reveal-delay-2">
+          <span class="contact-icon" aria-hidden="true">📱</span>
+          <div class="contact-text">
+            <p class="contact-label">Téléphone</p>
+            <a href="tel:+212716972238">+212 716-972238</a>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-3">
+          <span class="contact-icon" aria-hidden="true">💼</span>
+          <div class="contact-text">
+            <p class="contact-label">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/mohammedyasserrachih" target="_blank" rel="noopener noreferrer">Mohammed Yasser Rachih</a>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-4">
+          <span class="contact-icon" aria-hidden="true">📍</span>
+          <div class="contact-text">
+            <p class="contact-label">Localisation</p>
+            <span style="font-weight:600;font-size:0.9rem;">Casablanca, Maroc</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <p class="form-title">Envoyez-moi un message 👋</p>
+        <form id="contact-form" action="https://formspree.io/f/xnnvgkdo" method="POST" novalidate>
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Ne pas remplir ce champ</label>
+            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="motif">Motif du message *</label>
+            <select id="motif" name="motif" required>
+              <option value="">Choisir un motif...</option>
+              <option value="CDI">Poste CDI</option>
+              <option value="stage">Stage</option>
+              <option value="collaboration">Collaboration / freelance</option>
+              <option value="feedback">Feedback</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="entreprise">Entreprise</label>
+              <input type="text" id="entreprise" name="entreprise" placeholder="Votre entreprise" autocomplete="organization" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email-contact">E-mail *</label>
+            <input type="email" id="email-contact" name="email" placeholder="votre@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Décrivez votre projet ou votre opportunité..." required rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="form-submit-btn">Envoyer le message →</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <p class="footer-logo">yasser.<span>rachih</span></p>
+    <p class="footer-tagline">Data Engineer Junior &amp; Développeur Full-Stack · Casablanca, Maroc</p>
+    <p class="footer-tagline" style="font-size:0.85rem;margin-bottom:1.5rem;opacity:0.5;">"Les données ne mentent pas — encore faut-il bien les écouter."</p>
+    <p class="footer-copy">© 2026 Mohammed Yasser Rachih · Fait avec ☕ et beaucoup de pipelines</p>
+  </div>
+</footer>
+
+<button class="back-top" aria-label="Retour en haut de page" title="Retour en haut">↑</button>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
