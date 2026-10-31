@@ -264,20 +264,36 @@
       <div class="project-sketches">
         <div class="sketch-rail" role="tablist" aria-label="Sélectionner un projet">
           <div class="sketch-item active" role="tab" tabindex="0" aria-selected="true" aria-controls="proj-panel-0" id="proj-tab-0" data-index="0">
-            <div class="sketch-svg-wrap" aria-hidden="true">📚</div>
-            <span class="sketch-label" data-i18n="projects.list.0.label">Bibliothèque microservices</span>
+            <div class="sketch-svg-wrap" aria-hidden="true">⚡</div>
+            <span class="sketch-label" data-i18n="projects.list.0.label">Real-Time Streaming</span>
           </div>
           <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-1" id="proj-tab-1" data-index="1">
-            <div class="sketch-svg-wrap" aria-hidden="true">🏛️</div>
-            <span class="sketch-label" data-i18n="projects.list.1.label">Documents administratifs</span>
+            <div class="sketch-svg-wrap" aria-hidden="true">🌪️</div>
+            <span class="sketch-label" data-i18n="projects.list.1.label">Airflow ETL Pipeline</span>
           </div>
           <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-2" id="proj-tab-2" data-index="2">
-            <div class="sketch-svg-wrap" aria-hidden="true">🏭</div>
-            <span class="sketch-label" data-i18n="projects.list.2.label">Maintenance prédictive</span>
+            <div class="sketch-svg-wrap" aria-hidden="true">💎</div>
+            <span class="sketch-label" data-i18n="projects.list.2.label">Databricks Lakehouse</span>
           </div>
           <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-3" id="proj-tab-3" data-index="3">
+            <div class="sketch-svg-wrap" aria-hidden="true">🇲🇦</div>
+            <span class="sketch-label" data-i18n="projects.list.3.label">Morocco DataHub</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-4" id="proj-tab-4" data-index="4">
+            <div class="sketch-svg-wrap" aria-hidden="true">📚</div>
+            <span class="sketch-label" data-i18n="projects.list.4.label">Bibliothèque microservices</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-5" id="proj-tab-5" data-index="5">
+            <div class="sketch-svg-wrap" aria-hidden="true">🏛️</div>
+            <span class="sketch-label" data-i18n="projects.list.5.label">Documents administratifs</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-6" id="proj-tab-6" data-index="6">
+            <div class="sketch-svg-wrap" aria-hidden="true">🏭</div>
+            <span class="sketch-label" data-i18n="projects.list.6.label">Maintenance prédictive</span>
+          </div>
+          <div class="sketch-item" role="tab" tabindex="-1" aria-selected="false" aria-controls="proj-panel-7" id="proj-tab-7" data-index="7">
             <div class="sketch-svg-wrap" aria-hidden="true">💳</div>
-            <span class="sketch-label" data-i18n="projects.list.3.label">Transactions bancaires</span>
+            <span class="sketch-label" data-i18n="projects.list.7.label">Transactions bancaires</span>
           </div>
         </div>
         <p class="sketch-nav-hint" aria-hidden="true" data-i18n="projects.navHint">
@@ -286,13 +302,168 @@
       </div>
 
       <div class="project-detail" aria-live="polite">
-        <p class="project-counter" aria-label="Projet 1 sur 4">01 / 04</p>
+        <p class="project-counter" aria-label="Projet 1 sur 8">01 / 08</p>
 
+        <!-- PROJET 1 : Real-Time Streaming -->
         <div class="project-detail-panel" id="proj-panel-0" role="tabpanel" aria-labelledby="proj-tab-0">
-          <h3 class="project-name" data-i18n="projects.list.0.name">Système de gestion de bibliothèque en microservices</h3>
-          <p class="project-context" data-i18n="projects.list.0.context">FSBM · Casablanca · Projet académique</p>
-          <p class="project-desc" data-i18n="projects.list.0.desc">Conception et développement d'une application de gestion de bibliothèque avec interface adaptée aux utilisateurs et organisation facilitant la maintenance et l'évolution du système. Architecture microservices moderne garantissant scalabilité et résilience.</p>
-          <div class="project-tech-flow" aria-label="Stack technique utilisé">
+          <div class="project-img-wrap" tabindex="0" role="button" aria-label="Agrandir le schéma d'architecture Real-Time Data Engineering Platform">
+            <img src="assets/projects/project_realtime_spark_kafka.png" alt="Architecture Real-Time Data Engineering Platform (Kafka & Spark Streaming)" class="project-img" loading="lazy" />
+            <span class="project-img-zoom-hint" data-i18n="projects.zoomHint">🔍 Cliquez sur le schéma pour l'agrandir</span>
+          </div>
+          <h3 class="project-name" data-i18n="projects.list.0.name">Plateforme Data Engineering Temps Réel (Kafka &amp; Spark Streaming)</h3>
+          <p class="project-context" data-i18n="projects.list.0.context">Projet Phare · Big Data Streaming &amp; Architecture Distribuée</p>
+          <p class="project-desc" data-i18n="projects.list.0.desc">Construction d'une plateforme distribuée capable d'ingérer des flux d'événements continus, de les traiter en micro-batches avec Spark Structured Streaming et de les persister dans des couches analytiques avec dashboards de monitoring temps réel.</p>
+          <ul class="project-features" aria-label="Fonctionnalités clés">
+            <li data-i18n="projects.list.0.features.0">Ingestion d'événements en continu via des topics Apache Kafka</li>
+            <li data-i18n="projects.list.0.features.1">Traitement, agrégations fenêtrées et enrichissement en temps réel avec Spark Streaming</li>
+            <li data-i18n="projects.list.0.features.2">Gestion des données invalides et routage dead-letter queue</li>
+            <li data-i18n="projects.list.0.features.3">Stockage optimisé dans PostgreSQL et Delta sink</li>
+            <li data-i18n="projects.list.0.features.4">Tableaux de bord de monitoring des flux avec Streamlit et Grafana</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Flux technique">
+            <span class="tech-chip">Kafka Topic</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Spark Streaming</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Delta / Postgres</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Streamlit &amp; Grafana</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Apache Kafka</span>
+            <span class="project-tag">Apache Spark</span>
+            <span class="project-tag">PySpark</span>
+            <span class="project-tag">Structured Streaming</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">Docker Compose</span>
+            <span class="project-tag">Grafana</span>
+          </div>
+        </div>
+
+        <!-- PROJET 2 : Airflow ETL Pipeline -->
+        <div class="project-detail-panel" id="proj-panel-1" role="tabpanel" aria-labelledby="proj-tab-1" style="display:none">
+          <div class="project-img-wrap" tabindex="0" role="button" aria-label="Agrandir le schéma d'architecture Airflow ETL Pipeline">
+            <img src="assets/projects/project_airflow_etl.png" alt="Architecture Apache Airflow DAG Workflow & dbt" class="project-img" loading="lazy" />
+            <span class="project-img-zoom-hint" data-i18n="projects.zoomHint">🔍 Cliquez sur le schéma pour l'agrandir</span>
+          </div>
+          <h3 class="project-name" data-i18n="projects.list.1.name">Pipeline ETL Production-Ready avec Apache Airflow &amp; dbt</h3>
+          <p class="project-context" data-i18n="projects.list.1.context">Projet Phare · Orchestration &amp; Data Warehousing</p>
+          <p class="project-desc" data-i18n="projects.list.1.desc">Automatisation complète d'un pipeline ETL moderne extrayant des données multi-sources (APIs REST, CSV), orchestré par Apache Airflow avec gestion des retries, modélisation et tests de qualité dbt, et chargement dans un Data Warehouse.</p>
+          <ul class="project-features" aria-label="Fonctionnalités clés">
+            <li data-i18n="projects.list.1.features.0">Extraction automatisée depuis des APIs REST et des fichiers CSV</li>
+            <li data-i18n="projects.list.1.features.1">Orchestration et planification robuste avec Apache Airflow (DAGs idempotents)</li>
+            <li data-i18n="projects.list.1.features.2">Transformation, nettoyage et tests de qualité stricts avec dbt</li>
+            <li data-i18n="projects.list.1.features.3">Gestion automatique des erreurs, alertes Slack et reprises sur incident</li>
+            <li data-i18n="projects.list.1.features.4">Chargement structuré vers Data Warehouse (Snowflake / PostgreSQL)</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Flux technique">
+            <span class="tech-chip">APIs &amp; CSV</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Airflow DAG</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">dbt Models</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Snowflake DW</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Slack Alert</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Apache Airflow</span>
+            <span class="project-tag">dbt</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">Snowflake</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">Pandas</span>
+          </div>
+        </div>
+
+        <!-- PROJET 3 : Databricks Lakehouse -->
+        <div class="project-detail-panel" id="proj-panel-2" role="tabpanel" aria-labelledby="proj-tab-2" style="display:none">
+          <div class="project-img-wrap" tabindex="0" role="button" aria-label="Agrandir le schéma d'architecture Databricks Lakehouse">
+            <img src="assets/projects/project_databricks_lakehouse.png" alt="Architecture Databricks Lakehouse (Medallion & Unity Catalog)" class="project-img" loading="lazy" />
+            <span class="project-img-zoom-hint" data-i18n="projects.zoomHint">🔍 Cliquez sur le schéma pour l'agrandir</span>
+          </div>
+          <h3 class="project-name" data-i18n="projects.list.2.name">Enterprise Data Lakehouse avec Databricks &amp; Delta Lake</h3>
+          <p class="project-context" data-i18n="projects.list.2.context">Projet Phare · Architecture Medallion &amp; Unity Catalog</p>
+          <p class="project-desc" data-i18n="projects.list.2.desc">Conception et déploiement d'une plateforme Lakehouse unifiée suivant l'architecture Medallion (Bronze, Silver, Gold) sur Databricks avec transactions ACID Delta Lake, gouvernance Unity Catalog et détection d'anomalies transactionnelles.</p>
+          <ul class="project-features" aria-label="Fonctionnalités clés">
+            <li data-i18n="projects.list.2.features.0">Ingestion multi-sources de données transactionnelles massives dans la couche Bronze</li>
+            <li data-i18n="projects.list.2.features.1">Nettoyage, déduplication et détection de fraudes/transactions suspectes (Silver)</li>
+            <li data-i18n="projects.list.2.features.2">Production de tables dimensionnelles agrégées et KPIs métier (Gold)</li>
+            <li data-i18n="projects.list.2.features.3">Gouvernance centralisée, audit et contrôle d'accès avec Unity Catalog</li>
+            <li data-i18n="projects.list.2.features.4">Optimisation des requêtes (Z-Ordering, Liquid Clustering) et Time-Travel</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Flux technique">
+            <span class="tech-chip">Multi-Sources</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Bronze (Raw)</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Silver (Clean)</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Gold (Business)</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">Unity Catalog</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Databricks</span>
+            <span class="project-tag">Apache Spark</span>
+            <span class="project-tag">Delta Lake</span>
+            <span class="project-tag">PySpark</span>
+            <span class="project-tag">Unity Catalog</span>
+            <span class="project-tag">Medallion</span>
+            <span class="project-tag">SQL</span>
+          </div>
+        </div>
+
+        <!-- PROJET 4 : Morocco DataHub -->
+        <div class="project-detail-panel" id="proj-panel-3" role="tabpanel" aria-labelledby="proj-tab-3" style="display:none">
+          <div class="project-img-wrap" tabindex="0" role="button" aria-label="Agrandir le schéma d'architecture Morocco DataHub">
+            <img src="assets/projects/project_morocco_datahub.png" alt="Architecture Morocco DataHub Unified API Platform" class="project-img" loading="lazy" />
+            <span class="project-img-zoom-hint" data-i18n="projects.zoomHint">🔍 Cliquez sur le schéma pour l'agrandir</span>
+          </div>
+          <h3 class="project-name" data-i18n="projects.list.3.name">Morocco DataHub — Plateforme Unifiée de Données &amp; APIs Marocaines</h3>
+          <p class="project-context" data-i18n="projects.list.3.context">Projet Phare · DataTech &amp; APIs Publiques Nationales</p>
+          <p class="project-desc" data-i18n="projects.list.3.desc">Projet DataTech ambitieux centralisant, traitant, standardisant et distribuant les données publiques marocaines (HCP, Open Data, Bank Al-Maghrib) via des pipelines automatisés et une suite d'APIs REST modernes sous FastAPI.</p>
+          <ul class="project-features" aria-label="Fonctionnalités clés">
+            <li data-i18n="projects.list.3.features.0">Collecte automatisée depuis les sources officielles marocaines (HCP, data.gov.ma, etc.)</li>
+            <li data-i18n="projects.list.3.features.1">Pipelines de nettoyage, normalisation et validation rigoureuse des données</li>
+            <li data-i18n="projects.list.3.features.2">Stockage relationnel structuré et optimisé dans PostgreSQL</li>
+            <li data-i18n="projects.list.3.features.3">Exposition des datasets via des APIs REST sécurisées, rapides et documentées (FastAPI)</li>
+            <li data-i18n="projects.list.3.features.4">Accompagnement de la transformation digitale et valorisation des données nationales</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Flux technique">
+            <span class="tech-chip">Sources HCP / Open Data</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">ETL Processing</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">PostgreSQL</span>
+            <span class="tech-arrow">→</span>
+            <span class="tech-chip">FastAPI Unified API</span>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">FastAPI</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">ETL Pipelines</span>
+            <span class="project-tag">Data Quality</span>
+            <span class="project-tag">Docker</span>
+            <span class="project-tag">REST API</span>
+          </div>
+        </div>
+
+        <!-- PROJET 5 : Bibliothèque microservices -->
+        <div class="project-detail-panel" id="proj-panel-4" role="tabpanel" aria-labelledby="proj-tab-4" style="display:none">
+          <h3 class="project-name" data-i18n="projects.list.4.name">Système de gestion de bibliothèque en microservices</h3>
+          <p class="project-context" data-i18n="projects.list.4.context">FSBM · Casablanca · Projet académique</p>
+          <p class="project-desc" data-i18n="projects.list.4.desc">Conception et développement d'une application de gestion de bibliothèque avec interface moderne et organisation facilitant la maintenance et l'évolution du système. Architecture microservices garantissant scalabilité et résilience.</p>
+          <ul class="project-features" aria-label="Points forts">
+            <li data-i18n="projects.list.4.features.0">Découpage en microservices indépendants (Catalogue, Emprunts, Utilisateurs)</li>
+            <li data-i18n="projects.list.4.features.1">API Gateway et service discovery avec l'écosystème Spring Cloud</li>
+            <li data-i18n="projects.list.4.features.2">Conteneurisation complète avec Docker et persistance PostgreSQL</li>
+            <li data-i18n="projects.list.4.features.3">Sécurisation des communications et endpoints REST</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Stack technique">
             <span class="tech-chip">Spring Boot</span>
             <span class="tech-arrow">→</span>
             <span class="tech-chip">API Gateway</span>
@@ -304,17 +475,24 @@
           <div class="project-tags">
             <span class="project-tag">Java</span>
             <span class="project-tag">Microservices</span>
-            <span class="project-tag">REST API</span>
+            <span class="project-tag">Spring Boot</span>
             <span class="project-tag">Docker</span>
-            <span class="project-tag">Spring Cloud</span>
+            <span class="project-tag">PostgreSQL</span>
           </div>
         </div>
 
-        <div class="project-detail-panel" id="proj-panel-1" role="tabpanel" aria-labelledby="proj-tab-1" style="display:none">
-          <h3 class="project-name" data-i18n="projects.list.1.name">Système de gestion et de vérification des documents administratifs</h3>
-          <p class="project-context" data-i18n="projects.list.1.context">FSBM · Casablanca · Projet académique</p>
-          <p class="project-desc" data-i18n="projects.list.1.desc">Solution web permettant aux citoyens et aux administrations de déposer, consulter et vérifier des documents administratifs de manière sécurisée et transparente, avec une interface intuitive pour la gestion et le suivi du statut des documents.</p>
-          <div class="project-tech-flow">
+        <!-- PROJET 6 : Documents administratifs -->
+        <div class="project-detail-panel" id="proj-panel-5" role="tabpanel" aria-labelledby="proj-tab-5" style="display:none">
+          <h3 class="project-name" data-i18n="projects.list.5.name">Système de gestion et de vérification des documents administratifs</h3>
+          <p class="project-context" data-i18n="projects.list.5.context">FSBM · Casablanca · Projet académique</p>
+          <p class="project-desc" data-i18n="projects.list.5.desc">Solution web permettant aux citoyens et aux administrations de déposer, consulter et vérifier des documents administratifs de manière sécurisée et transparente, avec une interface intuitive pour la gestion et le suivi du statut des documents.</p>
+          <ul class="project-features" aria-label="Points forts">
+            <li data-i18n="projects.list.5.features.0">Dépôt et vérification sécurisée des documents administratifs</li>
+            <li data-i18n="projects.list.5.features.1">Authentification robuste et contrôle d'accès basé sur les rôles (JWT)</li>
+            <li data-i18n="projects.list.5.features.2">Suivi de statut et audit trail complet des pièces déposées</li>
+            <li data-i18n="projects.list.5.features.3">Interface réactive développée avec Angular et backend Spring Boot</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Stack technique">
             <span class="tech-chip">Spring Boot</span>
             <span class="tech-arrow">→</span>
             <span class="tech-chip">Angular</span>
@@ -325,18 +503,25 @@
           </div>
           <div class="project-tags">
             <span class="project-tag">Java</span>
+            <span class="project-tag">Angular</span>
             <span class="project-tag">Sécurité</span>
             <span class="project-tag">REST API</span>
-            <span class="project-tag">Angular</span>
             <span class="project-tag">MySQL</span>
           </div>
         </div>
 
-        <div class="project-detail-panel" id="proj-panel-2" role="tabpanel" aria-labelledby="proj-tab-2" style="display:none">
-          <h3 class="project-name" data-i18n="projects.list.2.name">Plateforme de données pour la maintenance prédictive</h3>
-          <p class="project-context" data-i18n="projects.list.2.context">FSBM · Casablanca · Projet académique</p>
-          <p class="project-desc" data-i18n="projects.list.2.desc">Conception d'une solution collectant et centralisant les données issues d'équipements industriels afin de suivre leur état, détecter les anomalies et anticiper les besoins de maintenance grâce à des flux temps réel.</p>
-          <div class="project-tech-flow">
+        <!-- PROJET 7 : Maintenance prédictive -->
+        <div class="project-detail-panel" id="proj-panel-6" role="tabpanel" aria-labelledby="proj-tab-6" style="display:none">
+          <h3 class="project-name" data-i18n="projects.list.6.name">Plateforme de données pour la maintenance prédictive</h3>
+          <p class="project-context" data-i18n="projects.list.6.context">FSBM · Casablanca · Projet académique</p>
+          <p class="project-desc" data-i18n="projects.list.6.desc">Conception d'une solution collectant et centralisant les données issues d'équipements industriels afin de suivre leur état, détecter les anomalies et anticiper les besoins de maintenance grâce à des flux temps réel.</p>
+          <ul class="project-features" aria-label="Points forts">
+            <li data-i18n="projects.list.6.features.0">Ingestion et centralisation de données de capteurs IoT industriels</li>
+            <li data-i18n="projects.list.6.features.1">Détection d'anomalies thermiques et vibratoires en temps réel</li>
+            <li data-i18n="projects.list.6.features.2">Stockage séries temporelles optimisé dans InfluxDB</li>
+            <li data-i18n="projects.list.6.features.3">Alerting automatique et tableaux de bord de surveillance Grafana</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Stack technique">
             <span class="tech-chip">Python</span>
             <span class="tech-arrow">→</span>
             <span class="tech-chip">ETL Pipeline</span>
@@ -350,29 +535,36 @@
             <span class="project-tag">ETL/ELT</span>
             <span class="project-tag">Monitoring</span>
             <span class="project-tag">IoT Data</span>
-            <span class="project-tag">Alerting</span>
+            <span class="project-tag">InfluxDB</span>
           </div>
         </div>
 
-        <div class="project-detail-panel" id="proj-panel-3" role="tabpanel" aria-labelledby="proj-tab-3" style="display:none">
-          <h3 class="project-name" data-i18n="projects.list.3.name">Système de traitement et d'analyse des transactions bancaires</h3>
-          <p class="project-context" data-i18n="projects.list.3.context">FSBM · Casablanca · Projet académique</p>
-          <p class="project-desc" data-i18n="projects.list.3.desc">Solution centralisant et traitant des transactions financières pour suivre les opérations, détecter les comportements inhabituels et produire des indicateurs clés pour l'aide à la décision et l'analyse d'activité.</p>
-          <div class="project-tech-flow">
+        <!-- PROJET 8 : Transactions bancaires -->
+        <div class="project-detail-panel" id="proj-panel-7" role="tabpanel" aria-labelledby="proj-tab-7" style="display:none">
+          <h3 class="project-name" data-i18n="projects.list.7.name">Système de traitement et d'analyse des transactions bancaires</h3>
+          <p class="project-context" data-i18n="projects.list.7.context">FSBM · Casablanca · Projet académique</p>
+          <p class="project-desc" data-i18n="projects.list.7.desc">Solution centralisant et traitant des transactions financières pour suivre les opérations, détecter les comportements inhabituels et produire des indicateurs clés pour l'aide à la décision et l'analyse d'activité.</p>
+          <ul class="project-features" aria-label="Points forts">
+            <li data-i18n="projects.list.7.features.0">Traitement à haut débit des flux de transactions financières</li>
+            <li data-i18n="projects.list.7.features.1">Règles d'analyse et détection de comportements bancaires anormaux</li>
+            <li data-i18n="projects.list.7.features.2">Production d'indicateurs de volumétrie et conformité financière</li>
+            <li data-i18n="projects.list.7.features.3">Reporting analytique automatisé et dashboards de décision</li>
+          </ul>
+          <div class="project-tech-flow" aria-label="Stack technique">
             <span class="tech-chip">Python</span>
             <span class="tech-arrow">→</span>
             <span class="tech-chip">ETL Pipeline</span>
             <span class="tech-arrow">→</span>
             <span class="tech-chip">PostgreSQL</span>
             <span class="tech-arrow">→</span>
-            <span class="tech-chip">Reporting</span>
+            <span class="tech-chip">Analytics</span>
           </div>
           <div class="project-tags">
             <span class="project-tag">Python</span>
-            <span class="project-tag">ETL/ELT</span>
-            <span class="project-tag">Détection anomalies</span>
             <span class="project-tag">SQL</span>
-            <span class="project-tag">Analyse</span>
+            <span class="project-tag">ETL</span>
+            <span class="project-tag">Détection anomalies</span>
+            <span class="project-tag">PostgreSQL</span>
           </div>
         </div>
 
@@ -384,7 +576,7 @@
     </div>
   </section>
 
-  <!-- ── SKILLS ── -->
+<!-- ── SKILLS ── -->
   <section id="skills" aria-label="Compétences techniques">
     <p class="section-label reveal" data-i18n="skills.label">compétences</p>
     <h2 class="section-title reveal reveal-delay-1" data-i18n="skills.title">Ma boîte à outils.</h2>
@@ -728,5 +920,16 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js" defer></script>
+
+<!-- Modal Lightbox pour les schémas d'architecture -->
+<div id="img-modal" class="img-modal" role="dialog" aria-modal="true" aria-label="Agrandissement de l'architecture" style="display:none;">
+  <div class="img-modal-backdrop"></div>
+  <div class="img-modal-content">
+    <button class="img-modal-close" aria-label="Fermer l'agrandissement">✕</button>
+    <img id="img-modal-view" src="" alt="Architecture agrandie" />
+    <p id="img-modal-caption" class="img-modal-caption"></p>
+  </div>
+</div>
+
 </body>
 </html>

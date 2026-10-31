@@ -461,3 +461,45 @@
   const initialLang = (typeof currentLang !== 'undefined') ? currentLang : (localStorage.getItem('portfolio_lang') || 'fr');
   selectCv(initialLang);
 })();
+
+// ─── ARCHITECTURE DIAGRAM LIGHTBOX ──────────────────────────────────────────
+(function initLightbox() {
+  const modal = document.getElementById('img-modal');
+  const modalImg = document.getElementById('img-modal-view');
+  const modalCaption = document.getElementById('img-modal-caption');
+  const closeBtn = document.querySelector('.img-modal-close');
+  const backdrop = document.querySelector('.img-modal-backdrop');
+
+  if (!modal || !modalImg) return;
+
+  document.querySelectorAll('.project-img-wrap').forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const img = wrap.querySelector('.project-img');
+      if (!img) return;
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      if (modalCaption) {
+        modalCaption.textContent = img.alt || 'Architecture Système';
+      }
+      modal.classList.add('open');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('open');
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 200);
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+})();

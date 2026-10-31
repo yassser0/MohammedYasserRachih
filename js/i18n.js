@@ -141,35 +141,112 @@ const translations = {
 
     // Projects
     projects: {
-      label: "projets",
-      title: "Ce que j'ai construit.",
-      navHint: "<kbd>←</kbd> <kbd>→</kbd> les flèches clavier fonctionnent aussi",
-      btnPrev: "← préc.",
-      btnNext: "suiv. →",
+      label: "projects",
+      title: "What I've built.",
+      navHint: "<kbd>←</kbd> <kbd>→</kbd> arrow keys also work",
+      btnPrev: "← prev.",
+      btnNext: "next →",
+      zoomHint: "🔍 Click diagram to expand",
       list: [
         {
-          label: "Bibliothèque microservices",
-          name: "Système de gestion de bibliothèque en microservices",
-          context: "FSBM · Casablanca · Projet académique",
-          desc: "Conception et développement d'une application de gestion de bibliothèque avec interface adaptée aux utilisateurs et organisation facilitant la maintenance et l'évolution du système. Architecture microservices moderne garantissant scalabilité et résilience."
+          label: "Real-Time Streaming",
+          name: "Real-Time Data Engineering Platform (Kafka & Spark Streaming)",
+          context: "Flagship Project · Big Data Streaming & Distributed Architecture",
+          desc: "Building a distributed event-driven platform capable of ingesting high-throughput real-time streams with Apache Kafka, processing and aggregating them in micro-batches with Spark Structured Streaming, and storing them for live analytics and dashboarding.",
+          features: [
+            "Continuous live event ingestion via Apache Kafka topics",
+            "Real-time processing, windowed aggregations, and filtering with Spark Streaming",
+            "Automated invalid data routing and dead-letter queue handling",
+            "Optimized persistent sink into PostgreSQL and Delta Lake",
+            "Live stream health and telemetry monitoring dashboards with Streamlit & Grafana"
+          ]
         },
         {
-          label: "Documents administratifs",
-          name: "Système de gestion et de vérification des documents administratifs",
-          context: "FSBM · Casablanca · Projet académique",
-          desc: "Solution web permettant aux citoyens et aux administrations de déposer, consulter et vérifier des documents administratifs de manière sécurisée et transparente, avec une interface intuitive pour la gestion et le suivi du statut des documents."
+          label: "Airflow ETL Pipeline",
+          name: "Production-Ready ETL Pipeline with Apache Airflow & dbt",
+          context: "Flagship Project · Orchestration & Data Warehousing",
+          desc: "End-to-end automation of a modern ETL data pipeline extracting multi-source datasets (REST APIs, CSV files), orchestrated by Apache Airflow with automatic retries, transformed and quality-tested using dbt, and loaded into an enterprise Data Warehouse.",
+          features: [
+            "Automated extraction from REST APIs and batch CSV files",
+            "Robust dependency orchestration and scheduling using Apache Airflow DAGs",
+            "Data transformation, cleaning, and dimensional modeling with dbt",
+            "Automated retries, error recovery, and Slack alert notifications",
+            "Structured loading into Data Warehouse (Snowflake / PostgreSQL)"
+          ]
         },
         {
-          label: "Maintenance prédictive",
-          name: "Plateforme de données pour la maintenance prédictive",
-          context: "FSBM · Casablanca · Projet académique",
-          desc: "Conception d'une solution collectant et centralisant les données issues d'équipements industriels afin de suivre leur état, détecter les anomalies et anticiper les besoins de maintenance grâce à des flux temps réel."
+          label: "Databricks Lakehouse",
+          name: "Enterprise Data Lakehouse with Databricks & Delta Lake",
+          context: "Flagship Project · Medallion Architecture & Unity Catalog",
+          desc: "Design and deployment of an enterprise Lakehouse platform implementing the Medallion architecture (Bronze, Silver, Gold) on Databricks with ACID compliance on Delta Lake, centralized Unity Catalog governance, and suspicious transaction detection.",
+          features: [
+            "Raw ingestion of high-volume transactional data into the Bronze layer",
+            "Cleansing, deduplication, and anomaly/fraud detection in the Silver layer",
+            "Business KPI aggregations and analytical data marts in the Gold layer",
+            "Centralized data governance, lineage tracking, and access control with Unity Catalog",
+            "Query performance optimization (Z-Ordering) and Delta Lake time-travel"
+          ]
         },
         {
-          label: "Transactions bancaires",
-          name: "Système de traitement et d'analyse des transactions bancaires",
-          context: "FSBM · Casablanca · Projet académique",
-          desc: "Solution centralisant et traitant des transactions financières pour suivre les opérations, détecter les comportements inhabituels et produire des indicateurs clés pour l'aide à la décision et l'analyse d'activité."
+          label: "Morocco DataHub",
+          name: "Morocco DataHub — Unified Moroccan Data API Platform",
+          context: "Flagship Project · DataTech & National Open Data APIs",
+          desc: "An ambitious DataTech project aimed at centralizing, processing, standardizing, and distributing Moroccan public datasets (HCP, Open Data, Bank Al-Maghrib) through automated ETL pipelines and a unified, modern FastAPI REST suite.",
+          features: [
+            "Automated ingestion from official Moroccan sources (HCP, data.gov.ma, etc.)",
+            "Automated pipelines for data cleansing, standardization, and quality validation",
+            "Structured relational modeling and persistence in PostgreSQL",
+            "Secure, high-performance, and OpenAPI-documented REST endpoints with FastAPI",
+            "Empowering developers, researchers, and enterprises with structured Moroccan data"
+          ]
+        },
+        {
+          label: "Microservices Library",
+          name: "Library management system built on microservices",
+          context: "FSBM · Casablanca · Academic Project",
+          desc: "Designed and developed a library management application with a user-friendly interface and an architecture that eases maintenance and system evolution. Built on microservices to ensure scalability and component independence.",
+          features: [
+            "Decoupled independent microservices (Catalog, Borrowing, User Management)",
+            "API Gateway and service discovery powered by Spring Cloud ecosystem",
+            "Full containerization with Docker and PostgreSQL database persistence",
+            "Secure communication and documented REST endpoints"
+          ]
+        },
+        {
+          label: "Administrative Documents",
+          name: "Administrative document management and verification system",
+          context: "FSBM · Casablanca · Academic Project",
+          desc: "Web solution allowing citizens and administrations to submit, view and verify administrative documents in a secure and transparent way, with an intuitive interface for document management and real-time status tracking.",
+          features: [
+            "Secure submission and verification of administrative records",
+            "Robust authentication and role-based access control (JWT)",
+            "Real-time status tracking and transparent audit trail",
+            "Responsive frontend built with Angular and Java Spring Boot backend"
+          ]
+        },
+        {
+          label: "Predictive Maintenance",
+          name: "Data platform for predictive maintenance",
+          context: "FSBM · Casablanca · Academic Project",
+          desc: "Designed a solution that collects and centralizes data from industrial equipment in order to monitor its condition, detect anomalies and anticipate maintenance needs using real-time streaming data.",
+          features: [
+            "Ingestion and centralization of industrial IoT sensor metrics",
+            "Real-time vibration and temperature anomaly detection",
+            "Optimized time-series storage with InfluxDB",
+            "Automated alerting triggers and live Grafana monitoring dashboards"
+          ]
+        },
+        {
+          label: "Banking Transactions",
+          name: "Banking transaction processing and analysis system",
+          context: "FSBM · Casablanca · Academic Project",
+          desc: "Solution that centralizes and processes financial transactions to track operations, detect unusual behavior and produce key indicators for decision support and activity analytics.",
+          features: [
+            "High-throughput transactional data processing pipeline",
+            "Rule-based detection for unusual or high-risk banking activity",
+            "Aggregated operational indicators and regulatory financial reporting",
+            "Automated analytics reporting and decision-making dashboards"
+          ]
         }
       ]
     },
@@ -462,30 +539,107 @@ const translations = {
       navHint: "<kbd>←</kbd> <kbd>→</kbd> arrow keys also work",
       btnPrev: "← prev.",
       btnNext: "next →",
+      zoomHint: "🔍 Click diagram to expand",
       list: [
+        {
+          label: "Real-Time Streaming",
+          name: "Real-Time Data Engineering Platform (Kafka & Spark Streaming)",
+          context: "Flagship Project · Big Data Streaming & Distributed Architecture",
+          desc: "Building a distributed event-driven platform capable of ingesting high-throughput real-time streams with Apache Kafka, processing and aggregating them in micro-batches with Spark Structured Streaming, and storing them for live analytics and dashboarding.",
+          features: [
+            "Continuous live event ingestion via Apache Kafka topics",
+            "Real-time processing, windowed aggregations, and filtering with Spark Streaming",
+            "Automated invalid data routing and dead-letter queue handling",
+            "Optimized persistent sink into PostgreSQL and Delta Lake",
+            "Live stream health and telemetry monitoring dashboards with Streamlit & Grafana"
+          ]
+        },
+        {
+          label: "Airflow ETL Pipeline",
+          name: "Production-Ready ETL Pipeline with Apache Airflow & dbt",
+          context: "Flagship Project · Orchestration & Data Warehousing",
+          desc: "End-to-end automation of a modern ETL data pipeline extracting multi-source datasets (REST APIs, CSV files), orchestrated by Apache Airflow with automatic retries, transformed and quality-tested using dbt, and loaded into an enterprise Data Warehouse.",
+          features: [
+            "Automated extraction from REST APIs and batch CSV files",
+            "Robust dependency orchestration and scheduling using Apache Airflow DAGs",
+            "Data transformation, cleaning, and dimensional modeling with dbt",
+            "Automated retries, error recovery, and Slack alert notifications",
+            "Structured loading into Data Warehouse (Snowflake / PostgreSQL)"
+          ]
+        },
+        {
+          label: "Databricks Lakehouse",
+          name: "Enterprise Data Lakehouse with Databricks & Delta Lake",
+          context: "Flagship Project · Medallion Architecture & Unity Catalog",
+          desc: "Design and deployment of an enterprise Lakehouse platform implementing the Medallion architecture (Bronze, Silver, Gold) on Databricks with ACID compliance on Delta Lake, centralized Unity Catalog governance, and suspicious transaction detection.",
+          features: [
+            "Raw ingestion of high-volume transactional data into the Bronze layer",
+            "Cleansing, deduplication, and anomaly/fraud detection in the Silver layer",
+            "Business KPI aggregations and analytical data marts in the Gold layer",
+            "Centralized data governance, lineage tracking, and access control with Unity Catalog",
+            "Query performance optimization (Z-Ordering) and Delta Lake time-travel"
+          ]
+        },
+        {
+          label: "Morocco DataHub",
+          name: "Morocco DataHub — Unified Moroccan Data API Platform",
+          context: "Flagship Project · DataTech & National Open Data APIs",
+          desc: "An ambitious DataTech project aimed at centralizing, processing, standardizing, and distributing Moroccan public datasets (HCP, Open Data, Bank Al-Maghrib) through automated ETL pipelines and a unified, modern FastAPI REST suite.",
+          features: [
+            "Automated ingestion from official Moroccan sources (HCP, data.gov.ma, etc.)",
+            "Automated pipelines for data cleansing, standardization, and quality validation",
+            "Structured relational modeling and persistence in PostgreSQL",
+            "Secure, high-performance, and OpenAPI-documented REST endpoints with FastAPI",
+            "Empowering developers, researchers, and enterprises with structured Moroccan data"
+          ]
+        },
         {
           label: "Microservices Library",
           name: "Library management system built on microservices",
           context: "FSBM · Casablanca · Academic Project",
-          desc: "Designed and developed a library management application with a user-friendly interface and an architecture that eases maintenance and system evolution. Built on microservices to ensure scalability and component independence."
+          desc: "Designed and developed a library management application with a user-friendly interface and an architecture that eases maintenance and system evolution. Built on microservices to ensure scalability and component independence.",
+          features: [
+            "Decoupled independent microservices (Catalog, Borrowing, User Management)",
+            "API Gateway and service discovery powered by Spring Cloud ecosystem",
+            "Full containerization with Docker and PostgreSQL database persistence",
+            "Secure communication and documented REST endpoints"
+          ]
         },
         {
           label: "Administrative Documents",
           name: "Administrative document management and verification system",
           context: "FSBM · Casablanca · Academic Project",
-          desc: "Web solution allowing citizens and administrations to submit, view and verify administrative documents in a secure and transparent way, with an intuitive interface for document management and real-time status tracking."
+          desc: "Web solution allowing citizens and administrations to submit, view and verify administrative documents in a secure and transparent way, with an intuitive interface for document management and real-time status tracking.",
+          features: [
+            "Secure submission and verification of administrative records",
+            "Robust authentication and role-based access control (JWT)",
+            "Real-time status tracking and transparent audit trail",
+            "Responsive frontend built with Angular and Java Spring Boot backend"
+          ]
         },
         {
           label: "Predictive Maintenance",
           name: "Data platform for predictive maintenance",
           context: "FSBM · Casablanca · Academic Project",
-          desc: "Designed a solution that collects and centralizes data from industrial equipment in order to monitor its condition, detect anomalies and anticipate maintenance needs using real-time streaming data."
+          desc: "Designed a solution that collects and centralizes data from industrial equipment in order to monitor its condition, detect anomalies and anticipate maintenance needs using real-time streaming data.",
+          features: [
+            "Ingestion and centralization of industrial IoT sensor metrics",
+            "Real-time vibration and temperature anomaly detection",
+            "Optimized time-series storage with InfluxDB",
+            "Automated alerting triggers and live Grafana monitoring dashboards"
+          ]
         },
         {
           label: "Banking Transactions",
           name: "Banking transaction processing and analysis system",
           context: "FSBM · Casablanca · Academic Project",
-          desc: "Solution that centralizes and processes financial transactions to track operations, detect unusual behavior and produce key indicators for decision support and activity analytics."
+          desc: "Solution that centralizes and processes financial transactions to track operations, detect unusual behavior and produce key indicators for decision support and activity analytics.",
+          features: [
+            "High-throughput transactional data processing pipeline",
+            "Rule-based detection for unusual or high-risk banking activity",
+            "Aggregated operational indicators and regulatory financial reporting",
+            "Automated analytics reporting and decision-making dashboards"
+          ]
         }
       ]
     },
