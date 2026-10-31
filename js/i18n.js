@@ -113,11 +113,14 @@ const translations = {
     experience: {
       label: "expérience",
       title: "Où j'ai travaillé.",
+      aria: "Expériences professionnelles",
       marsa: {
         date: "Mars – Juil. 2026",
         company: "Marsa Maroc",
         title: "Stage Data Engineering & Développement",
         badge: "en cours · stage",
+        badgeAria: "Stage en cours",
+        listAria: "Missions chez Marsa Maroc",
         items: [
           "Participation à la conception et à la gestion de solutions dédiées aux données",
           "Développement de traitements permettant de collecter, organiser et exploiter les données",
@@ -130,6 +133,7 @@ const translations = {
         date: "Juil. – Sept. 2025",
         company: "Jisr",
         title: "Stage Développement",
+        listAria: "Missions chez Jisr",
         items: [
           "Conception et développement de fonctionnalités pour des applications web",
           "Participation au développement des interfaces et des fonctionnalités côté serveur",
@@ -141,111 +145,111 @@ const translations = {
 
     // Projects
     projects: {
-      label: "projects",
-      title: "What I've built.",
-      navHint: "<kbd>←</kbd> <kbd>→</kbd> arrow keys also work",
-      btnPrev: "← prev.",
-      btnNext: "next →",
-      zoomHint: "🔍 Click diagram to expand",
+      label: "projets",
+      title: "Ce que j'ai construit.",
+      navHint: "<kbd>←</kbd> <kbd>→</kbd> les flèches clavier fonctionnent aussi",
+      btnPrev: "← préc.",
+      btnNext: "suiv. →",
+      zoomHint: "🔍 Cliquez sur le schéma pour l'agrandir",
       list: [
         {
-          label: "Real-Time Streaming",
-          name: "Real-Time Data Engineering Platform (Kafka & Spark Streaming)",
-          context: "Flagship Project · Big Data Streaming & Distributed Architecture",
-          desc: "Building a distributed event-driven platform capable of ingesting high-throughput real-time streams with Apache Kafka, processing and aggregating them in micro-batches with Spark Structured Streaming, and storing them for live analytics and dashboarding.",
+          label: "Streaming Temps Réel",
+          name: "Plateforme Data Engineering Temps Réel (Kafka & Spark Streaming)",
+          context: "Projet Phare · Big Data Streaming & Architecture Distribuée",
+          desc: "Construction d'une plateforme distribuée capable d'ingérer des flux d'événements continus à haut débit avec Apache Kafka, de les traiter en micro-batches avec Spark Structured Streaming et de les persister dans des couches analytiques avec tableaux de bord de monitoring temps réel.",
           features: [
-            "Continuous live event ingestion via Apache Kafka topics",
-            "Real-time processing, windowed aggregations, and filtering with Spark Streaming",
-            "Automated invalid data routing and dead-letter queue handling",
-            "Optimized persistent sink into PostgreSQL and Delta Lake",
-            "Live stream health and telemetry monitoring dashboards with Streamlit & Grafana"
+            "Ingestion d'événements en continu via des topics Apache Kafka",
+            "Traitement, agrégations fenêtrées et filtrage en continu avec Spark Streaming",
+            "Routage automatique des données invalides et gestion de dead-letter queue",
+            "Stockage optimisé dans PostgreSQL et Delta sink",
+            "Tableaux de bord de surveillance et télémétrie des flux avec Streamlit et Grafana"
           ]
         },
         {
-          label: "Airflow ETL Pipeline",
-          name: "Production-Ready ETL Pipeline with Apache Airflow & dbt",
-          context: "Flagship Project · Orchestration & Data Warehousing",
-          desc: "End-to-end automation of a modern ETL data pipeline extracting multi-source datasets (REST APIs, CSV files), orchestrated by Apache Airflow with automatic retries, transformed and quality-tested using dbt, and loaded into an enterprise Data Warehouse.",
+          label: "Pipeline ETL Airflow",
+          name: "Pipeline ETL Production-Ready avec Apache Airflow & dbt",
+          context: "Projet Phare · Orchestration & Data Warehousing",
+          desc: "Automatisation complète d'un pipeline ETL moderne extrayant des données multi-sources (APIs REST, CSV), orchestré par Apache Airflow avec gestion des retries, modélisation et tests de qualité stricts via dbt, et chargement vers un Data Warehouse d'entreprise.",
           features: [
-            "Automated extraction from REST APIs and batch CSV files",
-            "Robust dependency orchestration and scheduling using Apache Airflow DAGs",
-            "Data transformation, cleaning, and dimensional modeling with dbt",
-            "Automated retries, error recovery, and Slack alert notifications",
-            "Structured loading into Data Warehouse (Snowflake / PostgreSQL)"
+            "Extraction automatisée depuis des APIs REST et des fichiers CSV par lots",
+            "Orchestration et planification robuste avec Apache Airflow (DAGs idempotents)",
+            "Transformation, nettoyage et tests de qualité stricts avec dbt",
+            "Gestion automatique des erreurs, alertes Slack et reprises sur incident",
+            "Chargement structuré vers Data Warehouse (Snowflake / PostgreSQL)"
           ]
         },
         {
           label: "Databricks Lakehouse",
-          name: "Enterprise Data Lakehouse with Databricks & Delta Lake",
-          context: "Flagship Project · Medallion Architecture & Unity Catalog",
-          desc: "Design and deployment of an enterprise Lakehouse platform implementing the Medallion architecture (Bronze, Silver, Gold) on Databricks with ACID compliance on Delta Lake, centralized Unity Catalog governance, and suspicious transaction detection.",
+          name: "Data Lakehouse d'Entreprise avec Databricks & Delta Lake",
+          context: "Projet Phare · Architecture Médaillon & Unity Catalog",
+          desc: "Conception et déploiement d'une architecture Lakehouse d'entreprise appliquant le pattern Médaillon (Bronze, Silver, Gold) sur Databricks avec garanties ACID Delta Lake, gouvernance unifiée via Unity Catalog et détection de transactions suspectes.",
           features: [
-            "Raw ingestion of high-volume transactional data into the Bronze layer",
-            "Cleansing, deduplication, and anomaly/fraud detection in the Silver layer",
-            "Business KPI aggregations and analytical data marts in the Gold layer",
-            "Centralized data governance, lineage tracking, and access control with Unity Catalog",
-            "Query performance optimization (Z-Ordering) and Delta Lake time-travel"
+            "Ingestion brute des transactions financières à haut débit dans la couche Bronze",
+            "Nettoyage, déduplication et détection d'anomalies / fraudes dans la couche Silver",
+            "Agrégations d'indicateurs clés métier et data marts analytiques dans la couche Gold",
+            "Gouvernance des données, lignage et contrôle d'accès centralisés avec Unity Catalog",
+            "Optimisation des requêtes (Z-Ordering) et time-travel Delta Lake"
           ]
         },
         {
           label: "Morocco DataHub",
-          name: "Morocco DataHub — Unified Moroccan Data API Platform",
-          context: "Flagship Project · DataTech & National Open Data APIs",
-          desc: "An ambitious DataTech project aimed at centralizing, processing, standardizing, and distributing Moroccan public datasets (HCP, Open Data, Bank Al-Maghrib) through automated ETL pipelines and a unified, modern FastAPI REST suite.",
+          name: "Morocco DataHub — Plateforme API Unifiée des Données Marocaines",
+          context: "Projet Phare · DataTech & APIs Open Data Nationales",
+          desc: "Projet DataTech d'envergure visant à centraliser, traiter, standardiser et distribuer les jeux de données publics marocains (HCP, Open Data, Bank Al-Maghrib) via des pipelines ETL automatisés et une suite d'APIs REST modernes avec FastAPI.",
           features: [
-            "Automated ingestion from official Moroccan sources (HCP, data.gov.ma, etc.)",
-            "Automated pipelines for data cleansing, standardization, and quality validation",
-            "Structured relational modeling and persistence in PostgreSQL",
-            "Secure, high-performance, and OpenAPI-documented REST endpoints with FastAPI",
-            "Empowering developers, researchers, and enterprises with structured Moroccan data"
+            "Ingestion automatisée depuis les sources officielles marocaines (HCP, data.gov.ma, etc.)",
+            "Pipelines automatisés de nettoyage, standardisation et contrôle de qualité",
+            "Modélisation relationnelle structurée et persistance dans PostgreSQL",
+            "Endpoints REST sécurisés, ultra-rapides et documentés OpenAPI avec FastAPI",
+            "Mise à disposition pour développeurs, chercheurs et entreprises de données marocaines fiables"
           ]
         },
         {
-          label: "Microservices Library",
-          name: "Library management system built on microservices",
-          context: "FSBM · Casablanca · Academic Project",
-          desc: "Designed and developed a library management application with a user-friendly interface and an architecture that eases maintenance and system evolution. Built on microservices to ensure scalability and component independence.",
+          label: "Bibliothèque microservices",
+          name: "Système de Gestion de Bibliothèque en Microservices",
+          context: "FSBM · Casablanca · Projet académique",
+          desc: "Conception et développement d'une application de gestion de bibliothèque avec une interface intuitive et une architecture facilitant la maintenance et l'évolutivité du système. Conçue en microservices pour garantir scalabilité et indépendance.",
           features: [
-            "Decoupled independent microservices (Catalog, Borrowing, User Management)",
-            "API Gateway and service discovery powered by Spring Cloud ecosystem",
-            "Full containerization with Docker and PostgreSQL database persistence",
-            "Secure communication and documented REST endpoints"
+            "Découpage en microservices indépendants (catalogue, emprunts, utilisateurs)",
+            "API Gateway et découverte de services via l'écosystème Spring Cloud",
+            "Conteneurisation complète avec Docker et persistance PostgreSQL",
+            "Communication sécurisée et endpoints REST documentés"
           ]
         },
         {
-          label: "Administrative Documents",
-          name: "Administrative document management and verification system",
-          context: "FSBM · Casablanca · Academic Project",
-          desc: "Web solution allowing citizens and administrations to submit, view and verify administrative documents in a secure and transparent way, with an intuitive interface for document management and real-time status tracking.",
+          label: "Documents administratifs",
+          name: "Système de Gestion et de Vérification des Documents Administratifs",
+          context: "FSBM · Casablanca · Projet académique",
+          desc: "Solution web permettant aux citoyens et administrations de soumettre, consulter et vérifier des documents administratifs de manière sécurisée et transparente, avec suivi en temps réel de l'état d'avancement.",
           features: [
-            "Secure submission and verification of administrative records",
-            "Robust authentication and role-based access control (JWT)",
-            "Real-time status tracking and transparent audit trail",
-            "Responsive frontend built with Angular and Java Spring Boot backend"
+            "Soumission et vérification sécurisées des dossiers administratifs",
+            "Authentification robuste et contrôle d'accès basé sur les rôles (JWT)",
+            "Suivi de statut en temps réel et journal d'audit transparent",
+            "Frontend réactif en Angular et backend Java Spring Boot"
           ]
         },
         {
-          label: "Predictive Maintenance",
-          name: "Data platform for predictive maintenance",
-          context: "FSBM · Casablanca · Academic Project",
-          desc: "Designed a solution that collects and centralizes data from industrial equipment in order to monitor its condition, detect anomalies and anticipate maintenance needs using real-time streaming data.",
+          label: "Maintenance prédictive",
+          name: "Plateforme de Données pour la Maintenance Prédictive",
+          context: "FSBM · Casablanca · Projet académique",
+          desc: "Conception d'une solution collectant et centralisant les données d'équipements industriels pour surveiller leur état, détecter les anomalies et anticiper les pannes grâce au streaming temps réel.",
           features: [
-            "Ingestion and centralization of industrial IoT sensor metrics",
-            "Real-time vibration and temperature anomaly detection",
-            "Optimized time-series storage with InfluxDB",
-            "Automated alerting triggers and live Grafana monitoring dashboards"
+            "Ingestion et centralisation des métriques de capteurs IoT industriels",
+            "Détection d'anomalies en temps réel sur les vibrations et températures",
+            "Stockage de séries temporelles optimisé avec InfluxDB",
+            "Déclencheurs d'alertes automatisées et tableaux de bord Grafana en direct"
           ]
         },
         {
-          label: "Banking Transactions",
-          name: "Banking transaction processing and analysis system",
-          context: "FSBM · Casablanca · Academic Project",
-          desc: "Solution that centralizes and processes financial transactions to track operations, detect unusual behavior and produce key indicators for decision support and activity analytics.",
+          label: "Transactions bancaires",
+          name: "Système de Traitement et d'Analyse de Transactions Bancaires",
+          context: "FSBM · Casablanca · Projet académique",
+          desc: "Solution centralisant et traitant les flux de transactions financières afin de suivre les opérations, détecter les comportements inhabituels et produire des indicateurs clés d'aide à la décision.",
           features: [
-            "High-throughput transactional data processing pipeline",
-            "Rule-based detection for unusual or high-risk banking activity",
-            "Aggregated operational indicators and regulatory financial reporting",
-            "Automated analytics reporting and decision-making dashboards"
+            "Pipeline de traitement de données transactionnelles à haut débit",
+            "Détection basée sur des règles pour repérer les activités bancaires inhabituelles",
+            "Agrégation d'indicateurs opérationnels et reporting financier réglementaire",
+            "Génération automatisée de rapports d'analyse et tableaux de bord décisionnels"
           ]
         }
       ]
@@ -506,11 +510,14 @@ const translations = {
     experience: {
       label: "experience",
       title: "Where I've worked.",
+      aria: "Professional experience",
       marsa: {
         date: "Mar – Jul 2026",
         company: "Marsa Maroc",
         title: "Internship – Data Engineering & Development",
         badge: "current · internship",
+        badgeAria: "Current internship",
+        listAria: "Missions at Marsa Maroc",
         items: [
           "Took part in the design and management of data-focused solutions",
           "Developed processes to collect, organize and exploit data",
@@ -523,6 +530,7 @@ const translations = {
         date: "Jul – Sep 2025",
         company: "Jisr",
         title: "Internship – Development",
+        listAria: "Missions at Jisr",
         items: [
           "Designed and developed features for web applications",
           "Contributed to the development of user interfaces and server-side features",

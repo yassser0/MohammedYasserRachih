@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=3.1" />
 </head>
 <body>
 
@@ -221,7 +221,7 @@
   </section>
 
   <!-- ── EXPERIENCE ── -->
-  <section id="experience" aria-label="Expériences professionnelles">
+  <section id="experience" aria-label="Expériences professionnelles" data-i18n-aria="experience.aria">
     <p class="section-label reveal" data-i18n="experience.label">expérience</p>
     <h2 class="section-title reveal reveal-delay-1" data-i18n="experience.title">Où j'ai travaillé.</h2>
     <div class="experience-grid">
@@ -230,8 +230,8 @@
         <p class="exp-date" data-i18n="experience.marsa.date">Mars – Juil. 2026</p>
         <h3 class="exp-company" data-i18n="experience.marsa.company">Marsa Maroc</h3>
         <p class="exp-title" data-i18n="experience.marsa.title">Stage Data Engineering &amp; Développement</p>
-        <span class="exp-current" aria-label="Stage en cours" data-i18n="experience.marsa.badge">en cours · stage</span>
-        <ul class="exp-list" aria-label="Missions chez Marsa Maroc">
+        <span class="exp-current" aria-label="Stage en cours" data-i18n="experience.marsa.badge" data-i18n-aria="experience.marsa.badgeAria">en cours · stage</span>
+        <ul class="exp-list" aria-label="Missions chez Marsa Maroc" data-i18n-aria="experience.marsa.listAria">
           <li data-i18n="experience.marsa.items.0">Participation à la conception et à la gestion de solutions dédiées aux données</li>
           <li data-i18n="experience.marsa.items.1">Développement de traitements pour collecter, organiser et exploiter les données</li>
           <li data-i18n="experience.marsa.items.2">Amélioration de la qualité, de la fiabilité et des performances des données</li>
@@ -244,7 +244,7 @@
         <p class="exp-date" data-i18n="experience.jisr.date">Juil. – Sept. 2025</p>
         <h3 class="exp-company" data-i18n="experience.jisr.company">Jisr</h3>
         <p class="exp-title" data-i18n="experience.jisr.title">Stage Développement</p>
-        <ul class="exp-list" aria-label="Missions chez Jisr">
+        <ul class="exp-list" aria-label="Missions chez Jisr" data-i18n-aria="experience.jisr.listAria">
           <li data-i18n="experience.jisr.items.0">Conception et développement de fonctionnalités pour des applications web</li>
           <li data-i18n="experience.jisr.items.1">Développement des interfaces et des fonctionnalités côté serveur</li>
           <li data-i18n="experience.jisr.items.2">Correction de problèmes et amélioration des applications existantes</li>
@@ -918,8 +918,8 @@
 
 <button class="back-top" aria-label="Retour en haut de page" title="Retour en haut">↑</button>
 
-<script src="js/i18n.js"></script>
-<script src="js/main.js" defer></script>
+<script src="js/i18n.js?v=3.1"></script>
+<script src="js/main.js?v=3.1" defer></script>
 
 <!-- Modal Lightbox pour les schémas d'architecture -->
 <div id="img-modal" class="img-modal" role="dialog" aria-modal="true" aria-label="Agrandissement de l'architecture" style="display:none;">
