@@ -377,7 +377,8 @@ const translations = {
     // Certifications
     certifications: {
       label: "certifications",
-      title: "Validé par Oracle."
+      title: "Validé par Oracle.",
+      verify: "Vérifier le badge officiel"
     },
 
     // Education
@@ -861,7 +862,8 @@ const translations = {
     // Certifications
     certifications: {
       label: "certifications",
-      title: "Validated by Oracle."
+      title: "Validated by Oracle.",
+      verify: "Verify official badge"
     },
 
     // Education
