@@ -354,23 +354,55 @@
   });
 })();
 
-// ─── EMAIL COPY ────────────────────────────────────────────────────────────────
+// ─── CLIPBOARD COPY (EMAIL & PHONE) ──────────────────────────────────────────
 (function initCopy() {
-  const copyBtn = document.getElementById('copy-email-btn');
-  if (!copyBtn) return;
-  copyBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText('yassirach17@gmail.com').then(() => {
-      const lang = (typeof currentLang !== 'undefined') ? currentLang : 'fr';
-      const copiedTxt = (lang === 'en') ? 'copied!' : 'copié !';
-      const defaultTxt = (lang === 'en') ? 'copy' : 'copier';
-      copyBtn.textContent = copiedTxt;
-      copyBtn.classList.add('copied');
-      setTimeout(() => {
-        copyBtn.textContent = defaultTxt;
-        copyBtn.classList.remove('copied');
-      }, 2000);
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        textArea.style.top = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (ok) resolve();
+        else reject(new Error('execCommand failed'));
+      } catch (err) {
+        reject(err);
+      }
     });
-  });
+  }
+
+  function setupCopyBtn(btnId, textToCopy) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyText(textToCopy).then(() => {
+        const lang = (typeof currentLang !== 'undefined') ? currentLang : (localStorage.getItem('portfolio_lang') || 'fr');
+        const copiedTxt = (lang === 'en') ? 'copied!' : 'copié !';
+        const defaultTxt = (lang === 'en') ? 'copy' : 'copier';
+        btn.textContent = copiedTxt;
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = defaultTxt;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.warn('Clipboard write failed:', err);
+      });
+    });
+  }
+
+  setupCopyBtn('copy-email-btn', 'yassirach17@gmail.com');
+  setupCopyBtn('copy-phone-btn', '+212 716-972238');
 })();
 
 // ─── CONTACT FORM ─────────────────────────────────────────────────────────────

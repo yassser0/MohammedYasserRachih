@@ -808,35 +808,88 @@ section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
 #contact { border-top: 1px dashed var(--border-light); }
 .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
 .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
-.contact-item { display: flex; align-items: center; gap: 1rem; background: var(--bg-white); border: 2px solid var(--border-light); border-radius: var(--radius-sm); padding: 1rem 1.25rem; transition: all var(--transition); }
-.contact-item:hover { border-color: var(--ink); box-shadow: var(--shadow); transform: translate(-2px, -2px); }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-white);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+}
+.contact-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translate(-2px, -2px);
+}
 .contact-icon {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: var(--bg);
+  background: var(--yellow-light);
   border: 2px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 0 var(--ink);
-  color: var(--ink);
+  color: var(--blue);
   flex-shrink: 0;
   transition: all var(--transition);
 }
 .contact-item:hover .contact-icon {
-  background: var(--yellow-light);
+  background: #fde047;
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 var(--ink);
-  color: var(--blue);
 }
 .contact-icon svg { width: 20px; height: 20px; flex-shrink: 0; }
-.contact-text a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: block; }
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  margin-bottom: 2px;
+}
+.contact-text a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: block;
+}
 .contact-text a:hover { color: var(--blue); }
-.contact-label { font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
-.copy-btn { font-family: var(--font-mono); font-size: 0.72rem; background: var(--bg); border: 1.5px solid var(--border-light); border-radius: 4px; padding: 2px 8px; cursor: pointer; margin-left: auto; flex-shrink: 0; transition: all var(--transition); }
-.copy-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
-.copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
+.copy-btn, .contact-action-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all var(--transition);
+}
+.copy-btn:hover, .contact-action-btn:hover {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.copy-btn.copied {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  box-shadow: 2px 2px 0 var(--ink);
+}
 .contact-form { background: var(--bg-white); border: 2.5px solid var(--ink); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
 .form-title { font-family: var(--font-hand); font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
