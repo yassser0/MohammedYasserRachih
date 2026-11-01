@@ -117,8 +117,6 @@ const translations = {
         date: "Mars – Juil. 2026",
         company: "Marsa Maroc",
         title: "Stage Data Engineering & Développement",
-        badge: "en cours · stage",
-        badgeAria: "Stage en cours",
         listAria: "Missions chez Marsa Maroc",
         items: [
           "Participation à la conception et à la gestion de solutions dédiées aux données",
@@ -129,7 +127,7 @@ const translations = {
         ]
       },
       jisr: {
-        date: "Juil. – Sept. 2025",
+        date: "Mars – Juil. 2024",
         company: "Jisr",
         title: "Stage Développement",
         listAria: "Missions chez Jisr",
@@ -602,8 +600,6 @@ const translations = {
         date: "Mar – Jul 2026",
         company: "Marsa Maroc",
         title: "Internship – Data Engineering & Development",
-        badge: "current · internship",
-        badgeAria: "Current internship",
         listAria: "Missions at Marsa Maroc",
         items: [
           "Took part in the design and management of data-focused solutions",
@@ -614,7 +610,7 @@ const translations = {
         ]
       },
       jisr: {
-        date: "Jul – Sep 2025",
+        date: "Mar. – Jul. 2024",
         company: "Jisr",
         title: "Internship – Development",
         listAria: "Missions at Jisr",
