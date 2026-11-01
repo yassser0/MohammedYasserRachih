@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=3.2" />
+  <link rel="stylesheet" href="css/style.css?v=3.3" />
 </head>
 <body>
 
@@ -686,37 +686,72 @@
     <!-- Filters and Legend Bar -->
     <div class="skills-controls reveal reveal-delay-2">
       <div class="skills-filters" role="tablist" aria-label="Filtrer les compétences par domaine">
-        <button type="button" class="skill-filter-btn active" data-filter="all" data-i18n="skills.filters.all">Tous (16)</button>
-        <button type="button" class="skill-filter-btn" data-filter="data" data-i18n="skills.filters.data">📊 Data Engineering</button>
-        <button type="button" class="skill-filter-btn" data-filter="dev" data-i18n="skills.filters.dev">💻 Développement &amp; BDD</button>
-        <button type="button" class="skill-filter-btn" data-filter="cloud" data-i18n="skills.filters.cloud">☁️ Cloud &amp; DevOps</button>
+        <button type="button" class="skill-filter-btn active" data-filter="all">
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <span data-i18n="skills.filters.all">Tous (16)</span>
+        </button>
+
+        <button type="button" class="skill-filter-btn" data-filter="data">
+          <!-- Database cylinder outline icon matching image 2 -->
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="6" rx="8" ry="3.5"></ellipse>
+            <path d="M4 6v12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V6"></path>
+            <path d="M4 12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5"></path>
+          </svg>
+          <span data-i18n="skills.filters.data">Data Engineering</span>
+        </button>
+
+        <button type="button" class="skill-filter-btn" data-filter="dev">
+          <!-- Code / Development outline icon -->
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span data-i18n="skills.filters.dev">Développement &amp; BDD</span>
+        </button>
+
+        <button type="button" class="skill-filter-btn" data-filter="cloud">
+          <!-- Cloud / DevOps outline icon -->
+          <svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+          </svg>
+          <span data-i18n="skills.filters.cloud">Cloud &amp; DevOps</span>
+        </button>
       </div>
 
       <div class="skills-legend-bar" role="list" aria-label="Légende des niveaux de réservoir">
         <span class="legend-pill" role="listitem">
-          <svg class="legend-cylinder-icon" viewBox="0 0 20 30" aria-hidden="true">
-            <path d="M3 5 L3 25 A7 3 0 0 0 17 25 L17 5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <ellipse cx="10" cy="5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M3 10 L3 25 A7 3 0 0 0 17 25 L17 10 Z" fill="#2563eb"/>
-            <ellipse cx="10" cy="10" rx="6.5" ry="2" fill="#93c5fd"/>
+          <svg class="legend-cylinder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="6" rx="8" ry="3.5" fill="none"/>
+            <path d="M4 6v12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V6" fill="none"/>
+            <path d="M4 12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5" fill="none"/>
+            <path d="M4 8v10c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V8" fill="#2563eb" stroke="none"/>
+            <ellipse cx="12" cy="8" rx="7.5" ry="3" fill="#93c5fd" stroke="#2563eb" stroke-width="0.8"/>
           </svg>
           <span data-i18n="skills.legendExpert">Expert (~90%)</span>
         </span>
         <span class="legend-pill" role="listitem">
-          <svg class="legend-cylinder-icon" viewBox="0 0 20 30" aria-hidden="true">
-            <path d="M3 5 L3 25 A7 3 0 0 0 17 25 L17 5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <ellipse cx="10" cy="5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M3 15 L3 25 A7 3 0 0 0 17 25 L17 15 Z" fill="#3b82f6"/>
-            <ellipse cx="10" cy="15" rx="6.5" ry="2" fill="#93c5fd"/>
+          <svg class="legend-cylinder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="6" rx="8" ry="3.5" fill="none"/>
+            <path d="M4 6v12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V6" fill="none"/>
+            <path d="M4 12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5" fill="none"/>
+            <path d="M4 12v6c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V12" fill="#3b82f6" stroke="none"/>
+            <ellipse cx="12" cy="12" rx="7.5" ry="3" fill="#93c5fd" stroke="#2563eb" stroke-width="0.8"/>
           </svg>
           <span data-i18n="skills.legendAdvanced">Avancé (~80%)</span>
         </span>
         <span class="legend-pill" role="listitem">
-          <svg class="legend-cylinder-icon" viewBox="0 0 20 30" aria-hidden="true">
-            <path d="M3 5 L3 25 A7 3 0 0 0 17 25 L17 5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <ellipse cx="10" cy="5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M3 19 L3 25 A7 3 0 0 0 17 25 L17 19 Z" fill="#60a5fa"/>
-            <ellipse cx="10" cy="19" rx="6.5" ry="2" fill="#bfdbfe"/>
+          <svg class="legend-cylinder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="6" rx="8" ry="3.5" fill="none"/>
+            <path d="M4 6v12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V6" fill="none"/>
+            <path d="M4 12c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5" fill="none"/>
+            <path d="M4 15v3c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V15" fill="#60a5fa" stroke="none"/>
+            <ellipse cx="12" cy="15" rx="7.5" ry="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="0.8"/>
           </svg>
           <span data-i18n="skills.legendIntermediate">Intermédiaire (~65%)</span>
         </span>

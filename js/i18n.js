@@ -62,7 +62,7 @@ const translations = {
       ],
       details: [
         {
-          title: "🗄️ Sources — Collecte des données",
+          title: "Sources — Collecte des données",
           items: [
             "Identification et connexion aux sources (BDD SQL, APIs, fichiers, flux streaming)",
             "Mise en place de connecteurs fiables et reproductibles",
@@ -71,7 +71,7 @@ const translations = {
           ]
         },
         {
-          title: "⬆️ Ingestion — ETL / ELT",
+          title: "Ingestion — ETL / ELT",
           items: [
             "Conception de pipelines ETL/ELT pour charger les données vers les couches cibles",
             "Orchestration des flux de chargement (incrémental ou full-load)",
@@ -80,7 +80,7 @@ const translations = {
           ]
         },
         {
-          title: "⚙️ Transformation — Qualité & Fiabilité",
+          title: "Transformation — Qualité & Fiabilité",
           items: [
             "Nettoyage et normalisation des données (déduplication, valeurs manquantes)",
             "Application des règles métier et enrichissement des données",
@@ -89,7 +89,7 @@ const translations = {
           ]
         },
         {
-          title: "🚀 Déploiement — CI/CD & Conteneurisation",
+          title: "Déploiement — CI/CD & Conteneurisation",
           items: [
             "Conteneurisation des pipelines et applications (Docker)",
             "Mise en place de chaînes CI/CD pour un déploiement automatisé",
@@ -98,7 +98,7 @@ const translations = {
           ]
         },
         {
-          title: "📊 Monitoring — Suivi en production",
+          title: "Monitoring — Suivi en production",
           items: [
             "Mise en place de tableaux de bord de suivi des traitements",
             "Alertes automatiques en cas d'échec ou d'anomalie",
@@ -262,9 +262,9 @@ const translations = {
       intro: "Architecture data, modélisation SQL, transformations et infrastructure cloud — visualisés sous forme de réservoirs de stockage de données.",
       filters: {
         all: "Tous (16)",
-        data: "📊 Data Engineering",
-        dev: "💻 Développement & BDD",
-        cloud: "☁️ Cloud & DevOps"
+        data: "Data Engineering",
+        dev: "Développement & BDD",
+        cloud: "Cloud & DevOps"
       },
       legendExpert: "Expert (~90%)",
       legendAdvanced: "Avancé (~80%)",
@@ -546,7 +546,7 @@ const translations = {
       ],
       details: [
         {
-          title: "🗄️ Sources — Data Collection",
+          title: "Sources — Data Collection",
           items: [
             "Identification and connection to diverse sources (SQL databases, APIs, files, streams)",
             "Implementation of reliable, repeatable connectors",
@@ -555,7 +555,7 @@ const translations = {
           ]
         },
         {
-          title: "⬆️ Ingestion — ETL / ELT",
+          title: "Ingestion — ETL / ELT",
           items: [
             "Design of robust ETL/ELT pipelines loading data to target layers",
             "Orchestration of ingestion workflows (incremental or full-load)",
@@ -564,7 +564,7 @@ const translations = {
           ]
         },
         {
-          title: "⚙️ Transformation — Quality & Reliability",
+          title: "Transformation — Quality & Reliability",
           items: [
             "Data cleansing and normalization (deduplication, handling null values)",
             "Business logic application and data enrichment",
@@ -573,7 +573,7 @@ const translations = {
           ]
         },
         {
-          title: "🚀 Deployment — CI/CD & Containerization",
+          title: "Deployment — CI/CD & Containerization",
           items: [
             "Containerization of data pipelines and services (Docker)",
             "CI/CD automation pipelines for reliable, automated deployment",
@@ -582,7 +582,7 @@ const translations = {
           ]
         },
         {
-          title: "📊 Monitoring — Production Observability",
+          title: "Monitoring — Production Observability",
           items: [
             "Dashboards for monitoring job execution and system health",
             "Automated alerting on processing failures or data drift",
@@ -746,9 +746,9 @@ const translations = {
       intro: "Data architecture, SQL modeling, transformations, and cloud infrastructure — visualized as data storage reservoir cylinders.",
       filters: {
         all: "All (16)",
-        data: "📊 Data Engineering",
-        dev: "💻 Development & DB",
-        cloud: "☁️ Cloud & DevOps"
+        data: "Data Engineering",
+        dev: "Development & DB",
+        cloud: "Cloud & DevOps"
       },
       legendExpert: "Expert (~90%)",
       legendAdvanced: "Advanced (~80%)",
