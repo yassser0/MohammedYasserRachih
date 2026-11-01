@@ -605,3 +605,318 @@
     }
   });
 })();
+
+// ─── DATA MESH / DAG PIPELINE BACKGROUND ANIMATION ────────────────────────────
+(function initDataMesh() {
+  const canvas = document.getElementById('bg-data-mesh');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let nodes = [];
+  let packets = [];
+  let animId = null;
+  let isTabActive = true;
+
+  // Mouse / Touch tracking
+  const pointer = {
+    x: -9999,
+    y: -9999,
+    radius: 160,
+    isActive: false
+  };
+
+  const NODE_TYPES = {
+    STANDARD: 'standard',
+    STREAM: 'stream',
+    WAREHOUSE: 'warehouse'
+  };
+
+  function getTargetNodeCount() {
+    const area = window.innerWidth * window.innerHeight;
+    if (window.innerWidth < 640) return 22;
+    if (window.innerWidth < 1024) return 35;
+    return Math.min(55, Math.floor(area / 28000));
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+
+    initNodes();
+  }
+
+  function initNodes() {
+    const count = getTargetNodeCount();
+    nodes = [];
+    packets = [];
+
+    for (let i = 0; i < count; i++) {
+      const rand = Math.random();
+      let type = NODE_TYPES.STANDARD;
+      let radius = 2.2 + Math.random() * 1.4;
+      let color = 'rgba(100, 116, 139, 0.45)';
+
+      if (rand < 0.16) {
+        type = NODE_TYPES.STREAM;
+        radius = 3.5;
+        color = 'rgba(37, 99, 235, 0.75)'; // Blue
+      } else if (rand < 0.32) {
+        type = NODE_TYPES.WAREHOUSE;
+        radius = 3.2;
+        color = 'rgba(217, 119, 6, 0.75)'; // Amber
+      }
+
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        baseRadius: radius,
+        radius: radius,
+        type: type,
+        color: color
+      });
+    }
+  }
+
+  function trySpawnPacket() {
+    if (packets.length >= 6 || nodes.length < 2) return;
+    if (Math.random() > 0.04) return;
+
+    const sourceIdx = Math.floor(Math.random() * nodes.length);
+    const source = nodes[sourceIdx];
+
+    let nearest = null;
+    let nearestDist = 140;
+    for (let i = 0; i < nodes.length; i++) {
+      if (i === sourceIdx) continue;
+      const target = nodes[i];
+      const dist = Math.hypot(target.x - source.x, target.y - source.y);
+      if (dist < nearestDist) {
+        nearest = target;
+        nearestDist = dist;
+      }
+    }
+
+    if (nearest) {
+      packets.push({
+        from: source,
+        to: nearest,
+        progress: 0,
+        speed: 0.015 + Math.random() * 0.015,
+        color: (source.type === NODE_TYPES.STREAM || nearest.type === NODE_TYPES.STREAM)
+          ? 'rgba(37, 99, 235, 0.9)'
+          : (source.type === NODE_TYPES.WAREHOUSE || nearest.type === NODE_TYPES.WAREHOUSE)
+            ? 'rgba(217, 119, 6, 0.9)'
+            : 'rgba(16, 185, 129, 0.85)'
+      });
+    }
+  }
+
+  function update() {
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+
+      node.x += node.vx;
+      node.y += node.vy;
+
+      if (node.x < 0) { node.x = 0; node.vx *= -1; }
+      else if (node.x > width) { node.x = width; node.vx *= -1; }
+      if (node.y < 0) { node.y = 0; node.vy *= -1; }
+      else if (node.y > height) { node.y = height; node.vy *= -1; }
+
+      if (pointer.isActive) {
+        const dx = node.x - pointer.x;
+        const dy = node.y - pointer.y;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist < pointer.radius && dist > 0) {
+          const force = (pointer.radius - dist) / pointer.radius;
+          node.x += (dx / dist) * force * 1.2;
+          node.y += (dy / dist) * force * 1.2;
+        }
+      }
+    }
+
+    for (let i = packets.length - 1; i >= 0; i--) {
+      const p = packets[i];
+      p.progress += p.speed;
+      if (p.progress >= 1) {
+        packets.splice(i, 1);
+      }
+    }
+
+    trySpawnPacket();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    const maxDist = 135;
+
+    // 1. Draw DAG Pipeline edges
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dist = Math.hypot(b.x - a.x, b.y - a.y);
+
+        if (dist < maxDist) {
+          const alpha = (1 - dist / maxDist) * 0.28;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+
+          if (a.type === NODE_TYPES.STREAM || b.type === NODE_TYPES.STREAM) {
+            ctx.strokeStyle = `rgba(37, 99, 235, ${alpha * 1.25})`;
+            ctx.lineWidth = 1;
+          } else if (a.type === NODE_TYPES.WAREHOUSE || b.type === NODE_TYPES.WAREHOUSE) {
+            ctx.strokeStyle = `rgba(217, 119, 6, ${alpha * 1.15})`;
+            ctx.lineWidth = 0.9;
+          } else {
+            ctx.strokeStyle = `rgba(148, 163, 184, ${alpha})`;
+            ctx.lineWidth = 0.75;
+          }
+          ctx.stroke();
+        }
+      }
+
+      // Interaction connection to cursor
+      if (pointer.isActive) {
+        const mdist = Math.hypot(a.x - pointer.x, a.y - pointer.y);
+        if (mdist < pointer.radius) {
+          const mAlpha = (1 - mdist / pointer.radius) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(pointer.x, pointer.y);
+          ctx.lineTo(a.x, a.y);
+          ctx.strokeStyle = `rgba(37, 99, 235, ${mAlpha})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // 2. Draw active data packets
+    for (let i = 0; i < packets.length; i++) {
+      const p = packets[i];
+      const px = p.from.x + (p.to.x - p.from.x) * p.progress;
+      const py = p.from.y + (p.to.y - p.from.y) * p.progress;
+
+      ctx.beginPath();
+      ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.shadowColor = p.color;
+      ctx.shadowBlur = 4;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    // 3. Draw nodes
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+
+      if (node.type === NODE_TYPES.STREAM) {
+        // Stream / Kafka Node (diamond with blue outline)
+        const sz = node.radius * 1.4;
+        ctx.save();
+        ctx.translate(node.x, node.y);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = node.color;
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(-sz / 2, -sz / 2, sz, sz);
+        ctx.strokeRect(-sz / 2, -sz / 2, sz, sz);
+        ctx.restore();
+      } else if (node.type === NODE_TYPES.WAREHOUSE) {
+        // Warehouse / Storage Node (amber square)
+        const sz = node.radius * 1.5;
+        ctx.fillStyle = node.color;
+        ctx.fillRect(node.x - sz / 2, node.y - sz / 2, sz, sz);
+      } else {
+        // Standard data point (circle)
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = node.color;
+        ctx.fill();
+      }
+    }
+  }
+
+  function loop() {
+    if (!isTabActive) return;
+    update();
+    draw();
+    animId = requestAnimationFrame(loop);
+  }
+
+  function onPointerMove(e) {
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+    pointer.isActive = true;
+  }
+
+  function onPointerLeave() {
+    pointer.isActive = false;
+    pointer.x = -9999;
+    pointer.y = -9999;
+  }
+
+  function onTouchMove(e) {
+    if (e.touches && e.touches[0]) {
+      pointer.x = e.touches[0].clientX;
+      pointer.y = e.touches[0].clientY;
+      pointer.isActive = true;
+    }
+  }
+
+  function onTouchEnd() {
+    pointer.isActive = false;
+    pointer.x = -9999;
+    pointer.y = -9999;
+  }
+
+  function onVisibilityChange() {
+    if (document.hidden) {
+      isTabActive = false;
+      if (animId) cancelAnimationFrame(animId);
+    } else {
+      isTabActive = true;
+      animId = requestAnimationFrame(loop);
+    }
+  }
+
+  let resizeTimer = null;
+  function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  }
+
+  window.addEventListener('resize', onResize);
+  window.addEventListener('mousemove', onPointerMove, { passive: true });
+  window.addEventListener('mouseleave', onPointerLeave, { passive: true });
+  window.addEventListener('touchmove', onTouchMove, { passive: true });
+  window.addEventListener('touchend', onTouchEnd, { passive: true });
+  document.addEventListener('visibilitychange', onVisibilityChange);
+
+  resize();
+
+  if (!prefersReducedMotion) {
+    animId = requestAnimationFrame(loop);
+  } else {
+    draw();
+  }
+})();

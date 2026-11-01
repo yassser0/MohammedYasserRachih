@@ -145,8 +145,24 @@ h1, h2, h3, h4 { font-family: var(--font-body); font-weight: 900; line-height: 1
 .btn-open:active { box-shadow: 2px 2px 0px #111; transform: translate(2px, 2px); }
 .enter-hint { font-family: var(--font-hand); font-size: 1rem; color: var(--ink-muted); }
 
+/* BACKGROUND DATA MESH ANIMATION */
+.bg-data-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
 /* MAIN */
-#main-content { padding-top: var(--nav-h); }
+#main-content {
+  padding-top: var(--nav-h);
+  position: relative;
+  z-index: 1;
+}
 
 section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
 .section-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.75rem; }
