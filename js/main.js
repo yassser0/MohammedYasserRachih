@@ -133,6 +133,16 @@
     return (typeof currentLang !== 'undefined') ? currentLang : (localStorage.getItem('portfolio_lang') || 'fr');
   }
 
+  const iconPlay = '<svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  const iconStop = '<svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  const iconRerun = '<svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>';
+
+  function setRunBtnState(type, text) {
+    if (!runBtn) return;
+    const icon = type === 'stop' ? iconStop : type === 'rerun' ? iconRerun : iconPlay;
+    runBtn.innerHTML = `${icon}<span>${text}</span>`;
+  }
+
   function updateStatus() {
     if (statusText) {
       const lang = getLang();
@@ -150,7 +160,7 @@
         statusText.textContent = isRunning
           ? `en cours · ${done}/5 étapes`
           : done === 5
-            ? 'terminé · 5/5 étapes ✓'
+            ? 'terminé · 5/5 étapes'
             : done > 0
               ? `en pause · ${done}/5 étapes`
               : 'inactif · 0/5 étapes';
@@ -166,12 +176,14 @@
     if (runBtn) {
       const lang = getLang();
       const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang].pipeline : null;
-      if (t) {
-        if (isRunning) {
-          runBtn.textContent = t.btnStop;
+      if (isRunning) {
+        setRunBtnState('stop', t ? t.btnStop : 'arrêter');
+      } else {
+        const done = document.querySelectorAll('.pipeline-step.done').length;
+        if (done === 5) {
+          setRunBtnState('rerun', t ? t.btnRerun : 'relancer le pipeline');
         } else {
-          const done = document.querySelectorAll('.pipeline-step.done').length;
-          runBtn.textContent = (done === 5) ? t.btnRerun : t.btnRun;
+          setRunBtnState('play', t ? t.btnRun : 'lancer le pipeline');
         }
       }
     }
@@ -193,7 +205,7 @@
         // Stop
         clearInterval(runInterval);
         isRunning = false;
-        runBtn.textContent = t ? t.btnRun : '▶ lancer le pipeline';
+        setRunBtnState('play', t ? t.btnRun : 'lancer le pipeline');
         updateStatus();
         return;
       }
@@ -202,7 +214,7 @@
       steps.forEach(s => { s.classList.remove('done', 'active'); });
       doneCount = 0;
       isRunning = true;
-      runBtn.textContent = t ? t.btnStop : '⏸ arrêter';
+      setRunBtnState('stop', t ? t.btnStop : 'arrêter');
       updateStatus();
 
       let current = 0;
@@ -212,7 +224,7 @@
         if (current >= steps.length) {
           clearInterval(runInterval);
           isRunning = false;
-          runBtn.textContent = t ? t.btnRerun : '▶ relancer le pipeline';
+          setRunBtnState('rerun', t ? t.btnRerun : 'relancer le pipeline');
           setActive(-1);
           updateStatus();
           return;
@@ -395,9 +407,10 @@
     const company = form.company ? form.company.value.trim() : '';
 
     if (!motif || !name || !email || !message) {
+      const alertIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="vertical-align:-2px;margin-right:6px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
       setStatus('error', isEn
-        ? '⚠️ Please fill in all required fields marked with *.'
-        : '⚠️ Veuillez remplir tous les champs obligatoires marqués d\'une *.');
+        ? `${alertIcon}Please fill in all required fields marked with *.`
+        : `${alertIcon}Veuillez remplir tous les champs obligatoires marqués d'une *.`);
       return;
     }
 
@@ -412,7 +425,7 @@
     const originalBtnText = submitBtn ? submitBtn.textContent : '';
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = isEn ? '⏳ Sending message...' : '⏳ Envoi en cours...';
+      submitBtn.innerHTML = '<svg class="btn-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>' + (isEn ? 'Sending message...' : 'Envoi en cours...') + '</span>';
     }
 
     try {
@@ -437,27 +450,31 @@
       const data = await response.json();
 
       if (data.success === 'true' || data.success === true) {
+        const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="vertical-align:-3px;margin-right:6px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
         setStatus('success', isEn
-          ? `✅ <strong>Message sent successfully!</strong> Thank you ${name}, I will reply to <em>${email}</em> very soon.`
-          : `✅ <strong>Message envoyé avec succès !</strong> Merci ${name}, je vous répondrai à l'adresse <em>${email}</em> très prochainement.`);
+          ? `${checkIcon}<strong>Message sent successfully!</strong> Thank you ${name}, I will reply to <em>${email}</em> very soon.`
+          : `${checkIcon}<strong>Message envoyé avec succès !</strong> Merci ${name}, je vous répondrai à l'adresse <em>${email}</em> très prochainement.`);
         form.reset();
         if (fallbackBox) fallbackBox.style.display = 'none';
       } else if (data.message && data.message.includes('Activation')) {
+        const mailIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="vertical-align:-3px;margin-right:6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>';
         setStatus('info', isEn
-          ? `📬 <strong>Form connected!</strong> FormSubmit sent an activation email to <strong>yassirach17@gmail.com</strong>. Please open your Gmail and click <em>"Activate Form"</em> once to receive all future messages.`
-          : `📬 <strong>Formulaire connecté !</strong> FormSubmit vous a envoyé un e-mail d'activation à <strong>yassirach17@gmail.com</strong>. Ouvrez votre boîte Gmail et cliquez sur <em>« Activate Form »</em> pour valider la réception automatique de vos messages.`);
+          ? `${mailIcon}<strong>Form connected!</strong> FormSubmit sent an activation email to <strong>yassirach17@gmail.com</strong>. Please open your Gmail and click <em>"Activate Form"</em> once to receive all future messages.`
+          : `${mailIcon}<strong>Formulaire connecté !</strong> FormSubmit vous a envoyé un e-mail d'activation à <strong>yassirach17@gmail.com</strong>. Ouvrez votre boîte Gmail et cliquez sur <em>« Activate Form »</em> pour valider la réception automatique de vos messages.`);
         if (fallbackBox) fallbackBox.style.display = 'block';
       } else {
+        const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="vertical-align:-3px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg>';
         setStatus('info', isEn
-          ? `✓ Your message has been prepared! You can also click below to send it directly via email.`
-          : `✓ Votre message a été préparé ! Vous pouvez aussi cliquer ci-dessous pour l'envoyer directement par email.`);
+          ? `${checkIcon}Your message has been prepared! You can also click below to send it directly via email.`
+          : `${checkIcon}Votre message a été préparé ! Vous pouvez aussi cliquer ci-dessous pour l'envoyer directement par email.`);
         if (fallbackBox) fallbackBox.style.display = 'block';
       }
     } catch (err) {
       console.warn('FormSubmit AJAX fallback:', err);
+      const alertIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="vertical-align:-2px;margin-right:6px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
       setStatus('info', isEn
-        ? `⚠️ Click below to send directly via your email app:`
-        : `⚠️ Cliquez ci-dessous pour envoyer directement depuis votre messagerie :`);
+        ? `${alertIcon}Click below to send directly via your email app:`
+        : `${alertIcon}Cliquez ci-dessous pour envoyer directement depuis votre messagerie :`);
       if (fallbackBox) fallbackBox.style.display = 'block';
     } finally {
       if (submitBtn) {

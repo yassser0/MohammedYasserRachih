@@ -37,7 +37,7 @@ const translations = {
       tags: ["Java · Spring Boot", "Python", "ETL / ELT", "Microservices", "CI/CD"],
       btnPipeline: "voir mon pipeline →",
       btnContact: "me contacter",
-      btnCv: "CV (FR) ↓",
+      btnCv: "CV (FR)",
       avatarLabel: "yasser · casablanca"
     },
 
@@ -47,12 +47,12 @@ const translations = {
       title: "Mon pipeline<br>de bout en bout.",
       statusIdle: "inactif · 0/5 étapes",
       statusRunning: "en cours · {n}/5 étapes",
-      statusDone: "terminé · 5/5 étapes ✓",
+      statusDone: "terminé · 5/5 étapes",
       statusPaused: "en pause · {n}/5 étapes",
-      btnRun: "▶ lancer le pipeline",
-      btnStop: "⏸ arrêter",
-      btnRerun: "▶ relancer le pipeline",
-      placeholder: "← Cliquez sur une étape pour en savoir plus, ou lancez le pipeline complet ▶",
+      btnRun: "lancer le pipeline",
+      btnStop: "arrêter",
+      btnRerun: "relancer le pipeline",
+      placeholder: "Cliquez sur une étape pour en savoir plus, ou lancez le pipeline complet.",
       steps: [
         { name: "Sources", desc: "Collecte des données brutes" },
         { name: "Ingestion", desc: "ETL / ELT vers les couches de données" },
@@ -150,7 +150,7 @@ const translations = {
       navHint: "<kbd>←</kbd> <kbd>→</kbd> les flèches clavier fonctionnent aussi",
       btnPrev: "← préc.",
       btnNext: "suiv. →",
-      zoomHint: "🔍 Cliquez sur le schéma pour l'agrandir",
+      zoomHint: "Cliquez sur le schéma pour l'agrandir",
       list: [
         {
           label: "Streaming Temps Réel",
@@ -407,17 +407,17 @@ const translations = {
     languages: {
       label: "langues & qualités",
       title: "Au-delà du code.",
-      langTitle: "🌐 Langues",
-      softTitle: "✨ Soft skills",
-      arabic: { name: "🇲🇦 Arabe", level: "Langue maternelle" },
-      french: { name: "🇫🇷 Français", level: "Courant" },
-      english: { name: "🇬🇧 Anglais", level: "Intermédiaire" },
+      langTitle: "Langues",
+      softTitle: "Soft skills",
+      arabic: { name: "Arabe", level: "Langue maternelle" },
+      french: { name: "Français", level: "Courant" },
+      english: { name: "Anglais", level: "Intermédiaire" },
       softSkills: [
-        "🤝 Travail d'équipe",
-        "⏰ Ponctualité",
-        "💡 Proactivité",
-        "⚡ Gestion du temps",
-        "🔄 Adaptabilité"
+        "Travail d'équipe",
+        "Ponctualité",
+        "Proactivité",
+        "Gestion du temps",
+        "Adaptabilité"
       ]
     },
 
@@ -426,23 +426,23 @@ const translations = {
       label: "curriculum vitae",
       title: "Envie de l'avoir sur papier ?",
       subtitle: "Choisissez votre version préférée — Français ou Anglais, au format PDF.",
-      tabFr: "🇫🇷 Version Française",
-      tabEn: "🇬🇧 English Version",
+      tabFr: "Version Française",
+      tabEn: "English Version",
       cardFr: {
-        badge: "🇫🇷 CV Français",
+        badge: "CV Français",
         title: "Curriculum Vitae — Français",
         desc: "Profil Data Engineer Junior & Développeur Full-Stack · Format PDF A4 · 1 page.",
         details: "Formation Master Big Data · Stages Marsa Maroc & Jisr · Certifications Oracle",
-        btnDownload: "↓ Télécharger le CV Français (PDF)",
-        btnPreview: "👁️ Aperçu dans le navigateur"
+        btnDownload: "Télécharger le CV Français (PDF)",
+        btnPreview: "Aperçu dans le navigateur"
       },
       cardEn: {
-        badge: "🇬🇧 English Resume",
+        badge: "English Resume",
         title: "Curriculum Vitae — English",
         desc: "Junior Data Engineer & Full-Stack Developer · Format PDF A4 · 1 page.",
         details: "Master's in Data Science & Big Data · Marsa Maroc & Jisr · Oracle Certifications",
-        btnDownload: "↓ Download English Resume (PDF)",
-        btnPreview: "👁️ Open in browser"
+        btnDownload: "Download English Resume (PDF)",
+        btnPreview: "Open in browser"
       }
     },
 
@@ -457,7 +457,7 @@ const translations = {
       locationVal: "Casablanca, Maroc",
       btnCopy: "copier",
       btnCopied: "copié !",
-      formTitle: "Envoyez-moi un message 👋",
+      formTitle: "Envoyez-moi un message",
       reasonLabel: "Motif du message *",
       reasonPlaceholder: "Choisir un motif...",
       reasons: {
@@ -481,7 +481,7 @@ const translations = {
     footer: {
       tagline: "Data Engineer Junior & Développeur Full-Stack · Casablanca, Maroc",
       quote: "\"Les données ne mentent pas — encore faut-il bien les écouter.\"",
-      copy: "© 2026 Mohammed Yasser Rachih · Fait avec ☕ et beaucoup de pipelines"
+      copy: "© 2026 Mohammed Yasser Rachih · Fait avec passion et beaucoup de pipelines"
     }
   },
 
@@ -521,7 +521,7 @@ const translations = {
       tags: ["Java · Spring Boot", "Python", "ETL / ELT", "Microservices", "CI/CD"],
       btnPipeline: "view my pipeline →",
       btnContact: "contact me",
-      btnCv: "Resume (EN) ↓",
+      btnCv: "Resume (EN)",
       avatarLabel: "yasser · casablanca"
     },
 
@@ -531,12 +531,12 @@ const translations = {
       title: "My end-to-end<br>pipeline.",
       statusIdle: "idle · 0/5 steps",
       statusRunning: "running · {n}/5 steps",
-      statusDone: "completed · 5/5 steps ✓",
+      statusDone: "completed · 5/5 steps",
       statusPaused: "paused · {n}/5 steps",
-      btnRun: "▶ run pipeline",
-      btnStop: "⏸ pause",
-      btnRerun: "▶ rerun pipeline",
-      placeholder: "← Click on any step to learn more, or trigger the full pipeline ▶",
+      btnRun: "run pipeline",
+      btnStop: "pause",
+      btnRerun: "rerun pipeline",
+      placeholder: "Click on any step to learn more, or trigger the full pipeline.",
       steps: [
         { name: "Sources", desc: "Raw data collection & connectors" },
         { name: "Ingestion", desc: "ETL / ELT to target storage layers" },
@@ -634,7 +634,7 @@ const translations = {
       navHint: "<kbd>←</kbd> <kbd>→</kbd> arrow keys also work",
       btnPrev: "← prev.",
       btnNext: "next →",
-      zoomHint: "🔍 Click diagram to expand",
+      zoomHint: "Click diagram to expand",
       list: [
         {
           label: "Real-Time Streaming",
@@ -891,17 +891,17 @@ const translations = {
     languages: {
       label: "languages & soft skills",
       title: "Beyond code.",
-      langTitle: "🌐 Languages",
-      softTitle: "✨ Soft Skills",
-      arabic: { name: "🇲🇦 Arabic", level: "Native" },
-      french: { name: "🇫🇷 French", level: "Fluent" },
-      english: { name: "🇬🇧 English", level: "Intermediate" },
+      langTitle: "Languages",
+      softTitle: "Soft Skills",
+      arabic: { name: "Arabic", level: "Native" },
+      french: { name: "French", level: "Fluent" },
+      english: { name: "English", level: "Intermediate" },
       softSkills: [
-        "🤝 Teamwork",
-        "⏰ Punctuality",
-        "💡 Proactivity",
-        "⚡ Time management",
-        "🔄 Adaptability"
+        "Teamwork",
+        "Punctuality",
+        "Proactivity",
+        "Time management",
+        "Adaptability"
       ]
     },
 
@@ -910,23 +910,23 @@ const translations = {
       label: "curriculum vitae",
       title: "Looking for a printable copy?",
       subtitle: "Choose your preferred version — French or English, in high-quality PDF format.",
-      tabFr: "🇫🇷 French Version",
-      tabEn: "🇬🇧 English Version",
+      tabFr: "French Version",
+      tabEn: "English Version",
       cardFr: {
-        badge: "🇫🇷 French Resume",
+        badge: "French Resume",
         title: "Curriculum Vitae — French",
         desc: "Junior Data Engineer & Full-Stack Developer · A4 PDF · 1 page.",
         details: "Master's in Big Data · Marsa Maroc & Jisr Internships · Oracle Certifications",
-        btnDownload: "↓ Télécharger le CV Français (PDF)",
-        btnPreview: "👁️ Preview in browser"
+        btnDownload: "Download French Resume (PDF)",
+        btnPreview: "Preview in browser"
       },
       cardEn: {
-        badge: "🇬🇧 English Resume",
+        badge: "English Resume",
         title: "Curriculum Vitae — English",
         desc: "Junior Data Engineer & Full-Stack Developer · A4 PDF · 1 page.",
         details: "Master's in Big Data & Data Science · Marsa Maroc & Jisr · Oracle Certifications",
-        btnDownload: "↓ Download English Resume (PDF)",
-        btnPreview: "👁️ Open in browser"
+        btnDownload: "Download English Resume (PDF)",
+        btnPreview: "Open in browser"
       }
     },
 
@@ -941,7 +941,7 @@ const translations = {
       locationVal: "Casablanca, Morocco",
       btnCopy: "copy",
       btnCopied: "copied!",
-      formTitle: "Send me a message 👋",
+      formTitle: "Send me a message",
       reasonLabel: "Reason for contact *",
       reasonPlaceholder: "Select a reason...",
       reasons: {
@@ -965,7 +965,7 @@ const translations = {
     footer: {
       tagline: "Junior Data Engineer & Full-Stack Developer · Casablanca, Morocco",
       quote: "\"Data doesn't lie — as long as you listen carefully.\"",
-      copy: "© 2026 Mohammed Yasser Rachih · Built with ☕ and lots of pipelines"
+      copy: "© 2026 Mohammed Yasser Rachih · Built with passion and lots of pipelines"
     }
   }
 };
@@ -1025,8 +1025,13 @@ function setLanguage(lang) {
 
   // Update hero CV button text and target
   const heroCvBtn = document.getElementById('hero-cv-btn');
+  const heroCvText = document.getElementById('hero-cv-btn-text');
   if (heroCvBtn) {
-    heroCvBtn.textContent = lang === 'en' ? 'Resume (EN) ↓' : 'CV (FR) ↓';
+    if (heroCvText) {
+      heroCvText.textContent = lang === 'en' ? 'Resume (EN)' : 'CV (FR)';
+    } else {
+      heroCvBtn.textContent = lang === 'en' ? 'Resume (EN)' : 'CV (FR)';
+    }
     heroCvBtn.href = lang === 'en' ? 'assets/CV_Mohammed_Yasser_Rachih_EN.pdf' : 'assets/CV_Mohammed_Yasser_Rachih_FR.pdf';
     heroCvBtn.setAttribute('aria-label', lang === 'en' ? 'Download English Resume (PDF)' : 'Télécharger le CV Français (PDF)');
   }
