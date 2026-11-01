@@ -37,7 +37,7 @@ const translations = {
       tags: ["Java · Spring Boot", "Python", "ETL / ELT", "Microservices", "CI/CD"],
       btnPipeline: "voir mon pipeline →",
       btnContact: "me contacter",
-      btnCv: "CV (FR)",
+      btnCv: "CV",
       avatarLabel: "yasser · casablanca"
     },
 
@@ -521,7 +521,7 @@ const translations = {
       tags: ["Java · Spring Boot", "Python", "ETL / ELT", "Microservices", "CI/CD"],
       btnPipeline: "view my pipeline →",
       btnContact: "contact me",
-      btnCv: "Resume (EN)",
+      btnCv: "CV",
       avatarLabel: "yasser · casablanca"
     },
 
@@ -1028,12 +1028,12 @@ function setLanguage(lang) {
   const heroCvText = document.getElementById('hero-cv-btn-text');
   if (heroCvBtn) {
     if (heroCvText) {
-      heroCvText.textContent = lang === 'en' ? 'Resume (EN)' : 'CV (FR)';
+      heroCvText.textContent = 'CV';
     } else {
-      heroCvBtn.textContent = lang === 'en' ? 'Resume (EN)' : 'CV (FR)';
+      heroCvBtn.textContent = 'CV';
     }
-    heroCvBtn.href = lang === 'en' ? 'assets/CV_Mohammed_Yasser_Rachih_EN.pdf' : 'assets/CV_Mohammed_Yasser_Rachih_FR.pdf';
-    heroCvBtn.setAttribute('aria-label', lang === 'en' ? 'Download English Resume (PDF)' : 'Télécharger le CV Français (PDF)');
+    heroCvBtn.href = '#cv';
+    heroCvBtn.setAttribute('aria-label', lang === 'en' ? 'View and choose CV version' : 'Consulter et choisir la version du CV');
   }
 
   // Update select options in contact form
