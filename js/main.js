@@ -274,19 +274,72 @@
   showProject(0);
 })();
 
-// ─── SKILL BARS (animate when in view) ───────────────────────────────────────
+// ─── SKILL CYLINDERS & FILTERS ──────────────────────────────────────────────
 (function initSkills() {
+  const cards = document.querySelectorAll('.skill-card');
   const fills = document.querySelectorAll('.skill-fill');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const target = e.target.dataset.width;
-        setTimeout(() => { e.target.style.width = target + '%'; }, 200);
-        obs.unobserve(e.target);
-      }
+
+  // Animate cylinder liquid levels when visible
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('animated');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(c => obs.observe(c));
+
+    // Backward compatibility for standard progress bars if any
+    const fillObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const target = e.target.dataset.width;
+          setTimeout(() => { e.target.style.width = target + '%'; }, 200);
+          fillObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    fills.forEach(f => fillObs.observe(f));
+  } else {
+    cards.forEach(c => c.classList.add('animated'));
+    fills.forEach(f => { f.style.width = (f.dataset.width || 75) + '%'; });
+  }
+
+  // Interactive Card Selection (like the SQL card in target design)
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const wasActive = card.classList.contains('active');
+      cards.forEach(c => c.classList.remove('active'));
+      if (!wasActive) card.classList.add('active');
     });
-  }, { threshold: 0.3 });
-  fills.forEach(f => obs.observe(f));
+  });
+
+  // Category Filtering
+  const filterBtns = document.querySelectorAll('.skill-filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter || 'all';
+
+      cards.forEach(card => {
+        const categories = (card.dataset.category || '').split(' ');
+        const matches = (filter === 'all') || categories.includes(filter);
+
+        if (matches) {
+          card.classList.remove('is-hidden');
+          // re-trigger animation if entering view
+          setTimeout(() => card.classList.add('animated'), 50);
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    });
+  });
 })();
 
 // ─── EMAIL COPY ────────────────────────────────────────────────────────────────

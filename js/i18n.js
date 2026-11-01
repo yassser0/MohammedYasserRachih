@@ -259,31 +259,118 @@ const translations = {
     skills: {
       label: "compétences",
       title: "Ma boîte à outils.",
-      legendExpert: "Expert",
-      legendAdvanced: "Avancé",
-      legendIntermediate: "Intermédiaire",
-      catDev: "💻 Développement",
-      catDevOps: "☁️ DevOps & Cloud",
-      catData: "📊 Data Engineering",
+      intro: "Architecture data, modélisation SQL, transformations et infrastructure cloud — visualisés sous forme de réservoirs de stockage de données.",
+      filters: {
+        all: "Tous (16)",
+        data: "📊 Data Engineering",
+        dev: "💻 Développement & BDD",
+        cloud: "☁️ Cloud & DevOps"
+      },
+      legendExpert: "Expert (~90%)",
+      legendAdvanced: "Avancé (~80%)",
+      legendIntermediate: "Intermédiaire (~65%)",
       levels: {
-        expert: "Expert",
-        advanced: "Avancé",
-        intermediate: "Intermédiaire"
+        expert: "expert",
+        advanced: "avancé",
+        intermediate: "intermédiaire"
       },
       items: {
-        java: "Java (Spring Boot)",
-        python: "Python (programmation orientée data)",
-        microservices: "Architectures web distribuées (microservices)",
-        rest: "APIs REST",
-        sql: "SQL · Modélisation relationnelle",
-        cicd: "Automatisation CI/CD",
-        docker: "Conteneurisation (Docker)",
-        oci: "Oracle Cloud Infrastructure",
-        git: "Git · Gestion de versions",
-        etl: "Pipelines de données (ETL/ELT)",
-        quality: "Qualité & intégrité des données",
-        monitoring: "Surveillance & suivi des flux de données",
-        dbms: "MySQL · PostgreSQL"
+        sql: {
+          title: "SQL",
+          level: "expert",
+          tags: "query tuning · stored procs · modélisation",
+          tooltip: "Niveau Expert (90%) : requêtes complexes, CTEs, fenêtrage, indexation et optimisation"
+        },
+        snowflake: {
+          title: "Snowflake",
+          level: "expert",
+          tags: "star schema · SCD · data warehouse",
+          tooltip: "Niveau Expert (88%) : architecture cloud, virtual warehouses, Time Travel, modélisation dimensionnelle"
+        },
+        python: {
+          title: "Python",
+          level: "avancé",
+          tags: "PySpark · data processing · OOP",
+          tooltip: "Niveau Avancé (85%) : traitement de données, POO, scripts et intégration PySpark"
+        },
+        etl: {
+          title: "Pipelines ETL / ELT",
+          level: "avancé",
+          tags: "ingestion · transformation · flux",
+          tooltip: "Niveau Avancé (82%) : pipelines robustes, incrémentaux, idempotence et automatisation"
+        },
+        adf: {
+          title: "Azure Data Factory",
+          level: "avancé",
+          tags: "ETL · pipelines · triggers",
+          tooltip: "Niveau Avancé (80%) : orchestration de flux cloud, copy activities, linked services"
+        },
+        dbt: {
+          title: "dbt",
+          level: "avancé",
+          tags: "transformations · SQL · lineage",
+          tooltip: "Niveau Avancé (78%) : modélisation analytique, tests automatisés et traçabilité"
+        },
+        powerbi: {
+          title: "Power BI",
+          level: "avancé",
+          tags: "dashboards · DAX · datamarts",
+          tooltip: "Niveau Avancé (78%) : modélisation relationnelle, mesures DAX et reporting interactif"
+        },
+        spark: {
+          title: "Spark / Databricks",
+          level: "intermédiaire",
+          tags: "PySpark · big data · clusters",
+          tooltip: "Niveau Intermédiaire (65%) : calcul distribué, DataFrames PySpark et jobs Big Data"
+        },
+        dbms: {
+          title: "MySQL · PostgreSQL",
+          level: "expert",
+          tags: "ACID · indexation · réplication",
+          tooltip: "Niveau Expert (90%) : certifié Oracle MySQL 8.0 OCP, administration et transactions ACID"
+        },
+        java: {
+          title: "Java (Spring Boot)",
+          level: "avancé",
+          tags: "Spring Boot · APIs REST · JPA",
+          tooltip: "Niveau Avancé (82%) : certifié Oracle Java SE 17 OCP, microservices et POO avancée"
+        },
+        microservices: {
+          title: "APIs & Microservices",
+          level: "avancé",
+          tags: "REST APIs · DTOs · distribution",
+          tooltip: "Niveau Avancé (80%) : conception d'APIs REST modulaires, découplage et sécurité"
+        },
+        docker: {
+          title: "Docker",
+          level: "intermédiaire",
+          tags: "conteneurisation · Dockerfile · compose",
+          tooltip: "Niveau Intermédiaire (68%) : création d'images, Docker Compose et isolation d'environnements"
+        },
+        cloud: {
+          title: "Microsoft Azure & OCI",
+          level: "intermédiaire",
+          tags: "OCI DevOps · Azure ADLS · compute",
+          tooltip: "Niveau Intermédiaire (68%) : certifié OCI 2025 DevOps Professional, services cloud Azure & OCI"
+        },
+        git: {
+          title: "Git & Versioning",
+          level: "avancé",
+          tags: "branches · pull requests · workflows",
+          tooltip: "Niveau Avancé (85%) : gestion de branches, revues de code, rebase et collaboration GitHub"
+        },
+        cicd: {
+          title: "Automatisation CI/CD",
+          level: "intermédiaire",
+          tags: "GitHub Actions · tests · déploiement",
+          tooltip: "Niveau Intermédiaire (65%) : pipelines d'intégration continue, tests automatisés et déploiement"
+        },
+        quality: {
+          title: "Qualité & Monitoring",
+          level: "intermédiaire",
+          tags: "intégrité flux · métriques · alertes",
+          tooltip: "Niveau Intermédiaire (62%) : validation de schémas, détection d'anomalies et observabilité"
+        }
       }
     },
 
@@ -656,31 +743,118 @@ const translations = {
     skills: {
       label: "skills",
       title: "My technical toolbox.",
-      legendExpert: "Expert",
-      legendAdvanced: "Advanced",
-      legendIntermediate: "Intermediate",
-      catDev: "💻 Development",
-      catDevOps: "☁️ DevOps & Cloud",
-      catData: "📊 Data Engineering",
+      intro: "Data architecture, SQL modeling, transformations, and cloud infrastructure — visualized as data storage reservoir cylinders.",
+      filters: {
+        all: "All (16)",
+        data: "📊 Data Engineering",
+        dev: "💻 Development & DB",
+        cloud: "☁️ Cloud & DevOps"
+      },
+      legendExpert: "Expert (~90%)",
+      legendAdvanced: "Advanced (~80%)",
+      legendIntermediate: "Intermediate (~65%)",
       levels: {
-        expert: "Expert",
-        advanced: "Advanced",
-        intermediate: "Intermediate"
+        expert: "expert",
+        advanced: "advanced",
+        intermediate: "intermediate"
       },
       items: {
-        java: "Java (Spring Boot)",
-        python: "Python (data-oriented programming)",
-        microservices: "Distributed web architectures (microservices)",
-        rest: "REST APIs",
-        sql: "SQL · Relational modeling",
-        cicd: "CI/CD automation",
-        docker: "Containerization (Docker)",
-        oci: "Oracle Cloud Infrastructure",
-        git: "Git · Version control",
-        etl: "Data pipelines (ETL/ELT)",
-        quality: "Data quality & governance",
-        monitoring: "Data flow monitoring & observability",
-        dbms: "MySQL · PostgreSQL"
+        sql: {
+          title: "SQL",
+          level: "expert",
+          tags: "query tuning · stored procs · modeling",
+          tooltip: "Expert level (90%): complex queries, CTEs, window functions, indexing and optimization"
+        },
+        snowflake: {
+          title: "Snowflake",
+          level: "expert",
+          tags: "star schema · SCD · data warehouse",
+          tooltip: "Expert level (88%): cloud architecture, virtual warehouses, Time Travel, dimensional modeling"
+        },
+        python: {
+          title: "Python",
+          level: "advanced",
+          tags: "PySpark · data processing · OOP",
+          tooltip: "Advanced level (85%): data wrangling, OOP, automation scripts and PySpark integration"
+        },
+        etl: {
+          title: "ETL / ELT Pipelines",
+          level: "advanced",
+          tags: "ingestion · transformation · streams",
+          tooltip: "Advanced level (82%): robust pipelines, incremental loads, idempotency and monitoring"
+        },
+        adf: {
+          title: "Azure Data Factory",
+          level: "advanced",
+          tags: "ETL · pipelines · triggers",
+          tooltip: "Advanced level (80%): cloud pipeline orchestration, copy activities, linked services"
+        },
+        dbt: {
+          title: "dbt",
+          level: "advanced",
+          tags: "transformations · SQL · lineage",
+          tooltip: "Advanced level (78%): analytical modeling, automated testing and data lineage"
+        },
+        powerbi: {
+          title: "Power BI",
+          level: "advanced",
+          tags: "dashboards · DAX · datamarts",
+          tooltip: "Advanced level (78%): tabular modeling, complex DAX formulas and interactive reporting"
+        },
+        spark: {
+          title: "Spark / Databricks",
+          level: "intermediate",
+          tags: "PySpark · big data · clusters",
+          tooltip: "Intermediate level (65%): distributed computing, PySpark DataFrames and Big Data workloads"
+        },
+        dbms: {
+          title: "MySQL · PostgreSQL",
+          level: "expert",
+          tags: "ACID · indexing · replication",
+          tooltip: "Expert level (90%): Oracle MySQL 8.0 OCP certified, database administration and ACID transactions"
+        },
+        java: {
+          title: "Java (Spring Boot)",
+          level: "advanced",
+          tags: "Spring Boot · REST APIs · JPA",
+          tooltip: "Advanced level (82%): Oracle Java SE 17 OCP certified, microservices architecture and advanced OOP"
+        },
+        microservices: {
+          title: "APIs & Microservices",
+          level: "advanced",
+          tags: "REST APIs · DTOs · distribution",
+          tooltip: "Advanced level (80%): modular REST API design, decoupling and security best practices"
+        },
+        docker: {
+          title: "Docker",
+          level: "intermediate",
+          tags: "containerization · Dockerfile · compose",
+          tooltip: "Intermediate level (68%): image building, multi-stage builds, Docker Compose and environment isolation"
+        },
+        cloud: {
+          title: "Microsoft Azure & OCI",
+          level: "intermediate",
+          tags: "OCI DevOps · Azure ADLS · compute",
+          tooltip: "Intermediate level (68%): OCI 2025 DevOps Professional certified, Azure & OCI cloud infrastructure"
+        },
+        git: {
+          title: "Git & Versioning",
+          level: "advanced",
+          tags: "branches · pull requests · workflows",
+          tooltip: "Advanced level (85%): branch management, code reviews, rebasing and GitHub collaboration"
+        },
+        cicd: {
+          title: "CI/CD Automation",
+          level: "intermediate",
+          tags: "GitHub Actions · testing · deployment",
+          tooltip: "Intermediate level (65%): continuous integration pipelines, automated tests and automated deployment"
+        },
+        quality: {
+          title: "Quality & Monitoring",
+          level: "intermediate",
+          tags: "stream integrity · metrics · alerts",
+          tooltip: "Intermediate level (62%): schema validation, proactive anomaly detection and observability"
+        }
       }
     },
 

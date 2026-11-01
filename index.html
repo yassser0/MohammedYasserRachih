@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=3.1" />
+  <link rel="stylesheet" href="css/style.css?v=3.2" />
 </head>
 <body>
 
@@ -656,77 +656,490 @@
 
 <!-- ── SKILLS ── -->
   <section id="skills" aria-label="Compétences techniques">
-    <p class="section-label reveal" data-i18n="skills.label">compétences</p>
-    <h2 class="section-title reveal reveal-delay-1" data-i18n="skills.title">Ma boîte à outils.</h2>
-    <div class="skills-legend reveal reveal-delay-2" role="list" aria-label="Légende des niveaux de compétence">
-      <div class="legend-item" role="listitem"><span class="legend-dot expert" aria-hidden="true"></span><span data-i18n="skills.legendExpert">Expert</span></div>
-      <div class="legend-item" role="listitem"><span class="legend-dot advanced" aria-hidden="true"></span><span data-i18n="skills.legendAdvanced">Avancé</span></div>
-      <div class="legend-item" role="listitem"><span class="legend-dot intermediate" aria-hidden="true"></span><span data-i18n="skills.legendIntermediate">Intermédiaire</span></div>
+    <!-- Shared SVG Defs for Cylinder Gauges -->
+    <svg class="skills-svg-defs" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+      <defs>
+        <linearGradient id="db-liquid-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1e40af" />
+          <stop offset="25%" stop-color="#2563eb" />
+          <stop offset="70%" stop-color="#3b82f6" />
+          <stop offset="90%" stop-color="#60a5fa" />
+          <stop offset="100%" stop-color="#2563eb" />
+        </linearGradient>
+        <linearGradient id="db-meniscus-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#dbeafe" />
+          <stop offset="50%" stop-color="#bfdbfe" />
+          <stop offset="100%" stop-color="#93c5fd" />
+        </linearGradient>
+        <clipPath id="cylinder-tank-clip">
+          <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <div class="skills-header">
+      <p class="section-label reveal" data-i18n="skills.label">compétences</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="skills.title">Ma boîte à outils.</h2>
+      <p class="skills-intro reveal reveal-delay-1" data-i18n="skills.intro">Architecture data, modélisation SQL, transformations et infrastructure cloud — visualisés sous forme de réservoirs de stockage de données.</p>
     </div>
-    <div class="skills-grid">
 
-      <div class="skill-category reveal reveal-delay-1">
-        <h3 class="skill-cat-title" data-i18n="skills.catDev">Développement</h3>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.java">Java (Spring Boot)</span><span class="skill-level-label" data-i18n="skills.levels.advanced">Avancé</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Java Spring Boot 75%"><div class="skill-fill advanced" data-width="75"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.python">Python (programmation orientée data)</span><span class="skill-level-label" data-i18n="skills.levels.advanced">Avancé</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Python 72%"><div class="skill-fill advanced" data-width="72"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.microservices">Architectures web distribuées (microservices)</span><span class="skill-level-label" data-i18n="skills.levels.intermediate">Intermédiaire</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Microservices 60%"><div class="skill-fill intermediate" data-width="60"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.rest">APIs REST</span><span class="skill-level-label" data-i18n="skills.levels.advanced">Avancé</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="APIs REST 78%"><div class="skill-fill advanced" data-width="78"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.sql">SQL · Modélisation relationnelle</span><span class="skill-level-label" data-i18n="skills.levels.expert">Expert</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="SQL 88%"><div class="skill-fill expert" data-width="88"></div></div>
-        </div>
+    <!-- Filters and Legend Bar -->
+    <div class="skills-controls reveal reveal-delay-2">
+      <div class="skills-filters" role="tablist" aria-label="Filtrer les compétences par domaine">
+        <button type="button" class="skill-filter-btn active" data-filter="all" data-i18n="skills.filters.all">Tous (16)</button>
+        <button type="button" class="skill-filter-btn" data-filter="data" data-i18n="skills.filters.data">📊 Data Engineering</button>
+        <button type="button" class="skill-filter-btn" data-filter="dev" data-i18n="skills.filters.dev">💻 Développement &amp; BDD</button>
+        <button type="button" class="skill-filter-btn" data-filter="cloud" data-i18n="skills.filters.cloud">☁️ Cloud &amp; DevOps</button>
       </div>
 
-      <div class="skill-category reveal reveal-delay-2">
-        <h3 class="skill-cat-title" data-i18n="skills.catDevOps">DevOps &amp; Cloud</h3>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.cicd">Automatisation CI/CD</span><span class="skill-level-label" data-i18n="skills.levels.intermediate">Intermédiaire</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" aria-label="CI/CD 58%"><div class="skill-fill intermediate" data-width="58"></div></div>
+      <div class="skills-legend-bar" role="list" aria-label="Légende des niveaux de réservoir">
+        <span class="legend-pill" role="listitem">
+          <svg class="legend-cylinder-icon" viewBox="0 0 20 30" aria-hidden="true">
+            <path d="M3 5 L3 25 A7 3 0 0 0 17 25 L17 5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <ellipse cx="10" cy="5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M3 10 L3 25 A7 3 0 0 0 17 25 L17 10 Z" fill="#2563eb"/>
+            <ellipse cx="10" cy="10" rx="6.5" ry="2" fill="#93c5fd"/>
+          </svg>
+          <span data-i18n="skills.legendExpert">Expert (~90%)</span>
+        </span>
+        <span class="legend-pill" role="listitem">
+          <svg class="legend-cylinder-icon" viewBox="0 0 20 30" aria-hidden="true">
+            <path d="M3 5 L3 25 A7 3 0 0 0 17 25 L17 5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <ellipse cx="10" cy="5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M3 15 L3 25 A7 3 0 0 0 17 25 L17 15 Z" fill="#3b82f6"/>
+            <ellipse cx="10" cy="15" rx="6.5" ry="2" fill="#93c5fd"/>
+          </svg>
+          <span data-i18n="skills.legendAdvanced">Avancé (~80%)</span>
+        </span>
+        <span class="legend-pill" role="listitem">
+          <svg class="legend-cylinder-icon" viewBox="0 0 20 30" aria-hidden="true">
+            <path d="M3 5 L3 25 A7 3 0 0 0 17 25 L17 5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <ellipse cx="10" cy="5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M3 19 L3 25 A7 3 0 0 0 17 25 L17 19 Z" fill="#60a5fa"/>
+            <ellipse cx="10" cy="19" rx="6.5" ry="2" fill="#bfdbfe"/>
+          </svg>
+          <span data-i18n="skills.legendIntermediate">Intermédiaire (~65%)</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Skills 3D Cylinder Matrix Grid -->
+    <div class="skills-grid reveal reveal-delay-3" role="list" aria-label="Liste des compétences techniques">
+
+      <!-- 1. SQL (Expert 90%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data dev" data-level="90" style="--empty-offset: 52px;" title="Niveau : Expert (90%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.docker">Conteneurisation (Docker)</span><span class="skill-level-label" data-i18n="skills.levels.intermediate">Intermédiaire</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="Docker 62%"><div class="skill-fill intermediate" data-width="62"></div></div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="23" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="23" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.oci">Oracle Cloud Infrastructure</span><span class="skill-level-label" data-i18n="skills.levels.intermediate">Intermédiaire</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="Oracle Cloud 55%"><div class="skill-fill intermediate" data-width="55"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.git">Git · Gestion de versions</span><span class="skill-level-label" data-i18n="skills.levels.advanced">Avancé</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Git 80%"><div class="skill-fill advanced" data-width="80"></div></div>
-        </div>
+        <div class="skill-card-title" data-i18n="skills.items.sql.title">SQL</div>
+        <div class="skill-card-level" data-i18n="skills.items.sql.level">expert</div>
+        <div class="skill-card-tags" data-i18n="skills.items.sql.tags">query tuning · stored procs · modélisation</div>
       </div>
 
-      <div class="skill-category reveal reveal-delay-3">
-        <h3 class="skill-cat-title" data-i18n="skills.catData">Data Engineering</h3>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.etl">Pipelines de données (ETL/ELT)</span><span class="skill-level-label" data-i18n="skills.levels.advanced">Avancé</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="ETL/ELT 70%"><div class="skill-fill advanced" data-width="70"></div></div>
+      <!-- 2. Snowflake (Expert 88%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data" data-level="88" style="--empty-offset: 51px;" title="Niveau : Expert (88%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.quality">Qualité &amp; intégrité des données</span><span class="skill-level-label" data-i18n="skills.levels.intermediate">Intermédiaire</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Qualité données 60%"><div class="skill-fill intermediate" data-width="60"></div></div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="24" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="24" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.monitoring">Surveillance &amp; suivi des flux de données</span><span class="skill-level-label" data-i18n="skills.levels.intermediate">Intermédiaire</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" aria-label="Monitoring flux 58%"><div class="skill-fill intermediate" data-width="58"></div></div>
+        <div class="skill-card-title" data-i18n="skills.items.snowflake.title">Snowflake</div>
+        <div class="skill-card-level" data-i18n="skills.items.snowflake.level">expert</div>
+        <div class="skill-card-tags" data-i18n="skills.items.snowflake.tags">star schema · SCD · data warehouse</div>
+      </div>
+
+      <!-- 3. Python (Avancé 85%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data dev" data-level="85" style="--empty-offset: 49px;" title="Niveau : Avancé (85%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name" data-i18n="skills.items.dbms">MySQL · PostgreSQL</span><span class="skill-level-label" data-i18n="skills.levels.expert">Expert</span></div>
-          <div class="skill-tank" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="MySQL PostgreSQL 90%"><div class="skill-fill expert" data-width="90"></div></div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="26" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="26" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
         </div>
+        <div class="skill-card-title" data-i18n="skills.items.python.title">Python</div>
+        <div class="skill-card-level" data-i18n="skills.items.python.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.python.tags">PySpark · data processing · OOP</div>
+      </div>
+
+      <!-- 4. Pipelines ETL / ELT (Avancé 82%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data" data-level="82" style="--empty-offset: 48px;" title="Niveau : Avancé (82%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="27" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="27" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.etl.title">Pipelines ETL / ELT</div>
+        <div class="skill-card-level" data-i18n="skills.items.etl.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.etl.tags">ingestion · transformation · flux</div>
+      </div>
+
+      <!-- 5. Azure Data Factory (Avancé 80%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data cloud" data-level="80" style="--empty-offset: 46px;" title="Niveau : Avancé (80%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="29" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="29" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.adf.title">Azure Data Factory</div>
+        <div class="skill-card-level" data-i18n="skills.items.adf.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.adf.tags">ETL · pipelines · triggers</div>
+      </div>
+
+      <!-- 6. dbt (Avancé 78%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data" data-level="78" style="--empty-offset: 45px;" title="Niveau : Avancé (78%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="30" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="30" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.dbt.title">dbt</div>
+        <div class="skill-card-level" data-i18n="skills.items.dbt.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.dbt.tags">transformations · SQL · lineage</div>
+      </div>
+
+      <!-- 7. Power BI (Avancé 78%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data" data-level="78" style="--empty-offset: 45px;" title="Niveau : Avancé (78%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="30" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="30" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.powerbi.title">Power BI</div>
+        <div class="skill-card-level" data-i18n="skills.items.powerbi.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.powerbi.tags">dashboards · DAX · datamarts</div>
+      </div>
+
+      <!-- 8. Spark / Databricks (Intermédiaire 65%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data" data-level="65" style="--empty-offset: 38px;" title="Niveau : Intermédiaire (65%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="37" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="37" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.spark.title">Spark / Databricks</div>
+        <div class="skill-card-level" data-i18n="skills.items.spark.level">intermédiaire</div>
+        <div class="skill-card-tags" data-i18n="skills.items.spark.tags">PySpark · big data · clusters</div>
+      </div>
+
+      <!-- 9. MySQL · PostgreSQL (Expert 90%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data dev" data-level="90" style="--empty-offset: 52px;" title="Niveau : Expert (90%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="23" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="23" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.dbms.title">MySQL · PostgreSQL</div>
+        <div class="skill-card-level" data-i18n="skills.items.dbms.level">expert</div>
+        <div class="skill-card-tags" data-i18n="skills.items.dbms.tags">ACID · indexation · réplication</div>
+      </div>
+
+      <!-- 10. Java (Spring Boot) (Avancé 82%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="dev" data-level="82" style="--empty-offset: 48px;" title="Niveau : Avancé (82%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="27" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="27" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.java.title">Java (Spring Boot)</div>
+        <div class="skill-card-level" data-i18n="skills.items.java.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.java.tags">Spring Boot · APIs REST · JPA</div>
+      </div>
+
+      <!-- 11. APIs & Microservices (Avancé 80%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="dev" data-level="80" style="--empty-offset: 46px;" title="Niveau : Avancé (80%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="29" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="29" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.microservices.title">APIs &amp; Microservices</div>
+        <div class="skill-card-level" data-i18n="skills.items.microservices.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.microservices.tags">REST APIs · DTOs · distribution</div>
+      </div>
+
+      <!-- 12. Docker (Intermédiaire 68%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="cloud" data-level="68" style="--empty-offset: 39px;" title="Niveau : Intermédiaire (68%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="36" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="36" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.docker.title">Docker</div>
+        <div class="skill-card-level" data-i18n="skills.items.docker.level">intermédiaire</div>
+        <div class="skill-card-tags" data-i18n="skills.items.docker.tags">conteneurisation · Dockerfile · compose</div>
+      </div>
+
+      <!-- 13. Microsoft Azure & OCI (Intermédiaire 68%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="cloud" data-level="68" style="--empty-offset: 39px;" title="Niveau : Intermédiaire (68%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="36" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="36" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.cloud.title">Microsoft Azure &amp; OCI</div>
+        <div class="skill-card-level" data-i18n="skills.items.cloud.level">intermédiaire</div>
+        <div class="skill-card-tags" data-i18n="skills.items.cloud.tags">OCI DevOps · Azure ADLS · compute</div>
+      </div>
+
+      <!-- 14. Git & Versioning (Avancé 85%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="cloud dev" data-level="85" style="--empty-offset: 49px;" title="Niveau : Avancé (85%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="26" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="26" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.git.title">Git &amp; Versioning</div>
+        <div class="skill-card-level" data-i18n="skills.items.git.level">avancé</div>
+        <div class="skill-card-tags" data-i18n="skills.items.git.tags">branches · pull requests · workflows</div>
+      </div>
+
+      <!-- 15. Automatisation CI/CD (Intermédiaire 65%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="cloud" data-level="65" style="--empty-offset: 38px;" title="Niveau : Intermédiaire (65%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="37" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="37" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.cicd.title">Automatisation CI/CD</div>
+        <div class="skill-card-level" data-i18n="skills.items.cicd.level">intermédiaire</div>
+        <div class="skill-card-tags" data-i18n="skills.items.cicd.tags">GitHub Actions · tests · déploiement</div>
+      </div>
+
+      <!-- 16. Qualité & Monitoring (Intermédiaire 62%) -->
+      <div class="skill-card" role="listitem" tabindex="0" data-category="data cloud" data-level="62" style="--empty-offset: 36px;" title="Niveau : Intermédiaire (62%)">
+        <div class="skill-card-badge" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          </svg>
+        </div>
+        <div class="cylinder-wrap">
+          <svg class="cylinder-svg" viewBox="0 0 60 92" aria-hidden="true">
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14 A 21 7 0 0 0 9 14 Z" fill="rgba(235, 242, 252, 0.7)" />
+            <g clip-path="url(#cylinder-tank-clip)">
+              <g class="cylinder-liquid">
+                <rect class="liquid-body" x="8" y="39" width="44" height="75" fill="url(#db-liquid-gradient)" />
+                <ellipse class="liquid-surface" cx="30" cy="39" rx="20.5" ry="6.5" fill="url(#db-meniscus-gradient)" stroke="#2563eb" stroke-width="0.8" />
+              </g>
+            </g>
+            <line x1="14" y1="18" x2="14" y2="72" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M 9 14 L 9 75 A 21 7 0 0 0 51 75 L 51 14" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" />
+            <ellipse cx="30" cy="14" rx="21" ry="7" fill="rgba(255, 255, 255, 0.88)" stroke="var(--ink)" stroke-width="2.5" />
+          </svg>
+        </div>
+        <div class="skill-card-title" data-i18n="skills.items.quality.title">Qualité &amp; Monitoring</div>
+        <div class="skill-card-level" data-i18n="skills.items.quality.level">intermédiaire</div>
+        <div class="skill-card-tags" data-i18n="skills.items.quality.tags">intégrité des flux · métriques · alertes</div>
       </div>
 
     </div>
