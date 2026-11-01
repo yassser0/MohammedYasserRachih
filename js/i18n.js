@@ -14,7 +14,6 @@ const translations = {
       muted1: "# Connexion à la base de données...",
       muted2: "> chargement du profil ",
       ok1: "Data Engineer Junior · Casablanca, Maroc",
-      ok2: "Java · Python · ETL/ELT · Microservices · CI/CD",
       cmdOpen: "open profile",
       btnOpen: "ouvrir le profil ↓",
       enterHint: "ou appuyer sur Entrée ↵"
@@ -500,7 +499,6 @@ const translations = {
       muted1: "# Connecting to database...",
       muted2: "> loading profile ",
       ok1: "Junior Data Engineer · Casablanca, Morocco",
-      ok2: "Java · Python · ETL/ELT · Microservices · CI/CD",
       cmdOpen: "open profile",
       btnOpen: "open profile ↓",
       enterHint: "or press Enter ↵"
