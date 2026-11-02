@@ -31,6 +31,13 @@
     }
   });
 
+  // Tap anywhere on intro once CTA is ready to quickly enter
+  intro.addEventListener('click', (e) => {
+    if (cta.classList.contains('show') && e.target === intro) {
+      openProfile();
+    }
+  });
+
   // Lock scroll while intro visible
   document.body.style.overflow = 'hidden';
 })();
@@ -72,12 +79,33 @@
 
   // Mobile burger
   if (burger && mobileNav) {
-    burger.addEventListener('click', () => {
-      const open = mobileNav.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open);
+    function toggleMobileMenu(forceClose = false) {
+      const shouldOpen = forceClose ? false : !mobileNav.classList.contains('open');
+      mobileNav.classList.toggle('open', shouldOpen);
+      burger.classList.toggle('open', shouldOpen);
+      burger.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      document.body.style.overflow = shouldOpen ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
     });
+
     mobileLinks.forEach(link => {
-      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+      link.addEventListener('click', () => toggleMobileMenu(true));
+    });
+
+    // Close on click outside mobile menu
+    mobileNav.addEventListener('click', (e) => {
+      if (e.target === mobileNav) toggleMobileMenu(true);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        toggleMobileMenu(true);
+      }
     });
   }
 
@@ -127,6 +155,18 @@
     }
     const placeholder = document.getElementById('pipeline-placeholder');
     if (placeholder) placeholder.style.display = idx >= 0 ? 'none' : 'block';
+
+    // Auto-scroll step into view on mobile
+    if (idx >= 0 && steps[idx]) {
+      const container = document.querySelector('.pipeline-steps');
+      if (container && container.scrollWidth > container.clientWidth) {
+        const step = steps[idx];
+        const cRect = container.getBoundingClientRect();
+        const sRect = step.getBoundingClientRect();
+        const offset = (sRect.left - cRect.left) - (container.clientWidth / 2) + (step.clientWidth / 2);
+        container.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
   }
 
   function getLang() {
@@ -264,6 +304,18 @@
       p.style.display = i === idx ? 'block' : 'none';
     });
     if (counter) counter.textContent = `0${idx + 1} / 0${total}`;
+
+    // Auto-scroll active sketch item into view on mobile
+    if (sketches[idx]) {
+      const rail = document.querySelector('.sketch-rail');
+      if (rail && rail.scrollWidth > rail.clientWidth) {
+        const item = sketches[idx];
+        const rRect = rail.getBoundingClientRect();
+        const iRect = item.getBoundingClientRect();
+        const offset = (iRect.left - rRect.left) - (rail.clientWidth / 2) + (item.clientWidth / 2);
+        rail.scrollBy({ left: offset, behavior: 'smooth' });
+      }
+    }
   }
 
   sketches.forEach((s, i) => {
@@ -272,6 +324,35 @@
 
   if (prevBtn) prevBtn.addEventListener('click', () => showProject(currentProject - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => showProject(currentProject + 1));
+
+  // Touch swipe support on project card for mobile users
+  const projectDetail = document.querySelector('.project-detail');
+  if (projectDetail) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    projectDetail.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    projectDetail.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        const diffX = e.changedTouches[0].clientX - touchStartX;
+        const diffY = e.changedTouches[0].clientY - touchStartY;
+        // Horizontal swipe detected (diffX > 40px, and clearly horizontal)
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.3) {
+          if (diffX < 0) {
+            showProject(currentProject + 1); // Swipe left -> next
+          } else {
+            showProject(currentProject - 1); // Swipe right -> prev
+          }
+        }
+      }
+    }, { passive: true });
+  }
 
   document.addEventListener('keydown', (e) => {
     const projectsSection = document.getElementById('projects');
@@ -300,7 +381,7 @@
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
 
     cards.forEach(c => obs.observe(c));
 
