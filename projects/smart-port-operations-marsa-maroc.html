@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eeeef0" />
+
+  <!-- ═══ SEO CORE ═══ -->
+  <title>Smart Port Operations · Marsa Maroc Case Study — Mohammed Yasser Rachih</title>
+  <meta name="description"
+    content="Étude de cas : Plateforme de données et suivi des opérations portuaires réalisée lors du stage chez Marsa Maroc. Data engineering, qualité des données et monitoring par Mohammed Yasser Rachih." />
+  <meta name="keywords"
+    content="Marsa Maroc, Port Operations, Data Engineering, ETL, Data Quality, Monitoring, Casablanca, Morocco, Mohammed Yasser Rachih" />
+  <meta name="author" content="Mohammed Yasser Rachih" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html" />
+
+  <!-- ═══ HREFLANG ═══ -->
+  <link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html" />
+  <link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html" />
+  <link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Smart Port Operations · Marsa Maroc Case Study" />
+  <meta property="og:description"
+    content="Retour d'expérience technique : conception de pipelines de données, amélioration de la qualité et suivi des opérations chez Marsa Maroc." />
+  <meta property="og:url" content="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html" />
+  <meta property="og:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/icone-portfolio-MR.png" />
+  <meta property="og:site_name" content="Mohammed Yasser Rachih Portfolio" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Smart Port Operations · Marsa Maroc Case Study" />
+  <meta name="twitter:description" content="Data engineering, fiabilité des traitements et suivi d'opérations portuaires chez Marsa Maroc." />
+  <meta name="twitter:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/icone-portfolio-MR.png" />
+
+  <!-- ═══ ICONS & ASSETS ═══ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="../assets/icone-portfolio-MR.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/style.css?v=4.3" />
+
+  <!-- ═══ SCHEMA.ORG JSON-LD ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html#article",
+        "headline": "Smart Port Operations — Marsa Maroc Data Engineering Case Study",
+        "description": "Technical case study of data engineering, quality control, and monitoring solutions implemented for port operations tracking during an internship at Marsa Maroc.",
+        "image": "https://yassser0.github.io/MohammedYasserRachih/assets/icone-portfolio-MR.png",
+        "author": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih",
+          "jobTitle": "Junior Data Engineer",
+          "url": "https://yassser0.github.io/MohammedYasserRachih/#person"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih"
+        },
+        "datePublished": "2026-07-31",
+        "dateModified": "2026-11-10",
+        "keywords": ["Marsa Maroc", "Port Operations", "Data Engineering", "Data Quality", "Casablanca", "Morocco"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projets",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Smart Port Operations Marsa Maroc",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ═══════════ NAVIGATION SIMPLE ═══════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navigation secondaire">
+    <a href="../index.html" class="nav-logo">yasser.rachih</a>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html#experience">← Mon expérience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="project-page-container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span>/</span>
+      <a href="../index.html#projects">Projets</a>
+      <span>/</span>
+      <span aria-current="page">Smart Port Operations — Marsa Maroc</span>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="case-study-hero">
+      <span class="case-study-badge">Expérience Professionnelle · Industrie Portuaire &amp; Logistique</span>
+      <h1 class="case-study-title">Smart Port Operations – Marsa Maroc</h1>
+      <p class="case-study-subtitle">
+        Conception de solutions dédiées aux données, fiabilisation des flux de traitement et contribution au développement d’une plateforme de gestion et de suivi des opérations portuaires chez Marsa Maroc.
+      </p>
+
+      <div class="case-meta-grid" role="list" aria-label="Informations clés du projet">
+        <span class="case-meta-pill" role="listitem"><strong>Entreprise :</strong> Marsa Maroc</span>
+        <span class="case-meta-pill" role="listitem"><strong>Période :</strong> Mars – Juillet 2026</span>
+        <span class="case-meta-pill" role="listitem"><strong>Rôle :</strong> Stagiaire Data Engineering &amp; Développement</span>
+        <span class="case-meta-pill" role="listitem"><strong>Localisation :</strong> Casablanca, Maroc</span>
+      </div>
+    </header>
+
+    <!-- 1. Overview -->
+    <section class="case-card">
+      <h2>📌 1. Aperçu du projet (Project Overview)</h2>
+      <p>
+        <strong>Marsa Maroc</strong> est le leader national de la gestion des terminaux portuaires au Maroc, opérant dans plusieurs ports stratégiques dont Casablanca, Tanger Med et Jorf Lasfar. Au cours de ce stage de fin d’études en Data Engineering &amp; Développement, l’objectif principal a été de participer activement à la mise en place de mécanismes robustes de collecte, de fiabilisation et d'exploitation des données générées par les opérations portuaires quotidiennes.
+      </p>
+      <p>
+        Les interventions ont porté sur l'automatisation des traitements de données, le contrôle rigoureux de leur qualité et la mise à disposition d'outils de suivi pour les équipes opérationnelles.
+      </p>
+    </section>
+
+    <!-- 2. Business Problem -->
+    <section class="case-card">
+      <h2>💼 2. Problématique Métier (Business Problem)</h2>
+      <p>
+        Les terminaux portuaires fonctionnent en flux continu 24h/24 et 7j/7 avec une multiplicité d’acteurs (armateurs, manutentionnaires, transitaires, autorités portuaires) :
+      </p>
+      <ul>
+        <li><strong>Multiplicité des sources et hétérogénéité des données :</strong> Mouvements de conteneurs, pointages d'engins de levage, manifestes de navires et flux administratifs.</li>
+        <li><strong>Nécessité d’une fiabilité sans faille :</strong> Toute erreur sur le statut d'un conteneur ou le temps d'escale d'un navire a des répercussions directes sur la chaîne logistique et les coûts d'immobilisation.</li>
+        <li><strong>Besoin d'un monitoring proactif :</strong> Détecter sans délai les anomalies ou blocages dans les traitements pour éviter les retards dans la consolidation des indicateurs journaliers.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Technical Architecture -->
+    <section class="case-card">
+      <h2>🏗️ 3. Architecture &amp; Rôles Techniques</h2>
+      <p>
+        Le travail s'est articulé autour d'une chaîne structurée reliant les systèmes opérationnels internes aux outils de supervision :
+      </p>
+
+      <div class="case-pipeline-step-box">
+        <h4>1. Collecte &amp; Ingestion</h4>
+        <p>Développement de traitements assurant la récupération périodique et l'organisation des données en provenance des bases de données de gestion portuaire.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>2. Contrôle Qualité &amp; Fiabilisation</h4>
+        <p>Mise en place de règles de validation automatiques visant à éradiquer les incohérences, identifier les données manquantes et garantir la cohérence temporelle des escales.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>3. Suivi &amp; Détection des Incidents</h4>
+        <p>Création d'alertes et de tableaux de bord techniques pour suivre le bon déroulement des jobs et alerter immédiatement en cas d'échec ou d'écart inhabituel.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>4. Plateforme Applicative Métier</h4>
+        <p>Participation au développement de modules applicatifs facilitant la consultation et le suivi en temps réel de l'état des opérations par les équipes sur site.</p>
+      </div>
+    </section>
+
+    <!-- 4. Technologies Used -->
+    <section class="case-card">
+      <h2>🛠️ 4. Technologies &amp; Outils Utilisés</h2>
+      <div class="case-tech-cloud">
+        <span class="tag">SQL &amp; Modélisation</span>
+        <span class="tag">Python</span>
+        <span class="tag">Pipelines ETL/ELT</span>
+        <span class="tag">PostgreSQL / Oracle</span>
+        <span class="tag">Qualité des Données</span>
+        <span class="tag">Monitoring de Flux</span>
+        <span class="tag">Java / Backend</span>
+        <span class="tag">Git &amp; Gestion de versions</span>
+      </div>
+      <ul>
+        <li><strong>SQL Avancé :</strong> Requêtes complexes, fenêtrage et procédures d'intégrité pour l'analyse des mouvements logistiques.</li>
+        <li><strong>Python :</strong> Scripts d'automatisation, parsing de fichiers et consolidation des jeux de données.</li>
+        <li><strong>Bases Relationnelles :</strong> Optimisation de requêtes et structuration des tables de suivi.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Data Pipeline Explanation -->
+    <section class="case-card">
+      <h2>⚙️ 5. Missions &amp; Traitements Réalisés</h2>
+      <ol>
+        <li>
+          <strong>Participation à la conception :</strong> Contribution à la définition des besoins en données pour la nouvelle plateforme de gestion portuaire.
+        </li>
+        <li>
+          <strong>Développement des scripts de collecte :</strong> Automatisation des flux d'ingestion pour minimiser les opérations manuelles chronophages.
+        </li>
+        <li>
+          <strong>Amélioration de la fiabilité :</strong> Élimination des doublons de pointage et harmonisation des identifiants d’équipements.
+        </li>
+        <li>
+          <strong>Mise en place de la surveillance :</strong> Tableaux de bord de suivi de l'état d'avancement des flux et détection proactive des pannes de synchronisation.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 6. Implementation Details -->
+    <section class="case-card">
+      <h2>💻 6. Détails d'Implémentation &amp; Compétences Développées</h2>
+      <ul>
+        <li><strong>Compréhension des enjeux industriels :</strong> Immersion directe dans le secteur portuaire et logistique, exigeant une rigueur opérationnelle stricte.</li>
+        <li><strong>Travail d'équipe &amp; Collaboration :</strong> Échanges réguliers avec les équipes techniques et les utilisateurs finaux pour adapter les fonctionnalités aux réalités du terrain.</li>
+        <li><strong>Résilience des traitements :</strong> Conception de scripts avec reprise automatique sur incident et journalisation détaillée des anomalies.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Results and Metrics -->
+    <section class="case-card">
+      <h2>📊 7. Résultats &amp; Note de Confidentialité</h2>
+      <div class="case-metrics-grid">
+        <div class="case-metric-card">
+          <div class="metric-val">Fiabilité Accrue</div>
+          <div class="metric-label">Réduction des anomalies sur les rapports opérationnels quotidiens.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Automatisation</div>
+          <div class="metric-label">Suppression des tâches manuelles de consolidation de données.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Supervision</div>
+          <div class="metric-label">Visibilité claire sur le statut des traitements en temps réel.</div>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1.5px solid var(--ink); border-radius: var(--radius-sm); padding: 1.25rem; margin-top: 1.5rem;">
+        <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 0.5rem;">🔒 Note de Confidentialité d'Entreprise</h4>
+        <p style="font-size: 0.85rem; color: var(--ink-mid); margin-bottom: 0;">
+          Conformément aux accords de confidentialité et au secret professionnel régissant les activités stratégiques de Marsa Maroc, les codes sources propriétaires, les données transactionnelles internes, les détails d'infrastructure privée et les chiffres d'affaires ne sont pas divulgués publiquement. Cette page documente uniquement les compétences techniques et la méthodologie de travail appliquées.
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. Code & Repositories -->
+    <section class="case-card">
+      <h2>🔗 8. Références &amp; Liens Publics</h2>
+      <p>
+        Pour consulter mes projets personnels open source et mes architectures publiques de référence, rendez-vous sur mon profil GitHub ou contactez-moi directement :
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          GitHub public ↗
+        </a>
+        <a href="../index.html#contact" class="btn btn-secondary">
+          Me contacter
+        </a>
+      </div>
+    </section>
+
+    <!-- 9. Navigation to other projects -->
+    <section class="other-projects-section">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Découvrir les autres projets</h2>
+      <p style="color: var(--ink-muted); font-size: 0.95rem;">Explorez mes autres réalisations en Data Engineering et Big Data :</p>
+
+      <div class="other-projects-grid">
+        <a href="databricks-fraud-detection.html" class="other-project-card">
+          <span class="other-tag">Lakehouse &amp; Sécurité</span>
+          <h4>Databricks Fraud Detection Pipeline</h4>
+          <p>Architecture Médaillon avec Delta Lake et détection d’anomalies sur les flux de transactions financières.</p>
+        </a>
+
+        <a href="data-quality-observability.html" class="other-project-card">
+          <span class="other-tag">Orchestration &amp; Qualité</span>
+          <h4>Data Quality &amp; Observability Platform</h4>
+          <p>Pipelines automatisés avec Apache Airflow, dbt, tests de qualité stricts et observabilité en production.</p>
+        </a>
+
+        <a href="morocco-datahub.html" class="other-project-card">
+          <span class="other-tag">DataTech &amp; Open Data</span>
+          <h4>Morocco DataHub</h4>
+          <p>Plateforme unifiée d’ingestion et distribution des jeux de données publics marocains via FastAPI et PostgreSQL.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo" style="margin-top: 4rem;">
+    <div class="footer-inner">
+      <p class="footer-logo">yasser.<span>rachih</span></p>
+      <p class="footer-tagline">Junior Data Engineer · Casablanca, Maroc</p>
+      <div class="footer-social" style="display:flex;gap:1rem;justify-content:center;margin:1rem 0;">
+        <a href="https://www.linkedin.com/in/mohammedyasserrachih/" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">LinkedIn ↗</a>
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">GitHub ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Mohammed Yasser Rachih · Fait avec passion et beaucoup de pipelines</p>
+    </div>
+  </footer>
+</body>
+
+</html>

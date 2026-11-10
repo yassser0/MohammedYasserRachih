@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eeeef0" />
+
+  <!-- ═══ SEO CORE ═══ -->
+  <title>Morocco DataHub · Unified Open Data &amp; API Platform — Mohammed Yasser Rachih</title>
+  <meta name="description"
+    content="Étude de cas détaillée : Morocco DataHub, plateforme unifiée centralisant les données publiques marocaines via des pipelines ETL et des APIs REST FastAPI. Conçu par Mohammed Yasser Rachih, Junior Data Engineer." />
+  <meta name="keywords"
+    content="Morocco DataHub, Open Data Morocco, FastAPI, Python ETL, PostgreSQL, Docker, Big Data Morocco, Data Engineering Casablanca, Mohammed Yasser Rachih" />
+  <meta name="author" content="Mohammed Yasser Rachih" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html" />
+
+  <!-- ═══ HREFLANG ═══ -->
+  <link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html" />
+  <link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html" />
+  <link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Morocco DataHub · Unified Moroccan Open Data &amp; API Platform" />
+  <meta property="og:description"
+    content="Plateforme unifiée d'ingestion, standardisation et distribution des jeux de données publics marocains via FastAPI et PostgreSQL." />
+  <meta property="og:url" content="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html" />
+  <meta property="og:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_morocco_datahub.png" />
+  <meta property="og:site_name" content="Mohammed Yasser Rachih Portfolio" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Morocco DataHub · Open Data &amp; APIs Marocaines" />
+  <meta name="twitter:description" content="Centralisation et APIs REST des données publiques marocaines avec Python, FastAPI et PostgreSQL." />
+  <meta name="twitter:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_morocco_datahub.png" />
+
+  <!-- ═══ ICONS & ASSETS ═══ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="../assets/icone-portfolio-MR.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/style.css?v=4.3" />
+
+  <!-- ═══ SCHEMA.ORG JSON-LD ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html#article",
+        "headline": "Morocco DataHub — Unified Moroccan Open Data & API Platform",
+        "description": "Technical case study of Morocco DataHub, a DataTech platform automating the ingestion, validation, and programmatic REST API distribution of Moroccan public datasets using Python, FastAPI, and PostgreSQL.",
+        "image": "https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_morocco_datahub.png",
+        "author": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih",
+          "jobTitle": "Junior Data Engineer",
+          "url": "https://yassser0.github.io/MohammedYasserRachih/#person"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih"
+        },
+        "datePublished": "2026-03-15",
+        "dateModified": "2026-11-10",
+        "keywords": ["Morocco DataHub", "FastAPI", "Python", "PostgreSQL", "Open Data Morocco", "ETL Pipelines", "Docker"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projets",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Morocco DataHub",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ═══════════ NAVIGATION SIMPLE ═══════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navigation secondaire">
+    <a href="../index.html" class="nav-logo">yasser.rachih</a>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html#projects">← Tous les projets</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="project-page-container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span>/</span>
+      <a href="../index.html#projects">Projets</a>
+      <span>/</span>
+      <span aria-current="page">Morocco DataHub</span>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="case-study-hero">
+      <span class="case-study-badge">Projet Phare · DataTech &amp; Écosystème National</span>
+      <h1 class="case-study-title">Morocco DataHub</h1>
+      <p class="case-study-subtitle">
+        Projet DataTech visant à centraliser, standardiser, fiabiliser et distribuer les jeux de données publics marocains (HCP, data.gov.ma, Bank Al-Maghrib) via des pipelines automatisés et une suite d’APIs REST modernes avec FastAPI.
+      </p>
+
+      <div class="case-meta-grid" role="list" aria-label="Informations clés du projet">
+        <span class="case-meta-pill" role="listitem"><strong>Rôle :</strong> Architecture Data &amp; Développement API</span>
+        <span class="case-meta-pill" role="listitem"><strong>Backend :</strong> FastAPI (Python 3.11)</span>
+        <span class="case-meta-pill" role="listitem"><strong>Base de données :</strong> PostgreSQL</span>
+        <span class="case-meta-pill" role="listitem"><strong>Documentation :</strong> Swagger / OpenAPI</span>
+      </div>
+    </header>
+
+    <!-- 1. Overview -->
+    <section class="case-card">
+      <h2>📌 1. Aperçu du projet (Project Overview)</h2>
+      <p>
+        <strong>Morocco DataHub</strong> répond au défi de l’accessibilité des données nationales marocaines pour les développeurs, data scientists, économistes et entreprises. Alors que de nombreuses institutions publiques produisent des rapports statistiques précieux, ces données sont souvent dispersées dans des formats fermés ou disparates (fichiers PDF, feuilles de calcul non standardisées, portails vieillissants).
+      </p>
+      <p>
+        Ce projet conçoit une plateforme centralisée capable de collecter périodiquement ces sources, de les nettoyer, d'imposer un schéma relationnel strict et de les exposer au moyen d'APIs REST ultra-rapides, paginées et documentées selon la spécification OpenAPI.
+      </p>
+    </section>
+
+    <!-- 2. Business Problem -->
+    <section class="case-card">
+      <h2>💼 2. Problématique Métier (Business Problem)</h2>
+      <ul>
+        <li><strong>Données morcelées et disparates :</strong> Absence de point d'entrée unique et programmable pour accéder aux statistiques démographiques, économiques ou territoriales du Maroc.</li>
+        <li><strong>Formats inadaptés à l'automatisation :</strong> Fichiers souvent publiés sous formats tabulaires irréguliers nécessitant de lourds pré-traitements manuels à chaque publication.</li>
+        <li><strong>Absence de documentation standardisée :</strong> Les développeurs ne disposent généralement pas d'APIs standardisées avec filtrage, pagination et gestion des types pour intégrer la donnée dans des applications web ou mobiles.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Technical Architecture -->
+    <section class="case-card">
+      <h2>🏗️ 3. Architecture Technique</h2>
+      <p>
+        L'architecture s'appuie sur une chaîne découplée entre l'acquisition de données, la persistance relationnelle et la couche de distribution API :
+      </p>
+
+      <div class="case-img-container">
+        <img src="../assets/projects/project_morocco_datahub.png"
+             alt="Schéma d'architecture Morocco DataHub montrant les sources HCP et Open Data, l'ETL de normalisation, PostgreSQL et les endpoints FastAPI"
+             width="800" height="500" loading="eager" />
+        <div class="case-img-caption">
+          Architecture Morocco DataHub : Ingestion multi-sources (HCP, open data officiel), pipelines de nettoyage, base PostgreSQL normalisée et API REST FastAPI haute performance.
+        </div>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>1. Connecteurs &amp; Ingestion ETL</h4>
+        <p>Scripts Python dédiés à la récupération automatisée des datasets ouverts, avec détection automatique de modifications et validation de la structure entrante.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>2. Stockage Relationnel Structuré (PostgreSQL)</h4>
+        <p>Modélisation de schémas normalisés (régions, provinces, indicateurs économiques, séries temporelles) avec indexation optimisée pour les requêtes analytiques fréquentes.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>3. Couche API REST FastAPI</h4>
+        <p>Micro-service Python asynchrone exposant des endpoints sécurisés, avec validation stricte des requêtes par Pydantic et sérialisation JSON haute vitesse.</p>
+      </div>
+    </section>
+
+    <!-- 4. Technologies Used -->
+    <section class="case-card">
+      <h2>🛠️ 4. Technologies Utilisées</h2>
+      <div class="case-tech-cloud">
+        <span class="tag">Python 3.11</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">Pydantic v2</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Docker</span>
+        <span class="tag">OpenAPI / Swagger</span>
+        <span class="tag">Uvicorn</span>
+      </div>
+      <ul>
+        <li><strong>FastAPI &amp; Uvicorn :</strong> Serveur ASGI asynchrone délivrant des temps de réponse de l'ordre de la milliseconde.</li>
+        <li><strong>Pydantic v2 :</strong> Validation rigoureuse des types de données et génération dynamique des schémas JSON.</li>
+        <li><strong>PostgreSQL :</strong> Moteur de base de données relationnelle robuste garantissant l'intégrité et l'évolutivité.</li>
+        <li><strong>Docker :</strong> Conteneurisation de la pile applicative (API + Base de données) pour un déploiement simplifié.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Data Pipeline Explanation -->
+    <section class="case-card">
+      <h2>⚙️ 5. Pipeline d'Ingestion &amp; Nettoyage</h2>
+      <ol>
+        <li>
+          <strong>Extraction :</strong> Téléchargement programmé des jeux de données ouverts (données HCP, Bank Al-Maghrib et data.gov.ma).
+        </li>
+        <li>
+          <strong>Nettoyage &amp; Standardisation :</strong> Remplacement des valeurs manquantes, harmonisation de la graphie des noms de provinces/régions et conversion des indicateurs en unités comparables.
+        </li>
+        <li>
+          <strong>Chargement relationnel :</strong> Insertion contrôlée dans PostgreSQL avec gestion des contraintes d'unicité et mise à jour incrémentale.
+        </li>
+        <li>
+          <strong>Distribution &amp; Caching :</strong> Mise en cache des requêtes courantes et exposition aux utilisateurs finaux via des routes documentées.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 6. Implementation Details -->
+    <section class="case-card">
+      <h2>💻 6. Détails d'Implémentation &amp; Fonctionnalités Clés</h2>
+      <ul>
+        <li><strong>Documentation interactive :</strong> Génération automatique de Swagger UI (<code>/docs</code>) et ReDoc permettant aux développeurs de tester les requêtes en un clic.</li>
+        <li><strong>Filtrage &amp; Pagination :</strong> Paramètres complets pour filtrer par année, région, indicateur et pagination standardisée (<code>limit</code> / <code>offset</code>).</li>
+        <li><strong>CORS &amp; Sécurité :</strong> Gestion des headers CORS pour permettre l'intégration aisée dans des applications frontend tierces.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Results and Metrics -->
+    <section class="case-card">
+      <h2>📊 7. Résultats, Indicateurs &amp; Précisions</h2>
+      <div class="case-metrics-grid">
+        <div class="case-metric-card">
+          <div class="metric-val">OpenAPI</div>
+          <div class="metric-label">Spécification 100% conforme pour intégration immédiate par les développeurs.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Asynchrone</div>
+          <div class="metric-label">Gestion haute performance des requêtes simultanées grâce à FastAPI et ASGI.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Structure Fixe</div>
+          <div class="metric-label">Données nettoyées et prêtes à l'emploi sans pré-traitements fastidieux.</div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 1rem; border-left: 3px solid var(--ink-muted); padding-left: 0.75rem;">
+        <em>Précision technique :</em> Le projet est actuellement configuré comme une suite de démonstration technique prouvant la faisabilité de l'unification des données nationales. L'extension continue du catalogue de datasets dépend de la disponibilité publique des données sources.
+      </p>
+    </section>
+
+    <!-- 8. Code & Repositories -->
+    <section class="case-card">
+      <h2>🔗 8. Code Source &amp; Liens</h2>
+      <p>
+        Les scripts d'ingestion et les modèles d'endpoints FastAPI sont disponibles sur mon profil GitHub :
+      </p>
+      <div style="margin-top: 1rem;">
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Voir mon profil GitHub ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- 9. Navigation to other projects -->
+    <section class="other-projects-section">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Découvrir les autres projets</h2>
+      <p style="color: var(--ink-muted); font-size: 0.95rem;">Explorez mes autres réalisations en Data Engineering et Big Data :</p>
+
+      <div class="other-projects-grid">
+        <a href="databricks-fraud-detection.html" class="other-project-card">
+          <span class="other-tag">Lakehouse &amp; Sécurité</span>
+          <h4>Databricks Fraud Detection Pipeline</h4>
+          <p>Architecture Médaillon avec Delta Lake et détection d’anomalies sur les flux de transactions financières.</p>
+        </a>
+
+        <a href="data-quality-observability.html" class="other-project-card">
+          <span class="other-tag">Orchestration &amp; Qualité</span>
+          <h4>Data Quality &amp; Observability Platform</h4>
+          <p>Pipelines automatisés avec Apache Airflow, dbt, tests de qualité stricts et observabilité en production.</p>
+        </a>
+
+        <a href="smart-port-operations-marsa-maroc.html" class="other-project-card">
+          <span class="other-tag">Industrie &amp; Logistique</span>
+          <h4>Smart Port Operations — Marsa Maroc</h4>
+          <p>Retour d’expérience sur la gestion et le suivi des flux opérationnels de données portuaires.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo" style="margin-top: 4rem;">
+    <div class="footer-inner">
+      <p class="footer-logo">yasser.<span>rachih</span></p>
+      <p class="footer-tagline">Junior Data Engineer · Casablanca, Maroc</p>
+      <div class="footer-social" style="display:flex;gap:1rem;justify-content:center;margin:1rem 0;">
+        <a href="https://www.linkedin.com/in/mohammedyasserrachih/" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">LinkedIn ↗</a>
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">GitHub ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Mohammed Yasser Rachih · Fait avec passion et beaucoup de pipelines</p>
+    </div>
+  </footer>
+</body>
+
+</html>

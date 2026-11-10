@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eeeef0" />
+
+  <!-- ═══ SEO CORE ═══ -->
+  <title>Data Quality &amp; Observability Platform · Airflow &amp; dbt — Mohammed Yasser Rachih</title>
+  <meta name="description"
+    content="Étude de cas détaillée : Plateforme d'orchestration ETL moderne avec Apache Airflow, dbt, tests automatisés d'intégrité de données et observabilité complète. Par Mohammed Yasser Rachih, Junior Data Engineer." />
+  <meta name="keywords"
+    content="Apache Airflow, dbt, Data Quality, Data Observability, ETL Pipeline, PostgreSQL, Snowflake, Docker, Data Engineering Morocco, Mohammed Yasser Rachih" />
+  <meta name="author" content="Mohammed Yasser Rachih" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html" />
+
+  <!-- ═══ HREFLANG ═══ -->
+  <link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html" />
+  <link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html" />
+  <link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Data Quality &amp; Observability Platform · Airflow &amp; dbt" />
+  <meta property="og:description"
+    content="Pipeline ETL robuste avec modélisation dbt, DAGs Airflow idempotents, tests de qualité stricts et observabilité." />
+  <meta property="og:url" content="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html" />
+  <meta property="og:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_airflow_etl.png" />
+  <meta property="og:site_name" content="Mohammed Yasser Rachih Portfolio" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Data Quality &amp; Observability Platform · Airflow &amp; dbt" />
+  <meta name="twitter:description" content="Orchestration ETL et observabilité des données avec Apache Airflow, dbt et tests automatisés." />
+  <meta name="twitter:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_airflow_etl.png" />
+
+  <!-- ═══ ICONS & ASSETS ═══ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="../assets/icone-portfolio-MR.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/style.css?v=4.3" />
+
+  <!-- ═══ SCHEMA.ORG JSON-LD ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html#article",
+        "headline": "Data Quality & Observability Platform with Apache Airflow and dbt",
+        "description": "Technical case study of an automated, resilient ETL data pipeline combining Apache Airflow DAG orchestration, dbt transformations, continuous data quality assertions, and Slack/Grafana alerting.",
+        "image": "https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_airflow_etl.png",
+        "author": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih",
+          "jobTitle": "Junior Data Engineer",
+          "url": "https://yassser0.github.io/MohammedYasserRachih/#person"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih"
+        },
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-11-10",
+        "keywords": ["Apache Airflow", "dbt", "Data Quality", "Observability", "PostgreSQL", "Snowflake", "ETL Pipelines"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projets",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Data Quality & Observability",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ═══════════ NAVIGATION SIMPLE ═══════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navigation secondaire">
+    <a href="../index.html" class="nav-logo">yasser.rachih</a>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html#projects">← Tous les projets</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="project-page-container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span>/</span>
+      <a href="../index.html#projects">Projets</a>
+      <span>/</span>
+      <span aria-current="page">Data Quality &amp; Observability</span>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="case-study-hero">
+      <span class="case-study-badge">Projet Phare · Orchestration &amp; Fiabilité Data</span>
+      <h1 class="case-study-title">Data Quality &amp; Observability Platform</h1>
+      <p class="case-study-subtitle">
+        Conception d'une plateforme d'ingestion et de transformation résiliente, orchestrée par Apache Airflow avec modélisation analytique sous dbt, intégrant des assertions automatiques de qualité des données et une observabilité proactive.
+      </p>
+
+      <div class="case-meta-grid" role="list" aria-label="Informations clés du projet">
+        <span class="case-meta-pill" role="listitem"><strong>Rôle :</strong> Conception &amp; Automatisation ETL</span>
+        <span class="case-meta-pill" role="listitem"><strong>Orchestration :</strong> Apache Airflow</span>
+        <span class="case-meta-pill" role="listitem"><strong>Transformation :</strong> dbt Core</span>
+        <span class="case-meta-pill" role="listitem"><strong>Conteneurisation :</strong> Docker Compose</span>
+      </div>
+    </header>
+
+    <!-- 1. Overview -->
+    <section class="case-card">
+      <h2>📌 1. Aperçu du projet (Project Overview)</h2>
+      <p>
+        Dans un écosystème moderne de données, les pipelines ne doivent pas seulement déplacer la donnée : ils doivent garantir qu'elle est <strong>exacte, fraîche, complète et traçable</strong>. Ce projet implémente un pipeline de bout en bout qui extrait des données multi-sources (APIs REST et fichiers CSV hétérogènes), les charge dans un Data Warehouse (PostgreSQL / Snowflake) et applique une batterie de tests dbt à chaque exécution avant de publier les data marts aux équipes métier.
+      </p>
+    </section>
+
+    <!-- 2. Business Problem -->
+    <section class="case-card">
+      <h2>💼 2. Problématique Métier (Business Problem)</h2>
+      <p>
+        Plus de 70% des incidents en entreprise liés aux tableaux de bord décisionnels proviennent de la dégradation silencieuse de la qualité des données (« Silent Data Corruption ») :
+      </p>
+      <ul>
+        <li><strong>Détection tardive des pannes :</strong> Les erreurs de schéma ou de valeurs nulles ne sont souvent découvertes que lorsque les utilisateurs finaux constatent des anomalies dans leurs KPI.</li>
+        <li><strong>Manque d'idempotence :</strong> En cas de plantage d'un batch à mi-chemin, les relances manuelles risquent de créer des doublons ou des incohérences relationnelles.</li>
+        <li><strong>Absence de lignage (Lineage) :</strong> Difficulté d'identifier l'origine exacte d'un champ calculé erroné parmi plusieurs dizaines de tables interconnectées.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Technical Architecture -->
+    <section class="case-card">
+      <h2>🏗️ 3. Architecture Technique &amp; Flux de Données</h2>
+      <p>
+        La solution s'articule autour d'un découplage propre entre l'orchestration, le stockage et les transformations modélisées :
+      </p>
+
+      <div class="case-img-container">
+        <img src="../assets/projects/project_airflow_etl.png"
+             alt="Schéma d'architecture Apache Airflow DAG Workflow, dbt models et alertes Slack"
+             width="800" height="500" loading="eager" />
+        <div class="case-img-caption">
+          Architecture du pipeline : DAG Airflow automatisé avec extraction API/CSV, validation d'intégrité, modélisation dbt et notifications Slack en cas d'anomalie.
+        </div>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>1. Ingestion Multi-Sources &amp; Staging</h4>
+        <p>Extraction programmée depuis des APIs externes et fichiers sources avec typage fort et chargement dans la couche de staging sans altération.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>2. DAG Airflow Idempotent</h4>
+        <p>Gestion stricte des dépendances avec tâches isolées, politiques de retry automatiques (exponential backoff) et alertes webhook en cas d'échec critique.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>3. Modélisation &amp; Tests dbt</h4>
+        <p>Transformations SQL modulaires avec tests natifs (<code>unique</code>, <code>not_null</code>, <code>relationships</code>, <code>accepted_values</code>) bloquant la propagation de données erronées.</p>
+      </div>
+    </section>
+
+    <!-- 4. Technologies Used -->
+    <section class="case-card">
+      <h2>🛠️ 4. Technologies Utilisées</h2>
+      <div class="case-tech-cloud">
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">dbt Core</span>
+        <span class="tag">Python 3.11</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Docker Compose</span>
+        <span class="tag">Slack Webhooks</span>
+        <span class="tag">Git</span>
+      </div>
+      <ul>
+        <li><strong>Apache Airflow :</strong> Orchestrateur de tâches avec exécuteur distribué et gestion des dépendances via des DAGs Python.</li>
+        <li><strong>dbt (data build tool) :</strong> Framework de modélisation SQL déclaratif avec génération automatique de documentation et de graph de lignage (DAG).</li>
+        <li><strong>PostgreSQL / Snowflake :</strong> Entrepôt de données relationnel cible gérant les schémas dimensionnels en étoile.</li>
+        <li><strong>Docker &amp; Docker Compose :</strong> Environnement entièrement reproductible isolant le scheduler, le webserver et les workers.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Data Pipeline Explanation -->
+    <section class="case-card">
+      <h2>⚙️ 5. Étapes de Traitement &amp; Contrôles Qualité</h2>
+      <ol>
+        <li>
+          <strong>Extraction &amp; Ingestion :</strong> Requêtes planifiées vers les APIs sources, vérification de fraîcheur des fichiers et validation de la structure JSON/CSV.
+        </li>
+        <li>
+          <strong>Exécution dbt test préalable :</strong> Vérification de l'unicité des clés primaires et de l'intégrité référentielle avant d'autoriser la transition vers les tables dimensionnelles.
+        </li>
+        <li>
+          <strong>Transformation dimensionnelle :</strong> Construction de tables de faits et de dimensions (SCD Type 1 &amp; Type 2 si applicable) pour faciliter la requête analytique.
+        </li>
+        <li>
+          <strong>Observabilité &amp; Alerte :</strong> Envoi automatique d'un rapport de synthèse via Slack Webhook comprenant le temps d'exécution, le nombre de lignes traitées et le statut des tests de qualité.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 6. Implementation Details -->
+    <section class="case-card">
+      <h2>💻 6. Détails d'Implémentation &amp; Robustesse</h2>
+      <ul>
+        <li><strong>Idempotence garantie :</strong> Les DAGs utilisent des fenêtres temporelles déterministes (<code>logical_date</code>) assurant qu'une relance historique n'altère pas les données existantes.</li>
+        <li><strong>Génération de documentation dbt :</strong> Documentation automatique des tables et colonnes avec visualisation interactive du lignage (lineage graph).</li>
+        <li><strong>Séparation des environnements :</strong> Configuration distincte des profils dbt et des connexions Airflow entre le développement local et la production.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Results and Metrics -->
+    <section class="case-card">
+      <h2>📊 7. Résultats, Indicateurs &amp; Précisions</h2>
+      <div class="case-metrics-grid">
+        <div class="case-metric-card">
+          <div class="metric-val">100% DAGs</div>
+          <div class="metric-label">Orchestration sans intervention manuelle avec reprise automatique sur incident.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Qualité Continue</div>
+          <div class="metric-label">Blocage immédiat du pipeline si une assertion de schéma ou d'unicité échoue.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Reproductible</div>
+          <div class="metric-label">Déploiement en une seule commande <code>docker compose up</code>.</div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 1rem; border-left: 3px solid var(--ink-muted); padding-left: 0.75rem;">
+        <em>Précision technique :</em> L'infrastructure a été validée localement sur des jeux de données d'API simulant plusieurs milliers d'enregistrements par lot. Les seuils d'alerte et volumes réels s'adaptent selon les besoins de production.
+      </p>
+    </section>
+
+    <!-- 8. Code & Repositories -->
+    <section class="case-card">
+      <h2>🔗 8. Code Source &amp; Liens</h2>
+      <p>
+        Les DAGs Airflow et les modèles dbt de démonstration sont accessibles sur mon profil GitHub :
+      </p>
+      <div style="margin-top: 1rem;">
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Voir mon profil GitHub ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- 9. Navigation to other projects -->
+    <section class="other-projects-section">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Découvrir les autres projets</h2>
+      <p style="color: var(--ink-muted); font-size: 0.95rem;">Explorez mes autres réalisations en Data Engineering et Big Data :</p>
+
+      <div class="other-projects-grid">
+        <a href="databricks-fraud-detection.html" class="other-project-card">
+          <span class="other-tag">Lakehouse &amp; Sécurité</span>
+          <h4>Databricks Fraud Detection Pipeline</h4>
+          <p>Architecture Médaillon avec Delta Lake et détection d’anomalies sur les flux de transactions financières.</p>
+        </a>
+
+        <a href="morocco-datahub.html" class="other-project-card">
+          <span class="other-tag">DataTech &amp; Open Data</span>
+          <h4>Morocco DataHub</h4>
+          <p>Plateforme unifiée d’ingestion et distribution des jeux de données publics marocains via FastAPI et PostgreSQL.</p>
+        </a>
+
+        <a href="smart-port-operations-marsa-maroc.html" class="other-project-card">
+          <span class="other-tag">Industrie &amp; Logistique</span>
+          <h4>Smart Port Operations — Marsa Maroc</h4>
+          <p>Retour d’expérience sur la gestion et le suivi des flux opérationnels de données portuaires.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo" style="margin-top: 4rem;">
+    <div class="footer-inner">
+      <p class="footer-logo">yasser.<span>rachih</span></p>
+      <p class="footer-tagline">Junior Data Engineer · Casablanca, Maroc</p>
+      <div class="footer-social" style="display:flex;gap:1rem;justify-content:center;margin:1rem 0;">
+        <a href="https://www.linkedin.com/in/mohammedyasserrachih/" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">LinkedIn ↗</a>
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">GitHub ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Mohammed Yasser Rachih · Fait avec passion et beaucoup de pipelines</p>
+    </div>
+  </footer>
+</body>
+
+</html>
+

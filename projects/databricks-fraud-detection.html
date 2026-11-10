@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eeeef0" />
+
+  <!-- ═══ SEO CORE ═══ -->
+  <title>Databricks Fraud Detection Pipeline · Enterprise Lakehouse — Mohammed Yasser Rachih</title>
+  <meta name="description"
+    content="Étude de cas détaillée : Pipeline Lakehouse de détection de transactions suspectes sur Databricks avec PySpark, Delta Lake et architecture Médaillon. Conçu par Mohammed Yasser Rachih, Junior Data Engineer." />
+  <meta name="keywords"
+    content="Databricks, Delta Lake, PySpark, Fraud Detection, Medallion Architecture, Unity Catalog, Big Data, Data Engineering Morocco, Mohammed Yasser Rachih" />
+  <meta name="author" content="Mohammed Yasser Rachih" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html" />
+
+  <!-- ═══ HREFLANG ═══ -->
+  <link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html" />
+  <link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html" />
+  <link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Databricks Fraud Detection Pipeline · Enterprise Lakehouse" />
+  <meta property="og:description"
+    content="Architecture Lakehouse médaillon sur Databricks avec transactions ACID Delta Lake, détection de fraudes et gouvernance Unity Catalog." />
+  <meta property="og:url" content="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html" />
+  <meta property="og:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_databricks_lakehouse.png" />
+  <meta property="og:site_name" content="Mohammed Yasser Rachih Portfolio" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Databricks Fraud Detection Pipeline · Enterprise Lakehouse" />
+  <meta name="twitter:description" content="Détection de fraudes bancaires et transactions suspectes via Databricks, PySpark et Delta Lake." />
+  <meta name="twitter:image" content="https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_databricks_lakehouse.png" />
+
+  <!-- ═══ ICONS & ASSETS ═══ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="../assets/icone-portfolio-MR.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/style.css?v=4.3" />
+
+  <!-- ═══ SCHEMA.ORG JSON-LD ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html#article",
+        "headline": "Databricks Fraud Detection Pipeline — Enterprise Lakehouse Architecture",
+        "description": "Technical case study of an enterprise Lakehouse implementing the Medallion architecture (Bronze, Silver, Gold) with Databricks, Delta Lake, and PySpark for high-throughput transactional fraud detection.",
+        "image": "https://yassser0.github.io/MohammedYasserRachih/assets/projects/project_databricks_lakehouse.png",
+        "author": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih",
+          "jobTitle": "Junior Data Engineer",
+          "url": "https://yassser0.github.io/MohammedYasserRachih/#person"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Mohammed Yasser Rachih"
+        },
+        "datePublished": "2026-02-15",
+        "dateModified": "2026-11-10",
+        "keywords": ["Databricks", "Delta Lake", "PySpark", "Medallion Architecture", "Fraud Detection", "Unity Catalog"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projets",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Databricks Fraud Detection",
+            "item": "https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ═══════════ NAVIGATION SIMPLE ═══════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navigation secondaire">
+    <a href="../index.html" class="nav-logo">yasser.rachih</a>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html#projects">← Tous les projets</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="project-page-container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span>/</span>
+      <a href="../index.html#projects">Projets</a>
+      <span>/</span>
+      <span aria-current="page">Databricks Fraud Detection</span>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header class="case-study-hero">
+      <span class="case-study-badge">Projet Phare · Big Data &amp; Sécurité Financière</span>
+      <h1 class="case-study-title">Databricks Fraud Detection Pipeline</h1>
+      <p class="case-study-subtitle">
+        Conception et déploiement d’un Data Lakehouse d’entreprise basé sur l’architecture Médaillon (Bronze, Silver, Gold) sur Databricks avec Delta Lake, dédié à l’ingestion de volumes transactionnels massifs et à la détection de transactions suspectes.
+      </p>
+
+      <div class="case-meta-grid" role="list" aria-label="Informations clés du projet">
+        <span class="case-meta-pill" role="listitem"><strong>Rôle :</strong> Conception &amp; Développement Data</span>
+        <span class="case-meta-pill" role="listitem"><strong>Type :</strong> Projet Spécialisé Big Data</span>
+        <span class="case-meta-pill" role="listitem"><strong>Plateforme :</strong> Databricks Lakehouse</span>
+        <span class="case-meta-pill" role="listitem"><strong>Gouvernance :</strong> Unity Catalog</span>
+      </div>
+    </header>
+
+    <!-- 1. Overview -->
+    <section class="case-card">
+      <h2>📌 1. Aperçu du projet (Project Overview)</h2>
+      <p>
+        Les institutions financières traitent quotidiennement des millions d'opérations bancaires à très haute vélocité. Ce projet implémente une plateforme unifiée <strong>Lakehouse</strong> qui combine la flexibilité et l'évolutivité d'un Data Lake avec la rigueur transactionnelle (ACID) d'un Data Warehouse.
+      </p>
+      <p>
+        Grâce aux capacités d'Apache Spark et de Delta Lake sur Databricks, la solution permet d'ingérer les événements bruts, de nettoyer les flux, d'appliquer des règles de scoring d'anomalies en temps quasi réel et d'alimenter des data marts prêts pour le reporting réglementaire et la détection de fraude.
+      </p>
+    </section>
+
+    <!-- 2. Business Problem -->
+    <section class="case-card">
+      <h2>💼 2. Problématique Métier (Business Problem)</h2>
+      <p>
+        Les systèmes traditionnels de traitement de données financières rencontrent trois défis majeurs :
+      </p>
+      <ul>
+        <li><strong>Silos de données et latence élevée :</strong> Décalage entre le moment où une transaction suspecte a lieu et le moment où elle est analysée par les modèles de conformité.</li>
+        <li><strong>Corruption et manque d'intégrité :</strong> Risque d'écritures concurrentes et d'incohérences de schéma lors de l'ingestion massive de flux hétérogènes.</li>
+        <li><strong>Traçabilité réglementaire :</strong> Nécessité d'auditer l'historique complet d'une transaction à un instant T précis (audit trail imposé par les normes bancaires).</li>
+      </ul>
+    </section>
+
+    <!-- 3. Technical Architecture -->
+    <section class="case-card">
+      <h2>🏗️ 3. Architecture Technique (Architecture Medallion)</h2>
+      <p>
+        L'architecture repose sur le pattern <strong>Medallion</strong> standard de l'industrie, garantissant une montée en qualité progressive des données :
+      </p>
+
+      <div class="case-img-container">
+        <img src="../assets/projects/project_databricks_lakehouse.png"
+             alt="Schéma d'architecture Databricks Lakehouse Medallion Bronze Silver Gold et Unity Catalog"
+             width="800" height="500" loading="eager" />
+        <div class="case-img-caption">
+          Architecture Medallion unifiée : Ingestion multi-sources vers Bronze (Raw), enrichissement et scoring de fraude dans Silver (Cleaned), et agrégation décisionnelle dans Gold (Business KPIs).
+        </div>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>🥉 Couche Bronze (Raw Data Ingestion)</h4>
+        <p>Stockage immuable et exhaustif des flux transactionnels sous forme brute au format Delta Lake avec historisation complète et métadonnées d'ingestion.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>🥈 Couche Silver (Filtered, Cleaned &amp; Enriched)</h4>
+        <p>Nettoyage, déduplication, validation des schémas, enrichissement géographique/client et exécution des règles de scoring de transactions anormales ou suspectes.</p>
+      </div>
+
+      <div class="case-pipeline-step-box">
+        <h4>🥇 Couche Gold (Aggregated Business Marts)</h4>
+        <p>Tables dimensionnelles agrégées, métriques de risque par canal et dashboards analytiques pour les analystes conformité et la direction financière.</p>
+      </div>
+    </section>
+
+    <!-- 4. Technologies Used -->
+    <section class="case-card">
+      <h2>🛠️ 4. Technologies Utilisées</h2>
+      <div class="case-tech-cloud">
+        <span class="tag">Databricks</span>
+        <span class="tag">Apache Spark</span>
+        <span class="tag">PySpark</span>
+        <span class="tag">Delta Lake</span>
+        <span class="tag">Unity Catalog</span>
+        <span class="tag">SQL Spark</span>
+        <span class="tag">Python</span>
+        <span class="tag">Z-Ordering</span>
+        <span class="tag">Liquid Clustering</span>
+      </div>
+      <ul>
+        <li><strong>Databricks Runtime :</strong> Moteur de calcul distribué optimisé avec Spark Catalyst Optimizer.</li>
+        <li><strong>Delta Lake 3.x :</strong> Support des transactions ACID, isolation des snapshots et time travel.</li>
+        <li><strong>Unity Catalog :</strong> Contrôle d’accès granulaire au niveau colonne/ligne et audit de lignage automatique.</li>
+        <li><strong>PySpark DataFrames :</strong> Transformations vectorisées à grande échelle.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Data Pipeline Explanation -->
+    <section class="case-card">
+      <h2>⚙️ 5. Fonctionnement Détaillé du Pipeline</h2>
+      <ol>
+        <li>
+          <strong>Ingestion des flux transactionnels :</strong> Réception de transactions simulant les opérations cartes, virements et retraits (identifiants, montants, géolocalisations, types de terminaux).
+        </li>
+        <li>
+          <strong>Vérification d’intégrité &amp; Quarantine :</strong> Séparation stricte des enregistrements non conformes (schémas invalides ou champs critiques manquants) dirigés vers une Dead Letter Queue (DLQ).
+        </li>
+        <li>
+          <strong>Moteur de règles d'anomalies :</strong>
+          <ul>
+            <li>Écarts de montants inhabituels par rapport à l'historique moyen de l'utilisateur.</li>
+            <li>Transactions géographiquement impossibles dans un intervalle de temps restreint.</li>
+            <li>Multiplication anormale de tentatives d'opérations sur une fenêtre temporelle glissante.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Indexation &amp; Compaction :</strong> Optimisation continue des fichiers Parquet sous-jacents via la commande <code>OPTIMIZE</code> et <code>Z-ORDER BY (customer_id, transaction_timestamp)</code>.
+        </li>
+      </ol>
+    </section>
+
+    <!-- 6. Implementation Details -->
+    <section class="case-card">
+      <h2>💻 6. Détails d'Implémentation &amp; Bonnes Pratiques</h2>
+      <ul>
+        <li><strong>Garanties ACID :</strong> Utilisation des transactions Delta Lake pour éliminer les lectures sales (dirty reads) et assurer l'idempotence des relances de jobs.</li>
+        <li><strong>Delta Time Travel :</strong> Capacité d'exécuter des requêtes d'audit historique du type <code>VERSION AS OF</code> pour rejouer l'état exact de la détection lors d'une date passée.</li>
+        <li><strong>Gouvernance avec Unity Catalog :</strong> Séparation stricte des privilèges entre les tables brutes (accès restreint aux pipelines) et les data marts Gold (accès équipes métier).</li>
+      </ul>
+    </section>
+
+    <!-- 7. Results and Metrics -->
+    <section class="case-card">
+      <h2>📊 7. Résultats, Indicateurs &amp; Précisions</h2>
+      <div class="case-metrics-grid">
+        <div class="case-metric-card">
+          <div class="metric-val">100% ACID</div>
+          <div class="metric-label">Fiabilité des écritures sans perte de données sur les flux concurrents.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Audit Trail</div>
+          <div class="metric-label">Traçabilité complète grâce à l'historique de versions Delta Lake.</div>
+        </div>
+        <div class="case-metric-card">
+          <div class="metric-val">Z-Ordering</div>
+          <div class="metric-label">Accélération significative du partition pruning sur les requêtes filtrées.</div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 1rem; border-left: 3px solid var(--ink-muted); padding-left: 0.75rem;">
+        <em>Note de transparence :</em> Les métriques de latence brute et de volumétrie dépendent du dimensionnement du cluster Databricks déployé. Dans le cadre de ce projet, l'accent a été mis sur la validité de l'architecture, la conformité ACID et la séparation rigoureuse des couches de données.
+      </p>
+    </section>
+
+    <!-- 8. Code & Repositories -->
+    <section class="case-card">
+      <h2>🔗 8. Code Source &amp; Liens</h2>
+      <p>
+        Les composants de démonstration et les notebooks PySpark associés sont documentés sur mon profil GitHub :
+      </p>
+      <div style="margin-top: 1rem;">
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Voir mon profil GitHub ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- 9. Navigation to other projects -->
+    <section class="other-projects-section">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Découvrir les autres projets</h2>
+      <p style="color: var(--ink-muted); font-size: 0.95rem;">Explorez mes autres réalisations en Data Engineering et Big Data :</p>
+
+      <div class="other-projects-grid">
+        <a href="data-quality-observability.html" class="other-project-card">
+          <span class="other-tag">Orchestration &amp; Qualité</span>
+          <h4>Data Quality &amp; Observability Platform</h4>
+          <p>Pipelines automatisés avec Apache Airflow, dbt, tests de qualité stricts et observabilité en production.</p>
+        </a>
+
+        <a href="morocco-datahub.html" class="other-project-card">
+          <span class="other-tag">DataTech &amp; Open Data</span>
+          <h4>Morocco DataHub</h4>
+          <p>Plateforme unifiée d’ingestion et distribution des jeux de données publics marocains via FastAPI et PostgreSQL.</p>
+        </a>
+
+        <a href="smart-port-operations-marsa-maroc.html" class="other-project-card">
+          <span class="other-tag">Industrie &amp; Logistique</span>
+          <h4>Smart Port Operations — Marsa Maroc</h4>
+          <p>Retour d’expérience sur la gestion et le suivi des flux opérationnels de données portuaires.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer role="contentinfo" style="margin-top: 4rem;">
+    <div class="footer-inner">
+      <p class="footer-logo">yasser.<span>rachih</span></p>
+      <p class="footer-tagline">Junior Data Engineer · Casablanca, Maroc</p>
+      <div class="footer-social" style="display:flex;gap:1rem;justify-content:center;margin:1rem 0;">
+        <a href="https://www.linkedin.com/in/mohammedyasserrachih/" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">LinkedIn ↗</a>
+        <a href="https://github.com/yassser0" target="_blank" rel="noopener noreferrer" style="color:inherit;opacity:0.7;font-size:0.85rem;text-decoration:none;">GitHub ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Mohammed Yasser Rachih · Fait avec passion et beaucoup de pipelines</p>
+    </div>
+  </footer>
+</body>
+
+</html>
+

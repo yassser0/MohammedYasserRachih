@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Page d'accueil principale -->
   <url>
     <loc>https://yassser0.github.io/MohammedYasserRachih/</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <!-- Bilingual single-page portfolio (FR/EN via JS i18n) -->
     <xhtml:link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/"/>
   </url>
+
+  <!-- Projets & Études de cas détaillées -->
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html"/>
+  </url>
+
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html"/>
+  </url>
+
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html"/>
+  </url>
+
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html"/>
+  </url>
+
+  <!-- CVs en téléchargement -->
   <url>
     <loc>https://yassser0.github.io/MohammedYasserRachih/assets/CV_Mohammed_Yasser_Rachih_EN.pdf</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://yassser0.github.io/MohammedYasserRachih/assets/CV_Mohammed_Yasser_Rachih_FR.pdf</loc>
     <lastmod>2026-11-07</lastmod>
@@ -24,4 +68,3 @@
     <priority>0.5</priority>
   </url>
 </urlset>
-
