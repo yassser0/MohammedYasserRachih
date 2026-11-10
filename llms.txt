@@ -1,0 +1,58 @@
+# Mohammed Yasser Rachih — Junior Data Engineer
+
+> Junior Data Engineer based in Casablanca, Morocco. Specialized in Python, Apache Spark, PySpark, Databricks, Delta Lake, Apache Kafka, ETL/ELT data pipelines, and distributed data systems.
+
+## Professional Summary
+
+- **Name:** Mohammed Yasser Rachih
+- **Title:** Junior Data Engineer
+- **Location:** Casablanca, Morocco
+- **Degree:** Master's degree in Big Data & Data Science (spécialité Big Data)
+- **Institution:** Faculté des Sciences Ben M'Sick (FSBM), Casablanca (2024 – 2026)
+- **Previous Degree:** Licence en Mathématiques et Informatique, parcours Bases de données — FSBM (2021 – 2024)
+- **Portfolio Website:** https://yassser0.github.io/MohammedYasserRachih/
+- **LinkedIn:** https://www.linkedin.com/in/mohammedyasserrachih/
+- **GitHub:** https://github.com/yassser0
+- **Email:** yassirach17@gmail.com
+- **Phone:** +212 716-972238
+
+## Primary Technical Skills
+
+- **Data Processing & Distributed Computing:** Apache Spark, PySpark, Databricks, Delta Lake (Medallion Architecture: Bronze, Silver, Gold), Structured Streaming, Apache Kafka.
+- **Data Pipelines & Orchestration:** ETL / ELT workflows, Apache Airflow (idempotent DAGs), dbt Core (transformations & testing), Azure Data Factory.
+- **Languages:** Python (data processing, PySpark, FastAPI, Pandas), SQL (advanced query tuning, CTEs, window functions, indexing), Java (Spring Boot).
+- **Databases & Data Warehouses:** PostgreSQL, MySQL, Snowflake, InfluxDB.
+- **DevOps, Cloud & Tooling:** Docker, Docker Compose, Git, GitHub Actions CI/CD, Microsoft Azure, Oracle Cloud Infrastructure (OCI).
+- **Data Quality & Observability:** Schema enforcement, Great Expectations concepts, dbt tests, Streamlit, Grafana telemetry, Slack webhook alerting.
+
+## Verified Certifications
+
+- **Oracle Certified Professional:** Java SE 17 Developer (OCP)
+- **Oracle Certified Professional:** MySQL 8.0 Database Administrator (OCP)
+- **Oracle Cloud Infrastructure:** 2025 Certified DevOps Professional
+
+## Key Data Engineering Projects & Case Studies
+
+1. [Databricks Fraud Detection Pipeline](https://yassser0.github.io/MohammedYasserRachih/projects/databricks-fraud-detection.html)
+   - Enterprise Lakehouse platform implementing Medallion Architecture (Bronze, Silver, Gold) on Databricks with ACID compliance on Delta Lake.
+   - High-throughput transactional data ingestion, deduplication, anomaly and fraud scoring rules in Silver, and aggregated business risk data marts in Gold.
+   - Centralized governance with Unity Catalog and query acceleration with Z-Ordering.
+
+2. [Data Quality & Observability Platform](https://yassser0.github.io/MohammedYasserRachih/projects/data-quality-observability.html)
+   - End-to-end automated ETL data pipeline extracting multi-source datasets (REST APIs, CSV files).
+   - Orchestrated with idempotent Apache Airflow DAGs, transformed and quality-tested using dbt models.
+   - Automated retry handling, schema integrity assertions, and Slack alert notifications loaded into Snowflake and PostgreSQL.
+
+3. [Morocco DataHub](https://yassser0.github.io/MohammedYasserRachih/projects/morocco-datahub.html)
+   - DataTech project centralizing and standardizing Moroccan public open datasets (HCP, data.gov.ma, Bank Al-Maghrib).
+   - Automated Python ETL ingestion, PostgreSQL structured storage, and high-performance REST APIs powered by FastAPI with OpenAPI / Swagger documentation.
+
+4. [Smart Port Operations — Marsa Maroc](https://yassser0.github.io/MohammedYasserRachih/projects/smart-port-operations-marsa-maroc.html)
+   - Data engineering and platform development internship at Marsa Maroc (Casablanca port operations, March – July 2026).
+   - Development of data collection pipelines, data reliability checks, monitoring of processing jobs, and operations tracking.
+
+## Languages
+
+- **Arabic:** Native language
+- **French:** Fluent (courant)
+- **English:** Intermediate (technically proficient)

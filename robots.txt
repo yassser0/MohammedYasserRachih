@@ -1,22 +1,17 @@
-# robots.txt — Mohammed Yasser Rachih Portfolio
+# robots.txt - Mohammed Yasser Rachih Portfolio
 # Hosted at: https://yassser0.github.io/MohammedYasserRachih/
 #
-# NOTE: This file is served from the GitHub Pages project repository.
-# As a Project Page (not a User Page), robots.txt is located at:
-#   https://yassser0.github.io/MohammedYasserRachih/robots.txt
-# It does NOT apply to the root domain https://yassser0.github.io/robots.txt
-# To apply a robots.txt at the root domain, a separate User Page repository
-# (yassser0.github.io) would be required.
+# NOTE: As a GitHub Pages project repository (yassser0.github.io/MohammedYasserRachih/),
+# this robots.txt is accessible at https://yassser0.github.io/MohammedYasserRachih/robots.txt
 
-# ── Search engine crawlers (indexing for search results) ──
+# --- Search Engine Crawlers ---
 User-agent: Googlebot
 Allow: /MohammedYasserRachih/
 
 User-agent: Bingbot
 Allow: /MohammedYasserRachih/
 
-# OAI-SearchBot: OpenAI search indexing bot (used for ChatGPT Search / Bing integration)
-# Allowed for search indexing — this is DISTINCT from GPTBot (training)
+# OAI-SearchBot: OpenAI search indexing (ChatGPT Search)
 User-agent: OAI-SearchBot
 Allow: /MohammedYasserRachih/
 
@@ -24,20 +19,12 @@ Allow: /MohammedYasserRachih/
 User-agent: PerplexityBot
 Allow: /MohammedYasserRachih/
 
-# ── AI training crawlers ──
-# GPTBot is OpenAI's training crawler (not search). Policy: not explicitly disallowed.
-# If you want to block OpenAI from using your content for model training, uncomment:
-# User-agent: GPTBot
-# Disallow: /
-
-# Claude-Web (Anthropic training crawler) - not blocked
-# User-agent: Claude-Web
-# Disallow: /
-
-# ── Default: allow all other bots ──
+# --- Default: allow indexing ---
 User-agent: *
 Allow: /MohammedYasserRachih/
 
-# Sitemap location
-Sitemap: https://yassser0.github.io/MohammedYasserRachih/sitemap.xml
+# LLM Context File (Answer.ai / llms.txt standard)
+# https://yassser0.github.io/MohammedYasserRachih/llms.txt
 
+# Sitemap Location
+Sitemap: https://yassser0.github.io/MohammedYasserRachih/sitemap.xml
