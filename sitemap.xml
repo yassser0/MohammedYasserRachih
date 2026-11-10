@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <!-- Bilingual single-page portfolio (FR/EN via JS i18n) -->
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yassser0.github.io/MohammedYasserRachih/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yassser0.github.io/MohammedYasserRachih/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yassser0.github.io/MohammedYasserRachih/"/>
+  </url>
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/assets/CV_Mohammed_Yasser_Rachih_EN.pdf</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://yassser0.github.io/MohammedYasserRachih/assets/CV_Mohammed_Yasser_Rachih_FR.pdf</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
+

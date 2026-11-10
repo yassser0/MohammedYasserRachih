@@ -1,10 +1,10 @@
-/* ===== i18n.js — Système bilingue Français / English ===== */
+﻿/* ===== i18n.js — Système bilingue Français / English ===== */
 
 const translations = {
   fr: {
     // Meta & Document
-    pageTitle: "Mohammed Yasser Rachih · Data Engineer Junior",
-    metaDesc: "Portfolio de Mohammed Yasser Rachih — Data Engineer Junior & Développeur Full-Stack basé à Casablanca, Maroc. Java Spring Boot, Python, ETL/ELT, microservices, CI/CD.",
+    pageTitle: "Mohammed Yasser Rachih · Data Engineer Junior — Casablanca, Maroc",
+    metaDesc: "Portfolio de Mohammed Yasser Rachih — Data Engineer Junior basé à Casablanca, Maroc. Spécialiste Python, Apache Spark, PySpark, Databricks, Delta Lake, Kafka, pipelines ETL/ELT et Big Data. Master Big Data & Data Science — FSBM.",
     skipLink: "Aller au contenu principal",
 
     // Terminal Intro
@@ -33,7 +33,7 @@ const translations = {
     hero: {
       title: "Je construis les pipelines<br>qui font <span class=\"hero-highlight\">parler les données.</span>",
       desc: "Data Engineer Junior basé à Casablanca — je conçois des architectures data robustes, du pipeline ETL/ELT jusqu'au monitoring en production.",
-      tags: ["Java · Spring Boot", "Python", "ETL / ELT", "Microservices", "CI/CD"],
+      tags: ["Python", "Apache Spark · PySpark", "Databricks · Delta Lake", "Apache Kafka", "ETL / ELT"],
       btnPipeline: "voir mon pipeline →",
       btnContact: "me contacter",
       btnCv: "CV",
@@ -489,8 +489,8 @@ const translations = {
 
   en: {
     // Meta & Document
-    pageTitle: "Mohammed Yasser Rachih · Junior Data Engineer",
-    metaDesc: "Portfolio of Mohammed Yasser Rachih — Junior Data Engineer & Full-Stack Developer based in Casablanca, Morocco. Java Spring Boot, Python, ETL/ELT, microservices, CI/CD.",
+    pageTitle: "Mohammed Yasser Rachih · Junior Data Engineer — Casablanca, Morocco",
+    metaDesc: "Portfolio of Mohammed Yasser Rachih — Junior Data Engineer based in Casablanca, Morocco. Specializing in Python, Apache Spark, PySpark, Databricks, Delta Lake, Kafka, ETL/ELT pipelines and Big Data. Master in Big Data & Data Science — FSBM.",
     skipLink: "Skip to main content",
 
     // Terminal Intro
@@ -519,7 +519,7 @@ const translations = {
     hero: {
       title: "I build the pipelines<br>that make <span class=\"hero-highlight\">data speak.</span>",
       desc: "Junior Data Engineer based in Casablanca — designing robust data architectures, from ETL/ELT pipelines to production monitoring.",
-      tags: ["Java · Spring Boot", "Python", "ETL / ELT", "Microservices", "CI/CD"],
+      tags: ["Python", "Apache Spark · PySpark", "Databricks · Delta Lake", "Apache Kafka", "ETL / ELT"],
       btnPipeline: "view my pipeline →",
       btnContact: "contact me",
       btnCv: "CV",
