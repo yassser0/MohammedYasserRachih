@@ -118,6 +118,7 @@ const translations = {
         company: "Marsa Maroc",
         title: "Stage Data Engineering & Développement",
         listAria: "Missions chez Marsa Maroc",
+        btnCaseStudy: "Consulter l'étude de cas Marsa Maroc →",
         items: [
           "Participation à la conception et à la gestion de solutions dédiées aux données",
           "Développement de traitements permettant de collecter, organiser et exploiter les données",
@@ -148,6 +149,7 @@ const translations = {
       touchHint: "Glissez ou appuyez pour changer de projet",
       btnPrev: "← préc.",
       btnNext: "suiv. →",
+      btnCaseStudy: "Lire l'étude de cas complète →",
       zoomHint: "Cliquez sur le schéma pour l'agrandir",
       list: [
         {
@@ -604,6 +606,7 @@ const translations = {
         company: "Marsa Maroc",
         title: "Internship – Data Engineering & Development",
         listAria: "Missions at Marsa Maroc",
+        btnCaseStudy: "View Marsa Maroc case study →",
         items: [
           "Took part in the design and management of data-focused solutions",
           "Developed processes to collect, organize and exploit data",
@@ -634,6 +637,7 @@ const translations = {
       touchHint: "Swipe or tap to switch project",
       btnPrev: "← prev.",
       btnNext: "next →",
+      btnCaseStudy: "Read full case study →",
       zoomHint: "Click diagram to expand",
       list: [
         {
