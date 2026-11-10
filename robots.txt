@@ -1,30 +1,4 @@
-# robots.txt - Mohammed Yasser Rachih Portfolio
-# Hosted at: https://yassser0.github.io/MohammedYasserRachih/
-#
-# NOTE: As a GitHub Pages project repository (yassser0.github.io/MohammedYasserRachih/),
-# this robots.txt is accessible at https://yassser0.github.io/MohammedYasserRachih/robots.txt
-
-# --- Search Engine Crawlers ---
-User-agent: Googlebot
-Allow: /MohammedYasserRachih/
-
-User-agent: Bingbot
-Allow: /MohammedYasserRachih/
-
-# OAI-SearchBot: OpenAI search indexing (ChatGPT Search)
-User-agent: OAI-SearchBot
-Allow: /MohammedYasserRachih/
-
-# PerplexityBot: Perplexity AI search indexing
-User-agent: PerplexityBot
-Allow: /MohammedYasserRachih/
-
-# --- Default: allow indexing ---
 User-agent: *
-Allow: /MohammedYasserRachih/
+Allow: /
 
-# LLM Context File (Answer.ai / llms.txt standard)
-# https://yassser0.github.io/MohammedYasserRachih/llms.txt
-
-# Sitemap Location
 Sitemap: https://yassser0.github.io/MohammedYasserRachih/sitemap.xml

@@ -1,4 +1,4 @@
-﻿/* ===== i18n.js — Système bilingue Français / English ===== */
+/* ===== i18n.js — Système bilingue Français / English ===== */
 
 const translations = {
   fr: {
@@ -277,15 +277,15 @@ const translations = {
       items: {
         sql: {
           title: "SQL",
-          level: "expert",
+          level: "avancé",
           tags: "query tuning · stored procs · modélisation",
-          tooltip: "Niveau Expert (90%) : requêtes complexes, CTEs, fenêtrage, indexation et optimisation"
+          tooltip: "Niveau Avancé (90%) : requêtes complexes, CTEs, fenêtrage, indexation et optimisation"
         },
         snowflake: {
           title: "Snowflake",
-          level: "expert",
+          level: "avancé",
           tags: "star schema · SCD · data warehouse",
-          tooltip: "Niveau Expert (88%) : architecture cloud, virtual warehouses, Time Travel, modélisation dimensionnelle"
+          tooltip: "Niveau Avancé (88%) : architecture cloud, virtual warehouses, Time Travel, modélisation dimensionnelle"
         },
         python: {
           title: "Python",
@@ -325,9 +325,9 @@ const translations = {
         },
         dbms: {
           title: "MySQL · PostgreSQL",
-          level: "expert",
+          level: "avancé",
           tags: "ACID · indexation · réplication",
-          tooltip: "Niveau Expert (90%) : certifié Oracle MySQL 8.0 OCP, administration et transactions ACID"
+          tooltip: "Niveau Avancé (90%) : certifié Oracle MySQL 8.0 OCP, administration et transactions ACID"
         },
         java: {
           title: "Java (Spring Boot)",
@@ -765,15 +765,15 @@ const translations = {
       items: {
         sql: {
           title: "SQL",
-          level: "expert",
+          level: "advanced",
           tags: "query tuning · stored procs · modeling",
-          tooltip: "Expert level (90%): complex queries, CTEs, window functions, indexing and optimization"
+          tooltip: "Advanced level (90%): complex queries, CTEs, window functions, indexing and optimization"
         },
         snowflake: {
           title: "Snowflake",
-          level: "expert",
+          level: "advanced",
           tags: "star schema · SCD · data warehouse",
-          tooltip: "Expert level (88%): cloud architecture, virtual warehouses, Time Travel, dimensional modeling"
+          tooltip: "Advanced level (88%): cloud architecture, virtual warehouses, Time Travel, dimensional modeling"
         },
         python: {
           title: "Python",
@@ -813,9 +813,9 @@ const translations = {
         },
         dbms: {
           title: "MySQL · PostgreSQL",
-          level: "expert",
+          level: "advanced",
           tags: "ACID · indexing · replication",
-          tooltip: "Expert level (90%): Oracle MySQL 8.0 OCP certified, database administration and ACID transactions"
+          tooltip: "Advanced level (90%): Oracle MySQL 8.0 OCP certified, database administration and ACID transactions"
         },
         java: {
           title: "Java (Spring Boot)",
